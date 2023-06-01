@@ -159,7 +159,7 @@
   }
 
   .loader {
-    width: 30px;
+    width: 70px;
     margin: 0 auto;
     display: none;
 }
@@ -181,6 +181,7 @@
   height: 20px;
   margin-bottom: 10px;
   width: 20px;
+  margin: 0 auto;
 }
 
 #certified-form .loader-text {
