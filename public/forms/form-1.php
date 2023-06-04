@@ -2,11 +2,45 @@
 <?php
   require_once(plugin_dir_path(__FILE__) . '../../includes/constants.php');
 ?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/forms/fonts.css'; ?>">
 <style>
   /* Estilos para el formulario */
   #certified-form {
     margin: 0 auto;
     max-width: 600px;
+    font-family: Muli, sans-serif !important;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  label,
+  strong,
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  textarea,
+  button,
+  body,
+  button,
+  span.date_label,
+  .timeline_items li h3 span,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  input[type="text"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="email"],
+  textarea,
+  select,
+  .offer_li .title h3 {
+    font-family: Muli, sans-serif !important;
   }
 
   .form-row {
@@ -57,13 +91,15 @@
     flex: 1;
     margin: 0;
   }
-  
+
   .row-inputs .first-column {
-      flex: 3;
-    }
+    flex: 3;
+  }
+
   .row-inputs .column p:first-child {
-        margin-bottom: 0px;
-    }
+    margin-bottom: 0px;
+  }
+
   .row-inputs .column p {
     padding-right: 10px;
   }
@@ -97,15 +133,16 @@
   input[type="file"],
   textarea {
     padding: 8px;
-    border: 1px solid #ccc  !important;
+    border: 1px solid #ccc !important;
     border-radius: 4px;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    background-color: white  !important;
+    background-color: white !important;
     width: 100% !important;
     max-width: 100% !important;
-        min-height: 40px !important;;
+    min-height: 40px !important;
+    ;
     box-sizing: border-box;
   }
 
@@ -139,9 +176,11 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
   button.add-row-btn {
     margin-right: 0px;
   }
+
   img.vc_single_image-img.attachment-full {
     border: 2px solid #4CAF50;
   }
@@ -162,8 +201,9 @@
     width: 70px;
     margin: 0 auto;
     display: none;
-}
-.buttonPDF{
+  }
+
+  .buttonPDF {
     border-color: #93c800 !important;
     padding: 10px 20px;
     background-color: #4CAF50 !important;
@@ -171,52 +211,58 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-#certified-form .loader-wheel {
-  animation: spin 1s infinite linear;
-  border: 2px solid rgba(30, 30, 30, 0.5);
-  border-left: 4px solid #fff;
-  border-radius: 50%;
-  height: 20px;
-  margin-bottom: 10px;
-  width: 20px;
-  margin: 0 auto;
-}
-
-#certified-form .loader-text {
-  color: #4CAF50;
-  font-family: system-ui;
-}
-
-#certified-form .loader-text:after {
-  content: 'Loading';
-  animation: load 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+    font-family: Muli, sans-serif !important;
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
-@keyframes load {
-  0% {
+  #certified-form .loader-wheel {
+    animation: spin 1s infinite linear;
+    border: 2px solid rgba(30, 30, 30, 0.5);
+    border-left: 4px solid #fff;
+    border-radius: 50%;
+    height: 20px;
+    margin-bottom: 10px;
+    width: 20px;
+    margin: 0 auto;
+  }
+
+  #certified-form .loader-text {
+    color: #4CAF50;
+    font-family: system-ui;
+  }
+
+  #certified-form .loader-text:after {
     content: 'Loading';
+    font-family: Muli, sans-serif !important;
+    animation: load 2s linear infinite;
   }
-  33% {
-    content: 'Loading.';
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
-  67% {
-    content: 'Loading..';
+
+  @keyframes load {
+    0% {
+      content: 'Loading';
+    }
+
+    33% {
+      content: 'Loading.';
+    }
+
+    67% {
+      content: 'Loading..';
+    }
+
+    100% {
+      content: 'Loading...';
+    }
   }
-  100% {
-    content: 'Loading...';
-  }
-}
 </style>
 
 <form id="certified-form" method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
@@ -228,8 +274,8 @@
       <p>
         <span class="wpcf7-form-control-wrap">
           <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-            aria-invalid="false" type="text" name="razon_social" id="razon-social" maxlength="50" placeholder="Ingrese la razón social"
-            required>
+            aria-invalid="false" type="text" name="razon_social" id="razon-social" maxlength="50"
+            placeholder="Ingrese la razón social" required>
         </span>
       </p>
     </div>
@@ -240,9 +286,9 @@
       <p><strong>Información de Pago</strong></p>
       <p>
         <span class="wpcf7-form-control-wrap">
-        <textarea cols="40" rows="3" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
+          <textarea cols="40" rows="3" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
             aria-required="true" aria-invalid="false" name="informacion_pago" id="informacion-pago"
-            placeholder="Ingrese la información de pago" maxlength="200"  required></textarea>
+            placeholder="Ingrese la información de pago" maxlength="200" required></textarea>
         </span>
       </p>
 
@@ -251,9 +297,9 @@
       <p><strong>Factura a</strong></p>
       <p>
         <span class="wpcf7-form-control-wrap">
-        <textarea cols="40" rows="3" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
-            aria-required="true" aria-invalid="false" maxlength="200"  name="factura_a" id="factura-a" placeholder="Ingrese la factura A"
-            required></textarea>
+          <textarea cols="40" rows="3" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
+            aria-required="true" aria-invalid="false" maxlength="200" name="factura_a" id="factura-a"
+            placeholder="Ingrese la factura A" required></textarea>
         </span>
       </p>
     </div>
@@ -268,7 +314,7 @@
       <div class="row-inputs">
         <div class="column first-column">
           <p><strong>Descripción</strong></p>
-          <p><input type="text" name="descripcion[]" placeholder="Ingrese la Descripción" maxlength="100" ></p>
+          <p><input type="text" name="descripcion[]" placeholder="Ingrese la Descripción" maxlength="100"></p>
         </div>
         <div class="column">
           <p><strong>Cantidad</strong></p>
@@ -276,7 +322,7 @@
         </div>
         <div class="column">
           <p><strong>Precio</strong></p>
-          <p><input type="number" name="precios[]" placeholder="0.000"  min="0" maxlength="100"></p>
+          <p><input type="number" name="precios[]" placeholder="0.000" min="0" maxlength="100"></p>
         </div>
         <div class="column action">
           <button type="button" class="remove-row-btn" onclick="removeRow(this)"><i
@@ -291,16 +337,16 @@
     <div class="column-full">
       <p><strong>Acepto los términos y condiciones</strong></p>
       <p><span class="wpcf7-form-control-wrap" data-name="terms">
-         <textarea cols="70" rows="3" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
+          <textarea cols="70" rows="3" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
             aria-required="true" aria-invalid="false" name="terms" id="terms" maxlength="250"></textarea>
         </span>
         <br>
       </p>
     </div>
   </div>
-    <div class="form-row" style="margin-bottom: 30px;text-align: center">
-         <div class="column-full">
-      <h5> Carga tu logo y firma autorizada para generar tu cotización</h5>
+  <div class="form-row" style="margin-bottom: 30px;text-align: center">
+    <div class="column-full">
+      <h5> Personaliza tu cotización con tu logo y firma autorizada</h5>
     </div>
     <div class="column-half">
       <p><strong>Subir Logo</strong></p>
@@ -324,15 +370,14 @@
   </div>
   <div class="form-row" style="text-align: center">
     <div class="column-full">
-      <h5> Elige un diseño para tu cotización impresa o carga tu diseño personalizado</h5>
+      <h5>Personaliza tu cotización: elige un diseño predeterminado o carga tu propio diseño personalizado</h5>
     </div>
   </div>
   <div class="form-row">
     <div class="column-quarter">
       <div class="radio" style="text-align: center;color: #071041;">
         <label><input type="radio" name="optradio" id="optradio"
-            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']; ?>"
-            checked="checked"> Diseño 1
+            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']; ?>" checked="checked"> Diseño 1
           <figure class="wpb_wrapper vc_figure">
             <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-724x1024.jpg"
               target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto">
@@ -364,7 +409,7 @@
     <div class="column-quarter">
       <div class="radio" style="text-align: center;color: #071041;">
         <label><input type="radio" name="optradio" id="optradio"
-           value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']; ?>"> Diseño 3
+            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']; ?>"> Diseño 3
           <figure class="wpb_wrapper vc_figure">
             <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-724x1024.jpg"
               target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
@@ -407,91 +452,91 @@
   crossorigin="anonymous" />
 
 <script>
-function addRow() {
-  const rowInputs = document.querySelector('.row-inputs');
-  const newRowInputs = rowInputs.cloneNode(true);
-  newRowInputs.querySelectorAll('input').forEach(input => {
-    input.value = '';
-  });
-   rows = document.querySelectorAll('.row-inputs');
-  document.querySelector('.remove-row-btn').disabled =rows?.length< 1;
+  function addRow() {
+    const rowInputs = document.querySelector('.row-inputs');
+    const newRowInputs = rowInputs.cloneNode(true);
+    newRowInputs.querySelectorAll('input').forEach(input => {
+      input.value = '';
+    });
+    rows = document.querySelectorAll('.row-inputs');
+    document.querySelector('.remove-row-btn').disabled = rows?.length < 1;
 
-  const parentElement = rowInputs.parentNode;
-  const lastRow = parentElement.querySelector('.row-inputs:last-child');
-  parentElement.insertBefore(newRowInputs, lastRow.nextSibling);
-}
-
-function removeRow(button) {
-  const row = button.closest('.row-inputs');
-  const prevRow = row.previousElementSibling;
-  if (prevRow) {
-    // prevRow.querySelector('.add-row-btn').style.display = 'inline-block';
+    const parentElement = rowInputs.parentNode;
+    const lastRow = parentElement.querySelector('.row-inputs:last-child');
+    parentElement.insertBefore(newRowInputs, lastRow.nextSibling);
   }
-  var rowCount = document.querySelectorAll('.row-inputs')?.length;
-  if (rowCount > 1) {
-    row.remove();
+
+  function removeRow(button) {
+    const row = button.closest('.row-inputs');
+    const prevRow = row.previousElementSibling;
+    if (prevRow) {
+      // prevRow.querySelector('.add-row-btn').style.display = 'inline-block';
+    }
+    var rowCount = document.querySelectorAll('.row-inputs')?.length;
+    if (rowCount > 1) {
+      row.remove();
+    }
   }
-}
 
-document.getElementById('certified-form').addEventListener('submit', function (event) {
-  event.preventDefault();
-  var form = event.target;
-  var htmlContainer = document.getElementById('html-container');
-  var formData = new FormData(form);
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', form.action, true);
-   htmlContainer.innerHTML = '';
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  let submitButton = form.querySelector('[type="submit"]');
-  submitButton.style.display = 'none';
+  document.getElementById('certified-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var form = event.target;
+    var htmlContainer = document.getElementById('html-container');
+    var formData = new FormData(form);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', form.action, true);
+    htmlContainer.innerHTML = '';
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    let submitButton = form.querySelector('[type="submit"]');
+    submitButton.style.display = 'none';
 
-  let loader = document.querySelector('.loader');
-  loader.style.display = 'block';
+    let loader = document.querySelector('.loader');
+    loader.style.display = 'block';
 
-  // Mostrar indicador de carga
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      loader.style.display = 'none';
+    // Mostrar indicador de carga
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        loader.style.display = 'none';
 
-      if (xhr.status === 200) {
-        var response = JSON.parse(xhr.responseText);
-        form.reset();
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          form.reset();
 
-      var rows = document.querySelectorAll('.row-inputs');
-            if (rows.length > 1) {
-              for (var i = 1; i < rows.length; i++) {
-                rows[i].remove();
-              }
-            } else {
-              const rowInputs = document.querySelector('.row-inputs');
-              const newRowInputs = rowInputs.cloneNode(true);
-              newRowInputs.querySelectorAll('input').forEach(input => {
-                input.value = '';
-              });
+          var rows = document.querySelectorAll('.row-inputs');
+          if (rows.length > 1) {
+            for (var i = 1; i < rows.length; i++) {
+              rows[i].remove();
             }
+          } else {
+            const rowInputs = document.querySelector('.row-inputs');
+            const newRowInputs = rowInputs.cloneNode(true);
+            newRowInputs.querySelectorAll('input').forEach(input => {
+              input.value = '';
+            });
+          }
 
-      
-        if (response.success) {
-          htmlContainer.innerHTML = `
+
+          if (response.success) {
+            htmlContainer.innerHTML = `
             <div style="text-align: center;">
               <h2><strong>Registro exitoso</strong></h2>
               <p>Haz clic en el botón de abajo para descargar el PDF:</p>
               <a href="${response.download_url}" class="buttonPDF" target="_blank">Descargar PDF</a>
             </div>
           `;
+          } else {
+            htmlContainer.innerHTML = '';
+          }
         } else {
-          htmlContainer.innerHTML = '';
+          var errorContainer = document.getElementById('error-container');
+          errorContainer.textContent = 'Error: ' + xhr.status + ' - Vuelva a intentarlo';
+          errorContainer.style.display = 'block';
         }
-      } else {
-        var errorContainer = document.getElementById('error-container');
-        errorContainer.textContent = 'Error: ' + xhr.status + ' - Vuelva a intentarlo';
-        errorContainer.style.display = 'block';
+        submitButton.style.display = 'block';
       }
-      submitButton.style.display = 'block';
-    }
-  };
-  xhr.send(formData);
-});
+    };
+    xhr.send(formData);
+  });
 
 
 </script>

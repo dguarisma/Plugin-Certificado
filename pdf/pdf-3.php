@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
     <style>
         html,
         body {
             margin: 0;
             padding: 0;
-            font-family: system-ui;
+            font-family: proxima-nova-light, sans-serif !important;
         }
 
         .container {
@@ -17,20 +18,22 @@
             background-repeat: no-repeat;
             background-position: center;
             position: relative;
+            font-family: proxima-nova-light, sans-serif !important;
         }
         p{
             font-size: .7rem;
+            font-family: proxima-nova-light, sans-serif !important;
         }
         h3,
         h4,
         h5 {
             color: #2697B7;
-            font-family: system-ui;
+            font-family: proxima-nova-light, sans-serif !important;
             margin: 0px;
         }
 
         h6 {
-            font-family: system-ui;
+            font-family: proxima-nova-light, sans-serif !important;
             margin: 0px;
         }
 

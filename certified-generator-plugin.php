@@ -3,7 +3,7 @@
  * Plugin Name: Certified Generator Plugin
  * Plugin URI:
  * Description: Plugin que permite generar Certificados personalizados en PDF.
- * Version: 1.0.0
+ * Version: 2.0.1
  * Author: David Guarisma
  * Author URI: https://github.com/dguarisma
  */
@@ -23,6 +23,7 @@ register_activation_hook(__FILE__, 'certified_generator_install');
 add_shortcode('certified_generator', 'certified_generator_shortcode');
 add_action('admin_menu', 'certified_generator_register_menu');
 add_action('vc_before_init', 'add_certified_generator_controls');
+
 add_action('init', 'certified_generator_process_form');
 
 function certified_generator_shortcode($atts)
@@ -41,7 +42,6 @@ function certified_generator_shortcode($atts)
         return 'Error: El formulario especificado no existe.';
     }
 }
-
 
 function certified_generator_utf8_decode_recursive(&$array)
 {

@@ -1,6 +1,7 @@
 <?php
 require_once(plugin_dir_path(__FILE__) . '../dompdf/autoload.inc.php');
 require_once(plugin_dir_path(__FILE__) . '../includes/constants.php');
+$font_css_url = esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/pdf/fonts.css';
 
 use Dompdf\Dompdf;
 
@@ -87,6 +88,8 @@ function certified_form_action() {
             $dompdf = new Dompdf();
             $dompdf->set_option('isRemoteEnabled', true);
             $dompdf->set_option('isPhpEnabled', true);
+            $dompdf->set_option('defaultFont', $font_css_url);
+            
             ob_start();
             include($template_file);
             $html = ob_get_clean();
