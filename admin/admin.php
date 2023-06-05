@@ -121,83 +121,145 @@ function certified_generator_fonts_page()
     }
    echo '</div>';
 }
-
 function certified_generator_records_page()
 {
     global $wpdb;
     $table_name1 = $wpdb->prefix . 'certified_generator_records';
-    $table_name2 = $wpdb->prefix . 'items_quotation';
 
     // Obtener registros de la primera tabla
     $records1 = $wpdb->get_results("SELECT * FROM $table_name1");
 
-    // Obtener registros de la segunda tabla
-    # $records2 = $wpdb->get_results("SELECT * FROM $table_name2");
+    ?>
 
-    echo '<div class="wrap">';
-    echo '<h1>Registros de los formularios</h1>';
+    <div class="wrap">
+        <h1>Registros de los formularios</h1>
 
-    // Crear las pestañas de navegación
-    echo '<nav class="nav-tab-wrapper">';
-    echo '<a href="#tab1" class="nav-tab nav-tab-active">Cotización</a>';
-    echo '<a href="#tab2" class="nav-tab">Flyer</a>';
-    echo '<a href="#tab3" class="nav-tab">Tarjeta Pro</a>';
-    echo '</nav>';
+        <!-- Crear las pestañas de navegación -->
+        <nav class="nav-tab-wrapper">
+            <a href="#tab1" class="nav-tab nav-tab-active">Cotización</a>
+            <a href="#tab2" class="nav-tab">Flyer</a>
+            <a href="#tab3" class="nav-tab">Tarjeta Pro</a>
+        </nav>
 
-    // Contenido de las pestañas
-    echo '<div id="tab1" class="tab-content">';
-    echo '<table class="wp-list-table widefat fixed striped">';
-    echo '<thead><tr><th>Logo </th><th>Razón Social </th><th>Facturado a </th><th>Información Pago</th><th>Diseño Descargado</th>
-    <th>Firma</th><
-    </tr></thead>';
-    echo '<tbody>';
-    foreach ($records1 as $record) {
-        echo '<tr>
-        </td>
-        <td style="text-align: center;"> 
-        <img src="'. $record->image . '"style="min-width: 80px; max-width: 80px; " alt="Diseño Descargado"></td>
-        <td>' . $record->razon_social . '</td><td>' . $record->factura_a . '</td><td>' . $record->informacion_pago . '</td>
-        <td style="text-align: center;"> 
-        <img src="'. $record->background . '"style="min-width: 80px; max-width: 80px; " alt="Diseño Descargado"></td>
-        <td style="text-align: center;"> 
-        <img src="'. $record->firma . '"style="min-width: 80px; max-width: 80px; " alt="Diseño Descargado"></td><
-        </tr>';
-    }
-    echo '</tbody>';
-    echo '</table>';
-    echo '</div>';
+        <!-- Contenido de las pestañas -->
+        <div id="tab1" class="tab-content">
+            <table class="wp-list-table widefat fixed striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Logo</th>
+                        <th style="text-align: center;">Razón Social</th>
+                        <th style="text-align: center;">Facturado a</th>
+                        <th style="text-align: center;">Información Pago</th>
+                        <th style="text-align: center;">Diseño Seleccionado</th>
+                        <th>Firma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($records1 as $record) : ?>
+                        <tr>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->image; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                            <td><?php echo $record->razon_social; ?></td>
+                            <td><?php echo $record->factura_a; ?></td>
+                            <td><?php echo $record->informacion_pago; ?></td>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->background; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->firma; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-    echo '<div id="tab2" class="tab-content" style="display: none;">';
-    echo '</div>';
+        <div id="tab2" class="tab-content">
+        <table class="wp-list-table widefat fixed striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Logo</th>
+                        <th style="text-align: center;">Razón Social</th>
+                        <th style="text-align: center;">Facturado a</th>
+                        <th style="text-align: center;">Información Pago</th>
+                        <th>Firma</th>
+                        <th>Foto</th>
+                        <th style="text-align: center;">Diseño Seleccionado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($records1 as $record) : ?>
+                        <tr>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->image; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                            <td><?php echo $record->razon_social; ?></td>
+                            <td><?php echo $record->factura_a; ?></td>
+                            <td><?php echo $record->informacion_pago; ?></td>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->background; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->firma; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-    echo '<div id="tab3" class="tab-content" style="display: none;">';
-    echo '</div>';
-    echo '</div>';
+        <div id="tab3" class="tab-content" style="display: none;">
+        <table class="wp-list-table widefat fixed striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Logo</th>
+                        <th style="text-align: center;">Nombre y Apellido</th>
+                        <th style="text-align: center;">Cargo</th>
+                        <th style="text-align: center;">Información</th>
+                        <th style="text-align: center;">Diseño Seleccionado</th>
+                        <th style="text-align: center;">Redes Sociales</th>
+                        <th>QR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td style="text-align: center;"></td>
+                        <td></td>          
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    // Script para alternar entre las pestañas
-    echo '<script>
+    <!-- Script para alternar entre las pestañas -->
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             const tabs = document.querySelectorAll(".nav-tab");
             const tabContents = document.querySelectorAll(".tab-content");
             tabs.forEach(function(tab) {
                 tab.addEventListener("click", function(e) {
                     e.preventDefault();
-                    // Remover la clase "nav-tab-active" de todas las pestañas
                     tabs.forEach(function(tab) {
                         tab.classList.remove("nav-tab-active");
                     });
-                    // Ocultar todos los contenidos de las pestañas
                     tabContents.forEach(function(content) {
                         content.style.display = "none";
                     });
-                    // Agregar la clase "nav-tab-active" a la pestaña seleccionada
                     this.classList.add("nav-tab-active");
-                    // Mostrar el contenido de la pestaña seleccionada
                     const targetId = this.getAttribute("href");
                     const targetContent = document.querySelector(targetId);
                     targetContent.style.display = "block";
                 });
             });
         });
-    </script>';
+    </script>
+
+<?php
 }
+?>
