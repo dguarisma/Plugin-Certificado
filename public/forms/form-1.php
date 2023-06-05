@@ -5,8 +5,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/forms/fonts.css'; ?>">
 <style>
-  /* Estilos para el formulario */
-  #certified-form {
+  #certified-form-1 {
     margin: 0 auto;
     max-width: 600px;
     font-family: Muli, sans-serif !important;
@@ -150,39 +149,51 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #4CAF50;
+    background-color: #9100AA;
     color: white;
     cursor: pointer;
   }
 
-  input[type="submit"] {
+  .button-stroke input[type="submit"], input[type="submit"]{
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #9100AA  !important;
+    border: 1px solid white  !important;
+    color: #fff  !important;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 30%;
     margin: 0 auto;
   }
-
+ .button-stroke input[type="submit"]:hover,
+ input[type="submit"]:hover {
+    color: #54595F !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #54595F !important;
+}
   button.remove-row-btn,
   button.add-row-btn {
-    border-color: #93c800 !important;
     padding: 10px 20px;
-    background-color: #4CAF50 !important;
+    background-color: #9100AA !important;
     color: #fff !important;
     border: none;
     border-radius: 4px;
+    border: 1px solid white;
     cursor: pointer;
   }
+  button.remove-row-btn:hover,
+  button.add-row-btn:hover {
+    color: #54595F !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #54595F !important;
+}
 
   button.add-row-btn {
     margin-right: 0px;
   }
 
   img.vc_single_image-img.attachment-full {
-    border: 2px solid #4CAF50;
+    border: 2px solid #9100AA;
   }
 
   /* Estilos para hacer el formulario responsive */
@@ -204,17 +215,21 @@
   }
 
   .buttonPDF {
-    border-color: #93c800 !important;
     padding: 10px 20px;
-    background-color: #4CAF50 !important;
+    background-color: #9100AA;
+    border: 1px solid white;
     color: #fff !important;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-family: Muli, sans-serif !important;
   }
-
-  #certified-form .loader-wheel {
+  .buttonPDF:hover {
+    color: #54595F;
+    background-color: #FFFFFF;
+    border-color: #54595F;
+ }
+  #certified-form-1 .loader-wheel {
     animation: spin 1s infinite linear;
     border: 2px solid rgba(30, 30, 30, 0.5);
     border-left: 4px solid #fff;
@@ -225,12 +240,12 @@
     margin: 0 auto;
   }
 
-  #certified-form .loader-text {
+  #certified-form-1 .loader-text {
     color: #4CAF50;
     font-family: system-ui;
   }
 
-  #certified-form .loader-text:after {
+  #certified-form-1 .loader-text:after {
     content: 'Loading';
     font-family: Muli, sans-serif !important;
     animation: load 2s linear infinite;
@@ -265,9 +280,94 @@
   }
 </style>
 
-<form id="certified-form" method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
+<form id="certified-form-1" method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
   <input type="hidden" name="action" value="certified_form_action">
   <input type="hidden" name="certified_form_action" value="process_form">
+  <div class="form-row">
+    <div class="column-quarter">
+      <div class="radio" style="text-align: center;color: #071041;">
+        <label><input type="radio" name="optradio" id="optradio"
+            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']; ?>" checked="checked"> Diseño 1
+          <figure class="wpb_wrapper vc_figure">
+            <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-724x1024.jpg"
+              target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto">
+              <img width="1080" height="1528"
+                src="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1.jpg"
+                class="vc_single_image-img attachment-full" alt=""
+                srcset="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1.jpg 1080w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-212x300.jpg 212w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-724x1024.jpg 724w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-768x1087.jpg 768w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-103x146.jpg 103w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-35x50.jpg 35w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-53x75.jpg 53w"
+                sizes="(max-width: 1080px) 100vw, 1080px"></a>
+          </figure>
+        </label>
+      </div>
+    </div>
+    <div class="column-quarter">
+      <div class="radio" style="text-align: center;color: #071041;">
+        <label><input type="radio" name="optradio" id="optradio"
+            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']; ?>"> Diseño 2
+          <figure class="wpb_wrapper vc_figure">
+            <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-724x1024.jpg"
+              target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
+                width="1080" height="1528"
+                src="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2.jpg"
+                class="vc_single_image-img attachment-full" alt=""
+                srcset="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2.jpg 1080w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-212x300.jpg 212w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-724x1024.jpg 724w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-768x1087.jpg 768w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-103x146.jpg 103w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-35x50.jpg 35w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-53x75.jpg 53w"
+                sizes="(max-width: 1080px) 100vw, 1080px"></a>
+          </figure>
+        </label>
+      </div>
+    </div>
+    <div class="column-quarter">
+      <div class="radio" style="text-align: center;color: #071041;">
+        <label><input type="radio" name="optradio" id="optradio"
+            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']; ?>"> Diseño 3
+          <figure class="wpb_wrapper vc_figure">
+            <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-724x1024.jpg"
+              target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
+                width="1080" height="1528"
+                src="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3.jpg"
+                class="vc_single_image-img attachment-full" alt=""
+                srcset="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3.jpg 1080w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-212x300.jpg 212w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-724x1024.jpg 724w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-768x1087.jpg 768w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-103x146.jpg 103w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-35x50.jpg 35w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-53x75.jpg 53w"
+                sizes="(max-width: 1080px) 100vw, 1080px"></a>
+          </figure>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="column-full">
+      <p><strong>Subir imagen de fondo</strong></p>
+      <p>
+        <span class="wpcf7-form-control-wrap">
+          <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+            aria-invalid="false" type="file" name="background" id="background-upload" accept="image/*">
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="form-row" style="margin-bottom: 30px;text-align: center">
+    <div class="column-full">
+      <h5> Personaliza tu cotización con tu logo y firma autorizada</h5>
+    </div>
+    <div class="column-half">
+      <p><strong>Subir Logo</strong></p>
+      <p>
+        <span class="wpcf7-form-control-wrap">
+          <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+            aria-invalid="true" type="file" name="image" id="image-upload" accept="image/*">
+        </span>
+      </p>
+    </div>
+
+    <div class="column-half">
+      <p><strong>Subir imagen de firma</strong></p>
+      <p>
+        <span class="wpcf7-form-control-wrap">
+          <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+            aria-invalid="true" type="file" name="firma" id="firma-upload" accept="image/*">
+        </span>
+      </p>
+    </div>
+  </div>
   <div class="form-row">
     <div class="column-full">
       <p><strong>Razón Social</strong></p>
@@ -344,96 +444,12 @@
       </p>
     </div>
   </div>
-  <div class="form-row" style="margin-bottom: 30px;text-align: center">
-    <div class="column-full">
-      <h5> Personaliza tu cotización con tu logo y firma autorizada</h5>
-    </div>
-    <div class="column-half">
-      <p><strong>Subir Logo</strong></p>
-      <p>
-        <span class="wpcf7-form-control-wrap">
-          <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-            aria-invalid="true" type="file" name="image" id="image-upload" accept="image/*">
-        </span>
-      </p>
-    </div>
-
-    <div class="column-half">
-      <p><strong>Subir imagen de firma</strong></p>
-      <p>
-        <span class="wpcf7-form-control-wrap">
-          <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-            aria-invalid="true" type="file" name="firma" id="firma-upload" accept="image/*">
-        </span>
-      </p>
-    </div>
-  </div>
-  <div class="form-row" style="text-align: center">
+<!--   <div class="form-row" style="text-align: center">
     <div class="column-full">
       <h5>Personaliza tu cotización: elige un diseño predeterminado o carga tu propio diseño personalizado</h5>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="column-quarter">
-      <div class="radio" style="text-align: center;color: #071041;">
-        <label><input type="radio" name="optradio" id="optradio"
-            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']; ?>" checked="checked"> Diseño 1
-          <figure class="wpb_wrapper vc_figure">
-            <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-724x1024.jpg"
-              target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto">
-              <img width="1080" height="1528"
-                src="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1.jpg"
-                class="vc_single_image-img attachment-full" alt=""
-                srcset="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1.jpg 1080w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-212x300.jpg 212w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-724x1024.jpg 724w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-768x1087.jpg 768w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-103x146.jpg 103w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-35x50.jpg 35w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-1-53x75.jpg 53w"
-                sizes="(max-width: 1080px) 100vw, 1080px"></a>
-          </figure>
-        </label>
-      </div>
-    </div>
-    <div class="column-quarter">
-      <div class="radio" style="text-align: center;color: #071041;">
-        <label><input type="radio" name="optradio" id="optradio"
-            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']; ?>"> Diseño 2
-          <figure class="wpb_wrapper vc_figure">
-            <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-724x1024.jpg"
-              target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
-                width="1080" height="1528"
-                src="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2.jpg"
-                class="vc_single_image-img attachment-full" alt=""
-                srcset="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2.jpg 1080w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-212x300.jpg 212w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-724x1024.jpg 724w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-768x1087.jpg 768w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-103x146.jpg 103w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-35x50.jpg 35w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-2-53x75.jpg 53w"
-                sizes="(max-width: 1080px) 100vw, 1080px"></a>
-          </figure>
-        </label>
-      </div>
-    </div>
-    <div class="column-quarter">
-      <div class="radio" style="text-align: center;color: #071041;">
-        <label><input type="radio" name="optradio" id="optradio"
-            value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']; ?>"> Diseño 3
-          <figure class="wpb_wrapper vc_figure">
-            <a href="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-724x1024.jpg"
-              target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
-                width="1080" height="1528"
-                src="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3.jpg"
-                class="vc_single_image-img attachment-full" alt=""
-                srcset="https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3.jpg 1080w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-212x300.jpg 212w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-724x1024.jpg 724w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-768x1087.jpg 768w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-103x146.jpg 103w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-35x50.jpg 35w, https://www.certificadoweb.com/wp-content/uploads/2023/05/cotizacion-pro-3-53x75.jpg 53w"
-                sizes="(max-width: 1080px) 100vw, 1080px"></a>
-          </figure>
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="column-full">
-      <p><strong>Subir imagen de fondo</strong></p>
-      <p>
-        <span class="wpcf7-form-control-wrap">
-          <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-            aria-invalid="false" type="file" name="background" id="background-upload" accept="image/*">
-        </span>
-      </p>
-    </div>
-  </div>
+  </div> -->
+
 
   <div class="form-row">
     <div class="column-full" style="text-align: center;">
@@ -478,7 +494,7 @@
     }
   }
 
-  document.getElementById('certified-form').addEventListener('submit', function (event) {
+  document.getElementById('certified-form-1').addEventListener('submit', function (event) {
     event.preventDefault();
     var form = event.target;
     var htmlContainer = document.getElementById('html-container');

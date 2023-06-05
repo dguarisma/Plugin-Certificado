@@ -3,7 +3,9 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     exit;
 }
 
-// Eliminar la tabla de base de datos al desinstalar el plugin
 global $wpdb;
-$table_name = $wpdb->prefix . 'certified_generator_records';
-$wpdb->query("DROP TABLE IF EXISTS $table_name;");
+$table_name1 = $wpdb->prefix . 'items_quotation';
+$wpdb->query("DELETE FROM $table_name1");
+
+$table_name2 = $wpdb->prefix . 'certified_generator_records';
+$wpdb->query("DELETE FROM $table_name2");

@@ -133,15 +133,12 @@ function certified_generator_records_page()
 
     <div class="wrap">
         <h1>Registros de los formularios</h1>
-
-        <!-- Crear las pestañas de navegación -->
         <nav class="nav-tab-wrapper">
             <a href="#tab1" class="nav-tab nav-tab-active">Cotización</a>
             <a href="#tab2" class="nav-tab">Flyer</a>
             <a href="#tab3" class="nav-tab">Tarjeta Pro</a>
         </nav>
 
-        <!-- Contenido de las pestañas -->
         <div id="tab1" class="tab-content">
             <table class="wp-list-table widefat fixed striped">
                 <thead>
@@ -175,7 +172,7 @@ function certified_generator_records_page()
             </table>
         </div>
 
-        <div id="tab2" class="tab-content">
+        <div id="tab2" class="tab-content" style="display: none;">
         <table class="wp-list-table widefat fixed striped">
                 <thead>
                     <tr>
