@@ -327,7 +327,7 @@
                 width="1080" height="1528"
                 src="https://animal.pymdesarrollo.com/wp-content/uploads/2023/06/tarjeta-pro-3.jpg"
                 class="vc_single_image-img attachment-full" alt=""
-                srcset="https://animal.pymdesarrollo.com/wp-content/uploads/2023/06/tarjeta-pro-3.jpgg 1080w"
+                srcset="https://animal.pymdesarrollo.com/wp-content/uploads/2023/06/tarjeta-pro-3.jpg 1080w"
                 sizes="(max-width: 1080px) 100vw, 1080px"></a>
           </figure>
         </label>
