@@ -119,33 +119,85 @@ function certified_generator_fonts_page()
             echo '<p>Error al descomprimir el archivo ZIP.</p>';
         }
     }
-
-
-
-    echo '</div>';
+   echo '</div>';
 }
 
-
-function generate_font_css($font_directory)
+function certified_generator_records_page()
 {
-    $site_url = get_site_url();
-    $font_path = str_replace(ABSPATH, '', $font_directory);
-    
-    $font_files = scandir($font_directory);
-    $font_css = '';
-    
-    foreach ($font_files as $file) {
-        if ($file !== '.' && $file !== '..') {
-            $font_name = pathinfo($file, PATHINFO_FILENAME);
-            $font_css .= '@font-face {
-                font-family: "' . $font_name . '";
-                src: url("' . $site_url . '/' . $font_path . '/' . $file . '");
-                font-weight: normal;
-                font-style: normal;
-                font-display: swap;
-            }';
-        }
-    }
+    global $wpdb;
+    $table_name1 = $wpdb->prefix . 'certified_generator_records';
+    $table_name2 = $wpdb->prefix . 'items_quotation';
 
-    return $font_css;
+    // Obtener registros de la primera tabla
+    $records1 = $wpdb->get_results("SELECT * FROM $table_name1");
+
+    // Obtener registros de la segunda tabla
+    # $records2 = $wpdb->get_results("SELECT * FROM $table_name2");
+
+    echo '<div class="wrap">';
+    echo '<h1>Registros de los formularios</h1>';
+
+    // Crear las pestañas de navegación
+    echo '<nav class="nav-tab-wrapper">';
+    echo '<a href="#tab1" class="nav-tab nav-tab-active">Cotización</a>';
+    echo '<a href="#tab2" class="nav-tab">Flyer</a>';
+    echo '<a href="#tab3" class="nav-tab">Tarjeta Pro</a>';
+    echo '</nav>';
+
+    // Contenido de las pestañas
+    echo '<div id="tab1" class="tab-content">';
+    echo '<table class="wp-list-table widefat fixed striped">';
+    echo '<thead><tr><th>Logo </th><th>Razón Social </th><th>Facturado a </th><th>Información Pago</th><th>Diseño Descargado</th>
+    <th>Firma</th><
+    </tr></thead>';
+    echo '<tbody>';
+    foreach ($records1 as $record) {
+        echo '<tr>
+        </td>
+        <td style="text-align: center;"> 
+        <img src="'. $record->image . '"style="min-width: 80px; max-width: 80px; " alt="Diseño Descargado"></td>
+        <td>' . $record->razon_social . '</td><td>' . $record->factura_a . '</td><td>' . $record->informacion_pago . '</td>
+        <td style="text-align: center;"> 
+        <img src="'. $record->background . '"style="min-width: 80px; max-width: 80px; " alt="Diseño Descargado"></td>
+        <td style="text-align: center;"> 
+        <img src="'. $record->firma . '"style="min-width: 80px; max-width: 80px; " alt="Diseño Descargado"></td><
+        </tr>';
+    }
+    echo '</tbody>';
+    echo '</table>';
+    echo '</div>';
+
+    echo '<div id="tab2" class="tab-content" style="display: none;">';
+    echo '</div>';
+
+    echo '<div id="tab3" class="tab-content" style="display: none;">';
+    echo '</div>';
+    echo '</div>';
+
+    // Script para alternar entre las pestañas
+    echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll(".nav-tab");
+            const tabContents = document.querySelectorAll(".tab-content");
+            tabs.forEach(function(tab) {
+                tab.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    // Remover la clase "nav-tab-active" de todas las pestañas
+                    tabs.forEach(function(tab) {
+                        tab.classList.remove("nav-tab-active");
+                    });
+                    // Ocultar todos los contenidos de las pestañas
+                    tabContents.forEach(function(content) {
+                        content.style.display = "none";
+                    });
+                    // Agregar la clase "nav-tab-active" a la pestaña seleccionada
+                    this.classList.add("nav-tab-active");
+                    // Mostrar el contenido de la pestaña seleccionada
+                    const targetId = this.getAttribute("href");
+                    const targetContent = document.querySelector(targetId);
+                    targetContent.style.display = "block";
+                });
+            });
+        });
+    </script>';
 }
