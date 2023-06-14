@@ -9,8 +9,7 @@ function certified_form_action() {
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razon_social']) && isset($_POST['informacion_pago']) 
-    && isset($_POST['factura_a']) && isset($_POST['terms']) && isset($_POST['optradio']) 
-    && isset($_POST['descripcion']) && isset($_POST['cantidad']) && isset($_POST['precios'])) {
+    && isset($_POST['factura_a']) && isset($_POST['terms']) && isset($_POST['optradio'])) {
         $razon_social = sanitize_text_field($_POST['razon_social']);
         $informacion_pago = sanitize_text_field($_POST['informacion_pago']);
         $factura_a = sanitize_text_field($_POST['factura_a']);
@@ -47,7 +46,7 @@ function certified_form_action() {
             'background' => $background,
         ));
 
-        $certified_id = $wpdb->insert_id; 
+      /*   $certified_id = $wpdb->insert_id; 
         $items_table_name = $wpdb->prefix . 'items_quotation';
         $descripciones = $_POST['descripcion'];
         $cantidades = $_POST['cantidad'];
@@ -63,7 +62,7 @@ function certified_form_action() {
                 'cantidad' => $cantidad,
                 'precios' => $precio,
             ));
-        }
+        } */
 
         $template_file = '';
         switch ($activeBackground) {
@@ -150,6 +149,5 @@ function certified_generator_upload_image($file) {
             $image_url = wp_get_attachment_url($attach_id);
         }
     }
-
     return $image_url;
 }

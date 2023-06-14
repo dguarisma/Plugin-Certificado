@@ -174,20 +174,55 @@
                 <th>Precio</th>
                 <th>Total</th>
             </tr>
-                <?php
-                    $subtotal = 0; 
-                    foreach ($descripciones as $index => $descripcion) { 
-                        $subtotal += (float) $cantidades[$index] * (float) $precios[$index];
-                ?>
-                <tr>
-                    <td><?php echo $index + 1; ?></td>
-                    <td><?php echo $descripcion; ?></td>
-                    <td><?php echo $cantidades[$index]; ?></td>
-                    <td><?php echo number_format((float) $precios[$index], 0, ',', '.'); ?> COP</td>
-                    <td><?php echo number_format((float) $cantidades[$index] * (float) $precios[$index], 0, ',', '.'); ?> COP</td>
-
+            <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
-                <?php } ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
         </table>
     </div>
 
@@ -205,19 +240,14 @@
                 <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $factura_a; ?></p>
             </td>
             <td style="text-align: left; padding-right: 20px">
-                <h5>Sub Total: <strong><?php echo number_format($subtotal, 0, ',', '.'); ?> COP</strong></h5>
+                <h5>Sub Total: ________________________</h5>
                 <h5
                     style="padding-top: 10px; border-top: 1px solid black; font-size: 1.3rem; margin-top: 5px; text-align: left;">
-                    Total: <strong><?php echo number_format($subtotal, 0, ',', '.'); ?> COP</strong></h5>
+                    Total: ________________________</h5>
             </td>
         </tr>
         <tr>
             <td style='margin-top:40px'>
-                <img src="<?php echo $uploaded_images['firma']; ?>" alt="Firma" srcset="<?php echo $uploaded_images['firma']; ?>"
-                    style="max-width: 140px;height: 80px;">
-                <p style="padding-top: 10px;border-top: 1px solid black;width: 60%;font-size: .7rem;margin: 0 auto;">
-                    <strong>Firma Autorizada</strong>
-                </p>
             </td>
         </tr>
     </table>

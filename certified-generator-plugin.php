@@ -10,7 +10,7 @@
 
 global $forms;
 $forms = array(
-    '1' => 'Cotización',
+    '1' => 'Cotizaci贸n',
     '2' => 'Flyer',
     '3' => 'Tarjeta Pro'
 );
@@ -23,7 +23,7 @@ register_activation_hook(__FILE__, 'certified_generator_install');
 add_shortcode('certified_generator', 'certified_generator_shortcode');
 add_action('admin_menu', 'certified_generator_register_menu');
 add_action('vc_before_init', 'add_certified_generator_controls');
-
+add_action('wp_enqueue_scripts', 'my_plugin_enqueue_scripts');
 add_action('init', 'certified_generator_process_form');
 
 function certified_generator_shortcode($atts)
@@ -67,3 +67,8 @@ function certified_generator_process_form()
         exit;
     }
 }
+
+function my_plugin_enqueue_scripts() {
+    wp_enqueue_script('jquery');
+}
+
