@@ -240,10 +240,7 @@
                 <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $factura_a; ?></p>
             </td>
             <td style="text-align: left; padding-right: 20px">
-                <h5>Sub Total: ________________________</h5>
-                <h5
-                    style="padding-top: 10px; border-top: 1px solid black; font-size: 1.3rem; margin-top: 5px; text-align: left;">
-                    Total: ________________________</h5>
+                    <h5>Total:______________________</h5>
             </td>
         </tr>
         <tr>

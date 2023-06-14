@@ -237,9 +237,7 @@
                     <p><?php echo $informacion_pago; ?></p>
                 </td>
                 <td class="col-33" style="text-align: left;">
-                        <h5>Sub Total:______________________</h5>
-                        <h5 style="padding-top: 10px; border-top: 1px solid black; font-size: 1.3rem; margin-top: 5px; text-align: left;">
-                        Total:______________________</strong></h5>
+                    <h5>Total:______________________</h5>
                 </td>
             </tr>
         </table>

@@ -82,7 +82,7 @@
         }
 
         .logo img {
-            height: 100px;
+            height: 80px;
         }
 
         .container-business p {
@@ -241,9 +241,7 @@
                     <p><?php echo $factura_a; ?></p>
                 </td>
                 <td style="text-align: center;width:200px">
-                        <h5>Sub Total: ________________________<</strong></h5>
-                        <h5 style="padding-top: 10px; border-top: 1px solid black; font-size: 1.3rem; margin-top: 5px; text-align: center;">
-                        Total:  ________________________</h5>
+                    <h5>Total:______________________</h5>
                 </td>
             </tr>
         </table>
