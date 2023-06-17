@@ -10,7 +10,7 @@
 
 global $forms;
 $forms = array(
-    '1' => 'Cotizaci贸n',
+    '1' => 'Cotización',
     '2' => 'Flyer',
     '3' => 'Tarjeta Pro'
 );
@@ -23,8 +23,8 @@ register_activation_hook(__FILE__, 'certified_generator_install');
 add_shortcode('certified_generator', 'certified_generator_shortcode');
 add_action('admin_menu', 'certified_generator_register_menu');
 add_action('vc_before_init', 'add_certified_generator_controls');
-add_action('wp_enqueue_scripts', 'my_plugin_enqueue_scripts');
-add_action('init', 'certified_generator_process_form');
+add_action('wp_enqueue_scripts', 'enqueue_scripts');
+add_action('init', 'process_forms');
 
 function certified_generator_shortcode($atts)
 {
@@ -59,16 +59,28 @@ add_action('init', function () {
     certified_generator_utf8_decode_recursive($response);
 });
 
-function certified_generator_process_form()
+function process_forms()
 {
-    if (isset($_POST['certified_form_action']) && $_POST['certified_form_action'] === 'process_form') {
-        include_once(plugin_dir_path(__FILE__) . 'ajax/process-form.php');
-        certified_form_action();
-        exit;
+    $action = isset($_POST['certified_form_action']) ? $_POST['certified_form_action'] : '';
+    switch ($action) {
+        case 'process_form_one':
+            include_once(plugin_dir_path(__FILE__) . 'ajax/processFormOne.php');
+            certified_form_one_action();
+            break;
+        case 'process_form_two':
+            include_once(plugin_dir_path(__FILE__) . 'ajax/processFormTwo.php');
+            certified_form_two_action();
+            break;
+        case 'process_form_three':
+            include_once(plugin_dir_path(__FILE__) . 'ajax/processFormThree.php');
+            certified_form_three_action();
+            break;
+        default:
+            break;
     }
 }
 
-function my_plugin_enqueue_scripts() {
+function enqueue_scripts() {
     wp_enqueue_script('jquery');
 }
 

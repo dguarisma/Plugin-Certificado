@@ -1,21 +1,24 @@
 <?php
-require_once(plugin_dir_path(__FILE__) . '../dompdf/autoload.inc.php');
 require_once(plugin_dir_path(__FILE__) . '../includes/constants.php');
-$font_css_url = esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/pdf/fonts.css';
 
-use Dompdf\Dompdf;
+function certified_form_three_action() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['surname']) &&
+        isset($_POST['job_profile']) && isset($_POST['optradio']) &&
+        isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
 
-function certified_form_action() {
-    session_start();
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razon_social']) && isset($_POST['informacion_pago']) 
-    && isset($_POST['factura_a']) && isset($_POST['terms']) && isset($_POST['optradio'])) {
-        $razon_social = sanitize_text_field($_POST['razon_social']);
-        $informacion_pago = sanitize_text_field($_POST['informacion_pago']);
-        $factura_a = sanitize_text_field($_POST['factura_a']);
-        $terms = sanitize_text_field($_POST['terms']);
+        $name = sanitize_text_field($_POST['name']);
+        $surname = sanitize_text_field($_POST['surname']);
+        $slogan = sanitize_text_field($_POST['slogan']);
+        $job_profile = sanitize_text_field($_POST['job_profile']);
+        $address = sanitize_text_field($_POST['address']);
+        $phone = sanitize_text_field($_POST['phone']);
+        $email = sanitize_text_field($_POST['email']);
+        $web_site = $_POST['web_site'];
+        $logo = $_POST['logo'];
+        $background_front = $_POST['background_front'];
+        $background_back = $_POST['background_back'];
         $activeBackground = $_POST['optradio'];
-
+/* 
         $uploads = array(
             'image' => 'image',
             'firma' => 'firma',
@@ -31,20 +34,23 @@ function certified_form_action() {
                 ${$type} = certified_generator_upload_image($file);
                 $uploaded_images[$type] = ${$type};
             }
-        }
+        } */
         global $wpdb;
-        $certified_table_name = $wpdb->prefix . 'certified_generator_records';
-        $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
-
-        $wpdb->insert($certified_table_name, array(
-            'razon_social' => strtoupper($razon_social),
-            'informacion_pago' => strtoupper($informacion_pago),
-            'factura_a' => strtoupper($factura_a),
-            'terms' => $terms,
-            'image' => $uploaded_images['image'],
-            'firma' => $uploaded_images['firma'],
-            'background' => $background,
+        $table_name = $wpdb->prefix . 'records_form_three';
+        $wpdb->insert($table_name, array(
+            'name' =>  $name ,
+            'surname' => $surname,
+            'job_profile' => $job_profile,
+            'slogan' => $slogan,
+            'logo' => $logo,
+            'address' => $address,
+            'phone' => $phone,
+            'email' => $email,
+            'web_site' => $web_site,
+            'background_front' => $background_front,
+            'background_back' => $background_back,
         ));
+        
 
       /*   $certified_id = $wpdb->insert_id; 
         $items_table_name = $wpdb->prefix . 'items_quotation';
@@ -64,7 +70,7 @@ function certified_form_action() {
             ));
         } */
 
-        $template_file = '';
+ /*        $template_file = '';
         switch ($activeBackground) {
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-1.php';
@@ -81,34 +87,34 @@ function certified_form_action() {
                     'message' => 'Error: El archivo del template no existe.'
                 );
                 break;
-        }
+        } */
 
-        if (file_exists($template_file)) {
+/*         if (file_exists($template_file)) {
             $dompdf = new Dompdf();
             $dompdf->set_option('isRemoteEnabled', true);
             $dompdf->set_option('isPhpEnabled', true);
-            $dompdf->set_option('defaultFont', $font_css_url);
+            $dompdf->set_option('defaultFont', $font_css_url); */
             
-            ob_start();
+        /*     ob_start();
             include($template_file);
             $html = ob_get_clean();
             $dompdf->loadHtml($html);
             $dompdf->render();
             $pdf_content = $dompdf->output();
             $_SESSION['pdf_content'] = $pdf_content;
-            $download_url = esc_url(plugin_dir_url(__FILE__) . 'download.php?filename="cotizacion.pdf"');
+            $download_url =''; */
 
             $response = array(
                 'success' => true,
                 'message' => 'Registro exitoso',
-                'download_url' => $download_url
+                'download_url' => ''
             );
-        } else {
+       /*  } else {
             $response = array(
                 'success' => false,
                 'message' => 'Error: El archivo del template no existe.'
             );
-        }
+        } */
     } else {
         $response = array(
             'success' => false,
@@ -119,7 +125,7 @@ function certified_form_action() {
     wp_send_json($response);
 }
 
-function certified_generator_upload_image($file) {
+/* function certified_generator_upload_image($file) {
     $upload_dir = wp_upload_dir();
     $target_dir = $upload_dir['path'] . '/';
     $target_file = $target_dir . basename($file['name']);
@@ -151,3 +157,4 @@ function certified_generator_upload_image($file) {
     }
     return $image_url;
 }
+ */

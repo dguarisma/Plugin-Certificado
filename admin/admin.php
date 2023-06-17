@@ -7,7 +7,7 @@ function certified_generator_register_menu()
         'Certificados Generados',
         'manage_options',
         'certified-generator-records',
-        'certified_generator_records_page',
+        'records_form_one_page',
         'dashicons-media-document'
     );
 
@@ -121,10 +121,10 @@ function certified_generator_fonts_page()
     }
    echo '</div>';
 }
-function certified_generator_records_page()
+function records_form_one_page()
 {
     global $wpdb;
-    $table_name1 = $wpdb->prefix . 'certified_generator_records';
+    $table_name1 = $wpdb->prefix . 'records_form_one';
 
     // Obtener registros de la primera tabla
     $records1 = $wpdb->get_results("SELECT * FROM $table_name1");
@@ -157,14 +157,14 @@ function certified_generator_records_page()
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->image; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
-                            <td><?php echo $record->razon_social; ?></td>
-                            <td><?php echo $record->factura_a; ?></td>
-                            <td><?php echo $record->informacion_pago; ?></td>
+                            <td><?php echo $record->business_name; ?></td>
+                            <td><?php echo $record->invoice_to; ?></td>
+                            <td><?php echo $record->payment_information; ?></td>
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->background; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
                             <td style="text-align: center;">
-                                <img src="<?php echo $record->firma; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                                <img src="<?php echo $record->signature; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -191,14 +191,14 @@ function certified_generator_records_page()
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->image; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
-                            <td><?php echo $record->razon_social; ?></td>
-                            <td><?php echo $record->factura_a; ?></td>
-                            <td><?php echo $record->informacion_pago; ?></td>
+                            <td><?php echo $record->business_name; ?></td>
+                            <td><?php echo $record->invoice_to; ?></td>
+                            <td><?php echo $record->payment_information; ?></td>
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->background; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
                             <td style="text-align: center;">
-                                <img src="<?php echo $record->firma; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                                <img src="<?php echo $record->signature; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
                         </tr>
                     <?php endforeach; ?>

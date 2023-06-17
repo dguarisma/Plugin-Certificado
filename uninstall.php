@@ -4,8 +4,14 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 }
 
 global $wpdb;
-$table_name1 = $wpdb->prefix . 'items_quotation';
-$wpdb->query("DELETE FROM $table_name1");
 
-$table_name2 = $wpdb->prefix . 'certified_generator_records';
-$wpdb->query("DELETE FROM $table_name2");
+$tables = array(
+    $wpdb->prefix . 'items_quotation',
+    $wpdb->prefix . 'records_form_one',
+    $wpdb->prefix . 'records_form_three',
+    $wpdb->prefix . 'process_form_three'
+);
+
+foreach ($tables as $table) {
+    $wpdb->query("DELETE FROM $table");
+}

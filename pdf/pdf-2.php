@@ -155,7 +155,7 @@
             </td>
             <td class="col-40">
                 <div class="container-business">
-                    <h3><?php echo strtoupper($razon_social); ?></h3>
+                    <h3><?php echo strtoupper($business_name); ?></h3>
                     <div class="container-date">
                         <p><strong>Fecha</strong></p>
                         <p><strong><?php echo date("d/m/Y"); ?></strong></p>
@@ -237,7 +237,7 @@
         <tr>
             <td style="text-align: left;">
                 <h5>Información de Pago</h5>
-                <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $factura_a; ?></p>
+                <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $invoice_to; ?></p>
             </td>
             <td style="text-align: left; padding-right: 20px">
                     <h5>Total:______________________</h5>
@@ -252,7 +252,7 @@
         <tr>
             <td>
                 <h5 style="font-size: 1.1rem;">Facturar a</h5>
-                <p><?php echo $informacion_pago; ?></p>
+                <p><?php echo $payment_information; ?></p>
             </td>           
         </tr>
         <tr>

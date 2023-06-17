@@ -282,7 +282,7 @@
 
 <form id="certified-form-2" method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
   <input type="hidden" name="action" value="certified_form_action">
-  <input type="hidden" name="certified_form_action" value="process_form">
+  <input type="hidden" name="certified_form_action" value="process_form_two">
   <div class="form-row">
     <div class="column-quarter">
       <div class="radio" style="text-align: center;color: #071041;">

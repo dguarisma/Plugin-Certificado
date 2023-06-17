@@ -447,7 +447,7 @@
 
 <form id="certified-form-1" method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
   <input type="hidden" name="action" value="certified_form_action">
-  <input type="hidden" name="certified_form_action" value="process_form">
+  <input type="hidden" name="certified_form_action" value="process_form_one">
   <div class="card">
     <ul id="progressbar">
       <li id="template" class="active"> Escoge tu plantilla</li>
@@ -455,7 +455,7 @@
       <li id="company_information">Información de la Empresa</li>
  <!--      <li id="add_product">Agregar productos</li> -->
       <li id="conditions"> Información de la cotización (Condiciones)</li>
-      <li id="confirm">Confirmación</li>
+      <li id="confirm">Consignatureción</li>
     </ul>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -554,7 +554,7 @@
       <div class="column-full">
         <p><strong>Nombre de tu empresa</strong></p>
         <span class="wpcf7-form-control-wrap">
-          <input size="40" required type="text" name="razon_social" id="razon-social" maxlength="50"
+          <input size="40" required type="text" name="business_name" id="business_name" maxlength="50"
             placeholder="Ingrese Nombre de tu empresa" required>
         </span>
         <label class="error-label"></label>
@@ -562,7 +562,7 @@
       <div class="column-full">
         <p><strong>¿Como le gustaría que realicen el pago de esta cotización?</strong></p>
         <span class="wpcf7-form-control-wrap">
-          <textarea cols="40" rows="3" name="informacion_pago" id="informacion-pago"
+          <textarea cols="40" rows="3" name="payment_information" id="payment_information"
             placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"
             maxlength="200"></textarea>
         </span>
@@ -570,7 +570,7 @@
       <div class="column-full" style="text-align: left;">
         <p><strong>Escribe el nombre de tu cliente</strong></p>
         <span class="wpcf7-form-control-wrap">
-          <textarea cols="40" rows="3" maxlength="200" name="factura_a" id="factura-a"
+          <textarea cols="40" rows="3" maxlength="200" name="invoice_to" id="invoice_to"
             placeholder="Ingrese nombre de tu cliente"></textarea>
         </span>
       </div>
@@ -778,7 +778,7 @@
                 <p>Haz clic en el botón de abajo para descargar el PDF:</p>
                 <br>
                 <div class="form-row" style="justify-content: center;">
-                <a href="#" class="buttonPDF" onclick="location.reload()">Comienza de Nuevo</a>
+                <a href="#" class="buttonPDF" onclick="location.reload()">Crear nueva</a>
                 <a href="${response.download_url}" class="buttonPDF" target="_blank">Descargar PDF</a>
                 </div>
               </div>
