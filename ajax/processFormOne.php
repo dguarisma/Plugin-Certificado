@@ -46,34 +46,16 @@ function certified_form_one_action() {
             'background' => $background,
         ));
 
-      /*   $certified_id = $wpdb->insert_id; 
-        $items_table_name = $wpdb->prefix . 'items_quotation';
-        $descripciones = $_POST['descripcion'];
-        $cantidades = $_POST['cantidad'];
-        $precios = $_POST['precios'];
-
-        foreach ($descripciones as $index => $descripcion) {
-            $cantidad = (int) $cantidades[$index];
-            $precio = (float) $precios[$index];
-
-            $wpdb->insert($items_table_name, array(
-                'certified_id' => $certified_id,
-                'descripcion' => strtoupper($descripcion),
-                'cantidad' => $cantidad,
-                'precios' => $precio,
-            ));
-        } */
-
         $template_file = '';
         switch ($activeBackground) {
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-1.php';
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-1.php';
                 break;
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-2.php';
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-2.php';
                 break;
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-3.php';
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-3.php';
                 break;
             default:
                 $response = array(

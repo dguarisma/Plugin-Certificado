@@ -1,4 +1,4 @@
-<?php
+/flyer<?php
 require_once(plugin_dir_path(__FILE__) . '../dompdf/autoload.inc.php');
 require_once(plugin_dir_path(__FILE__) . '../includes/constants.php');
 $font_css_url = esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/pdf/fonts.css';
@@ -67,13 +67,13 @@ function certified_form_two_action() {
         $template_file = '';
         switch ($activeBackground) {
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-1.php';
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-1.php';
                 break;
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-2.php';
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-2.php';
                 break;
             case $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-3.php';
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-3.php';
                 break;
             default:
                 $response = array(
@@ -96,7 +96,7 @@ function certified_form_two_action() {
             $dompdf->render();
             $pdf_content = $dompdf->output();
             $_SESSION['pdf_content'] = $pdf_content;
-            $download_url = esc_url(plugin_dir_url(__FILE__) . 'download.php?filename="cotizacion.pdf"');
+            $download_url = esc_url(plugin_dir_url(__FILE__) . 'download.php?filename="flyer.pdf"');
 
             $response = array(
                 'success' => true,

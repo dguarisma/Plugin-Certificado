@@ -9,11 +9,25 @@
  */
 
 global $forms;
+
 $forms = array(
-    '1' => 'Cotización',
-    '2' => 'Flyer',
-    '3' => 'Tarjeta Pro'
+    '1' => [
+        'name' => 'Presupuesto',
+        'icon' =>  plugin_dir_url(__FILE__) . 'assets/budget.png',
+        'class' => 'budget'
+    ],
+    '2' => [
+        'name' => 'Flyer',
+        'icon' =>  plugin_dir_url(__FILE__) . 'assets/brochure.png',
+        'class' => 'flyer'
+    ],
+    '3' => [
+        'name' => 'Tarjeta de presentación',
+        'icon' =>  plugin_dir_url(__FILE__) . 'assets/business-cards.png',
+        'class' => 'businessCard'
+    ]
 );
+
 
 require_once(plugin_dir_path(__FILE__) . 'admin/admin.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/install.php');
@@ -24,24 +38,59 @@ add_shortcode('certified_generator', 'certified_generator_shortcode');
 add_action('admin_menu', 'certified_generator_register_menu');
 add_action('vc_before_init', 'add_certified_generator_controls');
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
-add_action('init', 'process_forms');
+add_action('init', 'register_custom_actions');
+add_action('wp_ajax_previews_result', 'previews_result');
+add_action('wp_ajax_nopriv_previews_result', 'previews_result');
 
-function certified_generator_shortcode($atts)
+function register_custom_actions() {
+    process_forms();
+    previews_results();
+}
+
+function certified_generator_shortcode()
 {
     global $forms;
-    $atts = shortcode_atts(array(
-        'form' => '1'
-    ), $atts);
-
-    if (array_key_exists($atts['form'], $forms)) {
-        $form_file = 'form-' . $atts['form'] . '.php';
-        ob_start();
-        include(plugin_dir_path(__FILE__) . 'public/forms/' . $form_file);
-        return ob_get_clean();
-    } else {
-        return 'Error: El formulario especificado no existe.';
-    }
+    ob_start();
+?>
+    <div class="container-options" style=" margin: 0 auto;text-align: center;">
+        <h2 style="margin-bottom: 20px;color: #039ABC;">¿Qué plantilla te gustaría realizar?</h2>
+       <div class="container-card" style="display:flex;gap: 20px 10px;justify-content: center;padding: 20px 0px;">
+        <?php foreach ($forms as $key => $form) { ?>
+                <div class="card <?php echo $form['class']; ?>" data="<?php echo $key ?>">
+                <div  class="image-container" >
+                <img src="<?php echo $form['icon']; ?>" alt="<?php echo $form['name']; ?>">
+                </div>
+                    <p><?php echo $form['name']; ?></p>
+                    <button>Seleccionar</button>
+                </div>
+            <?php } ?>
+       </div>
+    </div>
+    <div class="container-forms">
+       <button id="back">Regresar al inicio</button>
+        <?php  foreach ($forms as $key => $form) { ?>
+           <div id="container-certified-form-<?php echo $key; ?>" style="display: none;">
+                <?php
+                    $form_file = 'form-' . $key . '.php';
+                    if (file_exists(plugin_dir_path(__FILE__) . 'public/forms/' . $form_file)) {
+                        include(plugin_dir_path(__FILE__) . 'public/forms/' . $form_file);
+                    } else {
+                        echo 'Error: El formulario correspondiente no existe.';
+                    }
+                ?>
+         
+           </div>
+       <?php } ?>
+    </div>
+<?php
+    return ob_get_clean();
 }
+
+add_action('init', function () {
+    global $response;
+    certified_generator_utf8_decode_recursive($response);
+});
+
 
 function certified_generator_utf8_decode_recursive(&$array)
 {
@@ -53,11 +102,6 @@ function certified_generator_utf8_decode_recursive(&$array)
         }
     }
 }
-
-add_action('init', function () {
-    global $response;
-    certified_generator_utf8_decode_recursive($response);
-});
 
 function process_forms()
 {
@@ -80,7 +124,24 @@ function process_forms()
     }
 }
 
-function enqueue_scripts() {
-    wp_enqueue_script('jquery');
+function previews_results()
+{
+    $preview = isset($_POST['certified_form_action']) ? $_POST['certified_form_action'] : '';
+    if ($preview ==='previews_result') {
+        include_once(plugin_dir_path(__FILE__) . 'ajax/previews.php');
+    }
 }
 
+function enqueue_scripts() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('pdfjs-core', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.min.js', array(), '3.7.107', true);
+    wp_enqueue_script('pdfjs-worker', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.min.js', array('pdfjs-core'), '3.7.107', true);
+    wp_enqueue_script('custom-scripts', plugin_dir_url(__FILE__) . 'scripts.js', array('jquery', 'pdfjs-core'), '1.0', true);
+    wp_localize_script('custom-scripts', 'host', array(
+        'plugin_url' => plugin_dir_url(__FILE__),
+        'ajaxurl' => admin_url('admin-ajax.php')
+    ));
+
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', array(), '5.15.3', 'all');
+    wp_enqueue_style('custom-styles', plugin_dir_url(__FILE__) . 'styles.css');
+}

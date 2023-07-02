@@ -1,7 +1,12 @@
 <?php
+require_once(plugin_dir_path(__FILE__) . '../dompdf/autoload.inc.php');
 require_once(plugin_dir_path(__FILE__) . '../includes/constants.php');
 
+use Dompdf\Dompdf;
+
 function certified_form_three_action() {
+    session_start();
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name']) && isset($_POST['surname']) &&
         isset($_POST['job_profile']) && isset($_POST['optradio']) &&
         isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
@@ -15,18 +20,17 @@ function certified_form_three_action() {
         $email = sanitize_text_field($_POST['email']);
         $web_site = $_POST['web_site'];
         $logo = $_POST['logo'];
-        $background_front = $_POST['background_front'];
-        $background_back = $_POST['background_back'];
         $activeBackground = $_POST['optradio'];
-/* 
+        $background_front;
+        $background_back;
+
         $uploads = array(
-            'image' => 'image',
-            'firma' => 'firma',
-            'background' => 'background'
+            'logo' => 'logo',
+            'background_front' => 'background_front',
+            'background_back' => 'background_back'
         );
-
+        
         $uploaded_images = array();
-
         foreach ($uploads as $type => $name) {
             ${$type} = '';
             if (isset($_FILES[$name]) && $_FILES[$name]['error'] === UPLOAD_ERR_OK) {
@@ -34,7 +38,12 @@ function certified_form_three_action() {
                 ${$type} = certified_generator_upload_image($file);
                 $uploaded_images[$type] = ${$type};
             }
-        } */
+        }
+
+          $background_front = $uploaded_images['background_front'] ? $uploaded_images['background_front']: $GLOBALS['ASSEST_PRODCARD_FORMAT']['disegn_front_'.$activeBackground];
+          $background_back = $uploaded_images['background_back'] ?$uploaded_images['background_back']: $GLOBALS['ASSEST_PRODCARD_FORMAT']['disegn_back_'.$activeBackground];
+   
+   
         global $wpdb;
         $table_name = $wpdb->prefix . 'records_form_three';
         $wpdb->insert($table_name, array(
@@ -42,7 +51,7 @@ function certified_form_three_action() {
             'surname' => $surname,
             'job_profile' => $job_profile,
             'slogan' => $slogan,
-            'logo' => $logo,
+            'logo' => $uploaded_images['logo'],
             'address' => $address,
             'phone' => $phone,
             'email' => $email,
@@ -50,36 +59,17 @@ function certified_form_three_action() {
             'background_front' => $background_front,
             'background_back' => $background_back,
         ));
-        
-
-      /*   $certified_id = $wpdb->insert_id; 
-        $items_table_name = $wpdb->prefix . 'items_quotation';
-        $descripciones = $_POST['descripcion'];
-        $cantidades = $_POST['cantidad'];
-        $precios = $_POST['precios'];
-
-        foreach ($descripciones as $index => $descripcion) {
-            $cantidad = (int) $cantidades[$index];
-            $precio = (float) $precios[$index];
-
-            $wpdb->insert($items_table_name, array(
-                'certified_id' => $certified_id,
-                'descripcion' => strtoupper($descripcion),
-                'cantidad' => $cantidad,
-                'precios' => $precio,
-            ));
-        } */
-
- /*        $template_file = '';
+    
+        $template_file = '';
         switch ($activeBackground) {
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-1.php';
+            case '1':
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/businesscard/pdf-1.php';
                 break;
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-2.php';
+            case '2':
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/businesscard/pdf-2.php';
                 break;
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']:
-                $template_file = plugin_dir_path(__FILE__) . '../pdf/pdf-3.php';
+            case '3':
+                $template_file = plugin_dir_path(__FILE__) . '../pdf/businesscard/pdf-3.php';
                 break;
             default:
                 $response = array(
@@ -87,34 +77,34 @@ function certified_form_three_action() {
                     'message' => 'Error: El archivo del template no existe.'
                 );
                 break;
-        } */
+        }
 
-/*         if (file_exists($template_file)) {
+        if (file_exists($template_file)) {
             $dompdf = new Dompdf();
             $dompdf->set_option('isRemoteEnabled', true);
             $dompdf->set_option('isPhpEnabled', true);
-            $dompdf->set_option('defaultFont', $font_css_url); */
+            $dompdf->set_option('defaultFont', $font_css_url);
             
-        /*     ob_start();
+            ob_start();
             include($template_file);
             $html = ob_get_clean();
             $dompdf->loadHtml($html);
             $dompdf->render();
             $pdf_content = $dompdf->output();
             $_SESSION['pdf_content'] = $pdf_content;
-            $download_url =''; */
+            $download_url = esc_url(plugin_dir_url(__FILE__) . 'download.php?filename="tarjeta.pdf"');
 
             $response = array(
                 'success' => true,
                 'message' => 'Registro exitoso',
-                'download_url' => ''
+                'download_url' => $download_url
             );
-       /*  } else {
+        } else {
             $response = array(
                 'success' => false,
                 'message' => 'Error: El archivo del template no existe.'
             );
-        } */
+        }
     } else {
         $response = array(
             'success' => false,
@@ -125,7 +115,7 @@ function certified_form_three_action() {
     wp_send_json($response);
 }
 
-/* function certified_generator_upload_image($file) {
+function certified_generator_upload_image($file) {
     $upload_dir = wp_upload_dir();
     $target_dir = $upload_dir['path'] . '/';
     $target_file = $target_dir . basename($file['name']);
@@ -157,4 +147,3 @@ function certified_form_three_action() {
     }
     return $image_url;
 }
- */

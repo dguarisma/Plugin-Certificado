@@ -13,3 +13,4 @@ if (isset($_SESSION['pdf_content'])) {
     echo 'Error: No se encontron el contenido del PDF en la sesión.';
 }
 ?>
+
