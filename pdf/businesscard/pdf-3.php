@@ -82,7 +82,9 @@
             word-wrap: break-word;
         }
         #back>div:nth-child(1) img{
-            max-height: 100px;
+            max-width: 190px;
+            height: auto;
+            width: 190px;
         }
 
         #back .details {

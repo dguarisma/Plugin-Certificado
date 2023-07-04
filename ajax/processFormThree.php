@@ -11,7 +11,7 @@ function certified_form_three_action() {
         isset($_POST['job_profile']) && isset($_POST['optradio']) &&
         isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
 
-        $name = sanitize_text_field($_POST['name']);
+        $forename = sanitize_text_field($_POST['name']);
         $surname = sanitize_text_field($_POST['surname']);
         $slogan = sanitize_text_field($_POST['slogan']);
         $job_profile = sanitize_text_field($_POST['job_profile']);
@@ -47,7 +47,7 @@ function certified_form_three_action() {
         global $wpdb;
         $table_name = $wpdb->prefix . 'records_form_three';
         $wpdb->insert($table_name, array(
-            'name' =>  $name ,
+            'name' =>  $forename,
             'surname' => $surname,
             'job_profile' => $job_profile,
             'slogan' => $slogan,

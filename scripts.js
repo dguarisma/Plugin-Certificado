@@ -213,82 +213,88 @@
             var loader = $('.loader');
             var submitButton = $('[type="submit"]');
             $("#html-container-previews canvas").remove();
+            var input = current_fs.find('input[required]');
+            var camposIncompletos = input.filter(function () {
+                return $(this).val() === '';
+            });
 
-            var form = $(this).closest('form')[0];
-            var formData = new FormData(form);
-            formData.append('action', 'previews_result');
-            formData.append('certified_form_action', 'previews_result');
-            $.ajax({
-                type: "POST",
-                data: formData,
-                url: host.ajaxurl,
-                contentType: false,
-                processData: false,
-                beforeSend: function () {
-                    loader.css('display', 'block');
-                    submitButton.css('display', 'none')
-                },
-                success: function (response) {
-                    if (response.success) {
-                        var pdfContent = response.pdf_content;
-                        var pdfDataUri = 'data:application/pdf;base64,' + pdfContent;
-                        pdfjsLib.getDocument({ url: pdfDataUri }).promise.then(function (pdf) {
-                            var pageNumber = 1;
-                            pdf.getPage(pageNumber).then(function (page) {
-                                var canvas = document.createElement('canvas');
-                                var context = canvas.getContext('2d');
-                                var viewport = page.getViewport({ scale: 1 });
+            if (camposIncompletos.length === 0)  {
+                var form = $(this).closest('form')[0];
+                var formData = new FormData(form);
+                formData.append('action', 'previews_result');
+                formData.append('certified_form_action', 'previews_result');
+                $.ajax({
+                    type: "POST",
+                    data: formData,
+                    url: host.ajaxurl,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function () {
+                        loader.css('display', 'block');
+                        submitButton.css('display', 'none')
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            var pdfContent = response.pdf_content;
+                            var pdfDataUri = 'data:application/pdf;base64,' + pdfContent;
+                            pdfjsLib.getDocument({ url: pdfDataUri }).promise.then(function (pdf) {
+                                var pageNumber = 1;
+                                pdf.getPage(pageNumber).then(function (page) {
+                                    var canvas = document.createElement('canvas');
+                                    var context = canvas.getContext('2d');
+                                    var viewport = page.getViewport({ scale: 1 });
 
-                                canvas.width = viewport.width;
-                                canvas.height = viewport.height;
+                                    canvas.width = viewport.width;
+                                    canvas.height = viewport.height;
 
-                                var renderContext = {
-                                    canvasContext: context,
-                                    viewport: viewport
-                                };
+                                    var renderContext = {
+                                        canvasContext: context,
+                                        viewport: viewport
+                                    };
 
-                                page.render(renderContext).promise.then(function () {
-                                    var containerParent = null;
-                                    var containers = document.querySelectorAll("[id^='container-certified-form-']");
+                                    page.render(renderContext).promise.then(function () {
+                                        var containerParent = null;
+                                        var containers = document.querySelectorAll("[id^='container-certified-form-']");
 
-                                    for (var i = 0; i < containers.length; i++) {
-                                        var container = containers[i];
+                                        for (var i = 0; i < containers.length; i++) {
+                                            var container = containers[i];
 
-                                        if (
-                                            getComputedStyle(container).display !== 'none' &&
-                                            container.querySelector("[id^='certified-form-']")
-                                        ) {
-                                            containerParent = container;
-                                            break;
+                                            if (
+                                                getComputedStyle(container).display !== 'none' &&
+                                                container.querySelector("[id^='certified-form-']")
+                                            ) {
+                                                containerParent = container;
+                                                break;
+                                            }
                                         }
-                                    }
 
-                                    if (containerParent) {
-                                        var htmlContainerPreviews = containerParent.querySelector('#html-container-previews');
+                                        if (containerParent) {
+                                            var htmlContainerPreviews = containerParent.querySelector('#html-container-previews');
 
-                                        if (htmlContainerPreviews) {
-                                            htmlContainerPreviews.appendChild(canvas);
+                                            if (htmlContainerPreviews) {
+                                                htmlContainerPreviews.appendChild(canvas);
+                                            } else {
+                                                console.error("No se encontró el contenedor 'html-container-previews' dentro del contenedor padre.");
+                                            }
                                         } else {
-                                            console.error("No se encontró el contenedor 'html-container-previews' dentro del contenedor padre.");
+                                            console.error("No se encontró el contenedor padre adecuado sin estilo 'display: none' y con hijos que cumplan el criterio.");
                                         }
-                                    } else {
-                                        console.error("No se encontró el contenedor padre adecuado sin estilo 'display: none' y con hijos que cumplan el criterio.");
-                                    }
+                                    });
                                 });
                             });
-                        });
-                    } else {
-                        console.error('Error en la generación del PDF: ' + response.message);
+                        } else {
+                            console.error('Error en la generación del PDF: ' + response.message);
+                        }
+                    },
+                    error: function (xhr, textStatus, error) {
+                        // Manejo de errores
+                    },
+                    complete: function () {
+                        loader.css('display', 'none');
+                        submitButton.css('display', 'block')
                     }
-                },
-                error: function (xhr, textStatus, error) {
-                    // Manejo de errores
-                },
-                complete: function () {
-                    loader.css('display', 'none');
-                    submitButton.css('display', 'block')
-                }
-            });
+                });
+            }
         });
     });
 })(jQuery);

@@ -81,7 +81,9 @@
             word-wrap: break-word;
         }
         #back>div:nth-child(1) img{
-            max-height: 100px;
+            max-width:190px;
+            height: auto;
+            width: 190px;
         }
         #back>div:nth-child(1)::after {
             content: "";
@@ -93,7 +95,7 @@
             transform: translateX(-50%);
             height: 250px;
         }    
-
+    
         #back .details {
             word-wrap: break-word;
             display: inherit;
@@ -122,7 +124,7 @@
             text-align: center;
         }
         #back div p.name {
-            font-size: 2rem !important;
+            font-size:1.6rem !important;
             font-weight: 600;
             color: #484646;
             margin-top: 30px;

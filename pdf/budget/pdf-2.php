@@ -80,7 +80,8 @@
 
 
         .logo img {
-            height: 80px;
+            height: auto;
+            width: 150px;
         }
 
         .container-business p {

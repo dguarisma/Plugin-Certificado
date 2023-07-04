@@ -189,57 +189,57 @@
     <div class="form-row" style="text-align: left;margin-bottom: 0px;">
       <div class="column-quarter">
         <p><strong>Nombre</strong></p>
-        <span class="wpcf7-form-control-wrap">
+        <p><span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="name" id="name" maxlength="50"
             placeholder="Ingrese Nombre" required>
-        </span>
+        </span></p>
      
       </div>
       <div class="column-quarter">
         <p><strong>Apellido</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="surname" id="surname" maxlength="50"
             placeholder="Ingrese Apellido" required>
-        </span>
+        </span></p>
       </div>
       <div class="column-quarter" style="text-align: left;">
         <p><strong>Cargo</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
            <input size="40" required type="text" name="job_profile" id="job_profile" maxlength="50"
             placeholder="Ingrese Cargo" required>
-        </span>
+        </span></p>
       </div>
          <label class="error-label"></label>
     </div>
     <div class="form-row" style="text-align: left;">
       <div class="column-full">
         <p><strong>Dirección</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="address" id="address" maxlength="50"
             placeholder="Ingrese Dirección" required>
-        </span>
+        </span></p>
         <label class="error-label"></label>
       </div>
       <div class="column-quarter">
         <p><strong>Teléfono</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="phone" id="phone" maxlength="50"
             placeholder="000 000-000">
-        </span>
+        </span></p>
       </div>
       <div class="column-quarter" style="text-align: left;">
         <p><strong>Email</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
            <input size="40" required type="text" name="email" id="email" maxlength="50"
             placeholder="email@gmail.com">
-        </span>
+        </span></p>
       </div>
         <div class="column-quarter" style="text-align: left;">
         <p><strong>Web site (opcional)</strong></p>
-        <span class="wpcf7-form-control-wrap">
+        <p><span class="wpcf7-form-control-wrap">
            <input size="40" type="text" name="web_site" id="web_site" maxlength="50"
             placeholder="www.example.com">
-        </span>
+        </span></p>
       </div>
     </div>
     <div class="form-row" style="justify-content: right;">

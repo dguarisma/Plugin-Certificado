@@ -164,26 +164,26 @@
     <div class="form-row" style="text-align: left;">
       <div class="column-full">
         <p><strong>Nombre de tu empresa</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="business_name" id="business_name" maxlength="50"
             placeholder="Ingrese Nombre de tu empresa" required>
-        </span>
+        </span></p>
         <label class="error-label"></label>
       </div>
       <div class="column-full">
         <p><strong>¿Como le gustaría que realicen el pago de esta cotización?</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
           <textarea cols="40" rows="3" name="payment_information" id="payment_information"
             placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"
             maxlength="200"></textarea>
-        </span>
+        </span></p>
       </div>
       <div class="column-full" style="text-align: left;">
         <p><strong>Escribe el nombre de tu cliente</strong></p>
-        <span class="wpcf7-form-control-wrap">
+       <p> <span class="wpcf7-form-control-wrap">
           <textarea cols="40" rows="3" maxlength="200" name="invoice_to" id="invoice_to"
             placeholder="Ingrese nombre de tu cliente"></textarea>
-        </span>
+        </span></p>
       </div>
     </div>
 

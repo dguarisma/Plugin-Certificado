@@ -124,11 +124,20 @@ function certified_generator_fonts_page()
 function records_form_one_page()
 {
     global $wpdb;
-    $table_name1 = $wpdb->prefix . 'records_form_one';
-
-    // Obtener registros de la primera tabla
-    $records1 = $wpdb->get_results("SELECT * FROM $table_name1");
-
+  
+    $table = array(
+        'one' => $wpdb->prefix. 'records_form_one',
+        'two' => $wpdb->prefix .'records_form_two',
+        'three' => $wpdb->prefix .'records_form_three'
+    );
+       $table_name1 =  'records_form_one';
+    $records = array();
+    
+    foreach ($table as $key => $tableName) {
+        $query = "SELECT * FROM $tableName";
+        $result = $wpdb->get_results($query);
+        $records[$key] = $result;
+    }
     ?>
 
     <div class="wrap">
@@ -152,14 +161,14 @@ function records_form_one_page()
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($records1 as $record) : ?>
+                    <?php foreach ($records['one'] as $record) : ?>
                         <tr>
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->image; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
-                            <td><?php echo $record->business_name; ?></td>
-                            <td><?php echo $record->invoice_to; ?></td>
-                            <td><?php echo $record->payment_information; ?></td>
+                            <td  style="text-align: center;"><?php echo $record->business_name; ?></td>
+                            <td  style="text-align: center;"><?php echo $record->invoice_to; ?></td>
+                            <td style="text-align: center;"><?php echo $record->payment_information; ?></td>
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->background; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
@@ -186,14 +195,14 @@ function records_form_one_page()
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($records1 as $record) : ?>
+                    <?php foreach ($records['two'] as $record) : ?>
                         <tr>
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->image; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
-                            <td><?php echo $record->business_name; ?></td>
-                            <td><?php echo $record->invoice_to; ?></td>
-                            <td><?php echo $record->payment_information; ?></td>
+                            <td  style="text-align: center;"><?php echo $record->business_name; ?></td>
+                            <td style="text-align: center;"><?php echo $record->invoice_to; ?></td>
+                            <td  style="text-align: center;"><?php echo $record->payment_information; ?></td>
                             <td style="text-align: center;">
                                 <img src="<?php echo $record->background; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
                             </td>
@@ -215,20 +224,26 @@ function records_form_one_page()
                         <th style="text-align: center;">Cargo</th>
                         <th style="text-align: center;">Información</th>
                         <th style="text-align: center;">Diseño Seleccionado</th>
-                        <th style="text-align: center;">Redes Sociales</th>
-                        <th>QR</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach ($records['three'] as $record) : ?>
                         <tr>
-                        <td style="text-align: center;"></td>
-                        <td style="text-align: center;"></td>
-                        <td style="text-align: center;"></td>
-                        <td style="text-align: center;"></td>
-                        <td style="text-align: center;"></td>
-                        <td style="text-align: center;"></td>
-                        <td></td>          
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->logo; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
+                            <td><?php echo $record->name; ?> <?php echo $record->surname; ?></td>
+                            <td><?php echo $record->job_profile; ?></td>
+                            <td> 
+                            <p>Teléfono: <?php echo $record->phone; ?></p>
+                            <p>Email: <?php echo $record->email; ?></p>
+                            <p>Dirección: <?php echo $record->address; ?></p>                           
+                            </td>
+                            <td style="text-align: center;">
+                                <img src="<?php echo $record->background_front; ?>" style="min-width: 80px; max-width: 80px;" alt="Diseño Descargado">
+                            </td>
                         </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

@@ -75,11 +75,14 @@
         }
 
         .logo {
-            padding-left: 30px
+            padding-left: 30px;
+            padding-top:20px;
+            
         }
 
         .logo img {
-            height: 100px;
+            height: auto;
+            width: 150px;
         }
 
         .container-business p {
