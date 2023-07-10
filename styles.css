@@ -519,7 +519,7 @@ img.vc_single_image-img.attachment-full {
 }
 
 
-#progressbar #previews:before {
+#progressbar #previews_option:before {
   font-family: FontAwesome;
   content: "\f03e";
 }
@@ -543,10 +543,17 @@ img.vc_single_image-img.attachment-full {
   font-family: FontAwesome;
   content: "\f129";
 }
-
+#progressbar #services:before {
+  font-family: FontAwesome;
+  content: "\f14b";
+}
  #progressbar #conditions:before {
   font-family: FontAwesome;
   content: "\f15b"
+}
+#contact_information:before {
+  font-family: FontAwesome;
+  content: "\f129";
 }
 
 #certified-form-3 #progressbar #customize_design:before {

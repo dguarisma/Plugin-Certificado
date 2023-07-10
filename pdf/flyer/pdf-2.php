@@ -1,269 +1,170 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
     <style>
-        html,
-        body {
+        body{
             margin: 0;
             padding: 0;
-            font-family: proxima-nova-light, sans-serif !important;
+            box-sizing: border-box;
         }
-
-        .container {
-            width: 825px;
-            margin: 0 auto;
-            background-size: cover;
+        .main{
+            background-image: url("https://animal.pymdesarrollo.com/wp-content/uploads/2023/07/flyer-2.png");
+            height: auto;
+            width: 800px;
             background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+            background-repeat: no-repeat;
+            background-size: cover;
             background-position: center;
-            position: relative;
-            font-family: proxima-nova-light, sans-serif !important;
         }
-
-        p {
-            font-size: .7rem;
-            font-family: proxima-nova-light, sans-serif !important;
+        .container{
+            max-width: 800px;
         }
-
-        h3,
-        h4,
-        h5 {
-            font-family: proxima-nova-light, sans-serif !important;
-            margin: 0px;
+        .grid{
+            display: grid;
+            grid-template-columns: 345px 100px 345px;
+            gap: 5px;
         }
-
-        h6 {
-            font-family: proxima-nova-light, sans-serif !important;
-            margin: 0px;
-        }
-
-        h3 {
-            font-size: 2rem;
-            color: #2697B7;
-        }
-
-        h4 {
-            font-size: 1.3rem;
-        }
-
-        .container-header {
-            width: 825px;
-        }
-
-        .col-60 {
-            width: 236px;
-            float: left;
-            box-sizing: border-box;
-        }
-
-        .col-40 {
-            width: 585px;
-            float: left;
-            box-sizing: border-box;
-        }
-
-        .col-33 {
-            width: 33.33%;
-            float: left;
-            box-sizing: border-box;
-            padding: 10px;
-        }
-
-        .logo,
-        .container-business {
-            margin-top: 50px;
+        .logo-container{
+            margin-top: 250px;
             height: 100px;
             text-align: center;
         }
-
-
-        .logo img {
-            height: 80px;
+        .text-container{
+            width: 300px;
+            height: 500px;
+            padding: 10px;
+            padding-top: 150px;
         }
-
-        .container-business p {
-            display: inline-block;
+        h1,h2,h3,h4,h5,h6,p{
+            margin: 0!important;
         }
-
-        .container-business .container-date {
-            margin-top: 10px;
-        }
-
-        .container .container-register-items {
-            width: 650px;
+        .icon-container{
             margin: auto;
-            text-align: right;
-            margin-left: auto;
-            margin-right: 0;
-            margin-top: 20px;
+            padding-top: 420px;
         }
-
-        .container .container-info {
-            text-align: center;
-            width: 585px;
-            position: absolute;
-            bottom: 280px;
-            padding-bottom: 20px;
-            padding-left: 20px;
-            right: 0px;
+        .p-container{
+            margin: auto;
+            padding-top: 500px;
         }
-
-        .container .container-register-items table {
-            border-collapse: collapse;
-            width: 650px;
-            margin: 0 auto;
-            text-align: center;
-            margin-top: 70px;
-             padding-right: 20px
+        footer{
+            display: grid;
+            grid-template-columns: 250px 250px 250px;
+            padding: 20px;
+            margin: auto;
+            gap: 10px;
         }
-
-        .container .container-register-items th {
-            color: #2697B7;
-            padding-bottom: 45px;
+        .logo-footer-container{
+            margin: auto;
+            padding-right: 30px;
+            border-right: 5px solid white;
         }
-
-
-        .container .container-register-items td {
-            border-bottom: 1px solid #B6B6B6;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            font-size: .8rem;
-        }
-
-
-
-        .container .container-info-terms {
-            position: absolute;
-            width: 240px;
-             bottom: 280px;
-            color: white;
-            text-align: center;
-        }
-
     </style>
 </head>
-
-<body class="container" style="background-image: url('<?php echo $background; ?>');">
-    <table class="container-header">
-        <tr>
-            <td class="col-60">
-                <div class="logo">
-                    <img src="<?php echo $uploaded_images['image']; ?>" alt="Logo" srcset="<?php echo $uploaded_images['image']; ?>">
-                </div>
-            </td>
-            <td class="col-40">
-                <div class="container-business">
-                    <h3><?php echo strtoupper($business_name); ?></h3>
-                    <div class="container-date">
-                        <p><strong>Fecha</strong></p>
-                        <p><strong><?php echo date("d/m/Y"); ?></strong></p>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="grid">
+                <!--CONTENEDOR GRID COLUMNA 1-->
+                <div>
+                    <div class="logo-container">
+                        <img src="logo.png" alt="" style="height: auto;width: 150px;">
+                    </div>
+                    <div class="text-container">
+                        <h1>LLEVA TU<br> NEGOCIO A OTRO<br><span>NIVEL</span></h1><br>
+                        <h3>LOREM IPSUM</h3><br>
+                        <h6>DOLOR SUM CONSECUT</h6><br>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolore adipisci est officiis voluptatibus ip¿rehenderit vero, vitae ea?</p><br>
+                        <h3>LOREM IPSUM</h3><br>
+                        <h6>DOLOR SUM CONSECUT</h6><br>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolore adipisci est officiis voluptatibus ip¿rehenderit vero, vitae ea?</p><br>
                     </div>
                 </div>
-            </td>
-        </tr>
-    </table>
+                <!--CONTENEDOR GRID COLUMNA 2-->
+                <div class="icon-container">
+                    <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                        <div style="display: grid;padding-top: 13px;justify-content: center;">
+                            <i class="fa fa-pencil fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                        </div>
+                        
 
-    <div class="container-register-items">
-        <table>
-            <tr>
-                <th>N.</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Total</th>
-            </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-        </table>
+                    </div>
+                    <br><br>
+                    <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                        <div style="display: grid;padding-top: 13px;justify-content: center;">
+                            <i class="fa fa-lightbulb-o fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                        </div>
+                        
+
+                    </div>
+                    <br><br>
+                    <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                        <div style="display: grid;padding-top: 13px;justify-content: center;">
+                            <i class="fa fa-cog fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                        </div>
+                        
+
+                    </div>
+                    <br><br>
+                    <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                        <div style="display: grid;padding-top: 13px;justify-content: center;">
+                            <i class="fa fa-comment-o fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--CONTENEDOR GRID COLUMNA 2-->
+                <div>
+                    <div class="p-container">
+                        <h3 style="color: white;">LOREM IPSUM</h3><br>
+                        <h6 style="color: white;">DOLOR SUM CONSECUT</h6><br>
+                        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolore adipisci est officiis voluptatibus ip¿rehenderit vero, vitae ea?</p><br>
+                        <h3 style="color: white;">LOREM IPSUM</h3><br>
+                        <h6 style="color: white;">DOLOR SUM CONSECUT</h6><br>
+                        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolore adipisci est officiis voluptatibus ip¿rehenderit vero, vitae ea?</p><br>
+                        <h3 style="color: white;">LOREM IPSUM</h3><br>
+                        <h6 style="color: white;">DOLOR SUM CONSECUT</h6><br>
+                        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolore adipisci est officiis voluptatibus ip¿rehenderit vero, vitae ea?</p><br>
+                        <h3 style="color: white;">LOREM IPSUM</h3><br>
+                        <h6 style="color: white;">DOLOR SUM CONSECUT</h6><br>
+                        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolore adipisci est officiis voluptatibus ip¿rehenderit vero, vitae ea?</p><br>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="logo-footer-container">
+                    <img src="logo.png" alt="" style="height: auto;width: 150px;">
+                </div>
+                <div>
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-envelope-o fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+
+                        <p style="color: white;padding-top: 10px;">ourmahile.com</p>
+                    </div>
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-phone fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+
+                        <p style="color: white;padding-top: 10px;">55 50 59 94 13</p>
+                    </div>
+                </div>
+                <div>
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-facebook fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+                        <p style="color: white;padding-top: 10px;">Facebook Page</p>
+                    </div>
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-map-marker fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+                        <p style="color: white;padding-top: 10px;">Adress here Number 123</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-
-    <table class="container-info">
-        <tr>
-            <td>
-                <h5 style="text-align: left;margin-bottom: 30px;">
-                    <strong> Gracias por hacer negocios</strong>
-                </h5>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">
-                <h5>Información de Pago</h5>
-                <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $invoice_to; ?></p>
-            </td>
-            <td style="text-align: left; padding-right: 20px">
-                    <h5>Total:______________________</h5>
-            </td>
-        </tr>
-        <tr>
-            <td style='margin-top:40px'>
-            </td>
-        </tr>
-    </table>
-    <table class="container-info-terms">
-        <tr>
-            <td>
-                <h5 style="font-size: 1.1rem;">Facturar a</h5>
-                <p><?php echo $payment_information; ?></p>
-            </td>           
-        </tr>
-        <tr>
-            <td>
-                <h5>Terminos y Condiciones</h5>
-                <p
-                    style="padding:10px 15px; font-size: .6rem;">
-                    <?php echo $terms; ?>
-                </p>
-            </td>
-        </tr>
-    </table>
 </body>
 </html>

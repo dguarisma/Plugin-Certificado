@@ -10,7 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($certified_form_action === 'process_form_one') {
             process_form_one();
-        } elseif ($certified_form_action === 'process_form_three') {
+        } elseif ($certified_form_action === 'process_form_two') {
+            certified_form_two();
+        }
+        elseif ($certified_form_action === 'process_form_three') {
             process_form_three();
         }
     }
@@ -93,6 +96,114 @@ function process_form_one() {
             'message' => 'Error: The template file does not exist.'
         ]);
     }
+}
+function certified_form_two() {
+    session_start();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['business_name']) && isset($_POST['about_us']) 
+    && isset($_POST['why_choose_us']) && isset($_POST['service_1']) && isset($_POST['service_2'])
+    && isset($_POST['optradio']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
+
+        $business_name = sanitize_text_field($_POST['business_name']);
+        $about_us= sanitize_text_field($_POST['about_us']);
+        $why_choose_us = sanitize_text_field($_POST['why_choose_us']);
+        $service_1 = sanitize_text_field($_POST['service_1']);
+        $service_2 = sanitize_text_field($_POST['service_2']);
+        $service_3 = sanitize_text_field($_POST['service_3']);
+        $service_4 = sanitize_text_field($_POST['service_4']);
+        $address = sanitize_text_field($_POST['address']);
+        $phone = sanitize_text_field($_POST['phone']);
+        $email = sanitize_text_field($_POST['email']);
+        $web_site = $_POST['web_site'];
+        $activeBackground = $_POST['optradio'];
+
+        $uploads = array(
+            'logo' => 'logo',
+            'photo' => 'photo',
+            'background' => 'background'
+        );
+
+        $uploaded_images = array();
+
+        foreach ($uploads as $type => $name) {
+            ${$type} = '';
+            if (isset($_FILES[$name]) && $_FILES[$name]['error'] === UPLOAD_ERR_OK) {
+                $file = $_FILES[$name];
+                ${$type} = certified_generator_upload_image($file);
+                $uploaded_images[$type] = ${$type};
+            }
+        }
+        global $wpdb;
+        $certified_table_name = $wpdb->prefix . 'records_form_one';
+        $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
+
+        $wpdb->insert($certified_table_name, array(
+            'business_name' => strtoupper($business_name),
+            'about_us' => $about_us,
+            'why_choose_us' => $why_choose_us,
+            'service_1' => $service_1,
+            'service_2' => $service_2,
+            'service_3' => $service_3,
+            'service_4' => $service_4,
+            'logo' => $uploaded_images['logo'],
+            'photo' => $uploaded_images['logo'],
+            'address' => $address,
+            'phone' => $phone,
+            'email' => $email,
+            'web_site' => $web_site,
+            'background' => $background,
+        ));
+
+        $template_file = '';
+       switch ($activeBackground) {
+        case '1':
+            $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-1.php';
+            break;
+        case '2':
+            $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-2.php';
+            break;
+        case '3':
+            $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-3.php';
+            break;
+        default:
+            wp_send_json([
+                'success' => false,
+                'message' => 'Error: The template file does not exist.'
+            ]);
+            break;
+    }
+
+    if (file_exists($template_file)) {
+        $dompdf = new Dompdf();
+        $dompdf->set_option('isRemoteEnabled', true);
+        $dompdf->set_option('isPhpEnabled', true);
+        $dompdf->set_option('defaultFont', $font_css_url);
+
+        ob_start();
+        include($template_file);
+        $html = ob_get_clean();
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+        $pdf_content = $dompdf->output();
+        wp_send_json([
+            'success' => true,
+            'message' => 'Successful registration',
+            'pdf_content' => base64_encode($pdf_content)
+        ]);
+    } else {
+        wp_send_json([
+            'success' => false,
+            'message' => 'Error: The template file does not exist.'
+        ]);
+    }
+    } else {
+        $response = array(
+            'success' => false,
+            'message' => 'Error: Los datos del formulario no son válidos.'
+        );
+    }
+
+    wp_send_json($response);
 }
 
 function process_form_three() {

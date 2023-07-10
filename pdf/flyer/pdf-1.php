@@ -1,267 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Document</title>
     <style>
-        html,
-        body {
+        body{
             margin: 0;
             padding: 0;
-            font-family: proxima-nova-light, sans-serif !important;
+            box-sizing: border-box;
         }
-
-        .container {
-            width: 825px;
-            margin: 0 auto;
-            background-size: cover;
+        h1,h2{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            background-image: url('fondo-flyer-1.png');
+            height: auto;
+            width: 800px;
             background-repeat: no-repeat;
-            background-position: center;
-            font-family: proxima-nova-light, sans-serif !important;
-        }
-        p{
-            font-size: .7rem;
-            font-family: proxima-nova-light, sans-serif !important;
-        }
-        h3,
-        h4,
-        h5 {
-            color: #2697B7;
-            font-family: proxima-nova-light, sans-serif !important;
-            margin: 0px;
-        }
-
-        h6 {
-            font-family: proxima-nova-light, sans-serif !important;
-            margin: 0px;
-        }
-
-        h3 {
-            font-size: 2rem;
-        }
-
-        h4 {
-            font-size: 1.3rem;
-        }
-
-        .container-header {
-             width: 825px;
-        }
-
-        .col-60 {
-            width: 400px;
-            float: left;
-            box-sizing: border-box;
-        }
-
-        .col-40 {
-            width: 345px;
-            float: left;
-            box-sizing: border-box;
-        }
-
-        .col-33 {
-            width: 33.33%;
-            float: left;
-            box-sizing: border-box;
-            padding: 10px;
-        }
-
-        .logo,
-        .container-business {
-            margin-top: 47px;
-            height: 100px;
-            text-align: center;
-        }
-
-        .logo {
-            padding-left: 30px
-        }
-
-        .logo img {
-            height: 100px;
-        }
-
-        .container-business p {
-            display: inline-block;
-        }
-
-        .container-business .container-date {
-            margin-top: 10px;
-        }
-
-        .container .container-register-items,
-        .container .container-info {
-            width: 100%;
-        }
-
-        .container .container-register-items table {
-            width: 700px;
+            background-size: cover;
             margin: 0 auto;
-            border-collapse: collapse;
-            text-align: center;
-            margin-top: 70px;
+        }
+        .container{
+            max-width: 1200px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            grid-gap: 10px;
         }
 
-        .container .container-register-items th {
-            color: #2697B7;
-            padding-bottom: 30px;
+        .column {
+            background-color: #f2f2f2;
+            padding: 20px;
         }
-
-
-        .container .container-register-items td {
-            border-bottom: 1px solid #B6B6B6;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            font-size: .8rem;
-        }
-
-     
-        .container .container-info {
-            text-align: center;
-            margin: 0 auto;
-            width: 700px;
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-
-        .container .container-info-terms {
-            text-align: center;
-            margin: 0 auto;
-            width: 700px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-        }
-
-        .container .container-info-terms .col-60 {
-            width: 490px;
-        }
-
-        .container .container-info-terms .col-40 {
-            width: 200px;
-        }
+        .footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
     </style>
 </head>
-
-<body class="container" style="background-image: url('<?php echo $background; ?>');">
-    <div>
-        <table class="container-header">
-            <tr>
-                <td class="col-60">
-                    <div class="logo">
-                    <img src="<?php echo $uploaded_images['image']; ?>" alt="Logo" srcset="<?php echo $uploaded_images['image']; ?>">
+<body>
+    <div class="main">
+        <div class="container">
+            <div style="padding: 250px 160px 460px 160px;
+            position: absolute;">
+                 <img src="logo.png" width="150" height="auto">
+            </div><br><br><br><br>
+            
+            </div>
+            <div class="container" style="padding-top: 335px;">
+                <div class="column1" style="padding: 20px;">
+                    <div>
+                        <h2>LLEVA TU<br> NEGOCIO A OTRO<br></h2><h1>NIVEL</h1>
+                        <h3>LOREM IPSUM</h3>
+                        <span>DOLOR SUM CONSECUTER</span>
+                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
+                      
+                        <h3>LOREM IPSUM</h3>
+                        <span>DOLOR SUM CONSECUTER</span>
+                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
                     </div>
-                </td>
-                <td class="col-40">
-                    <div class="container-business">
-                        <h3><?php echo strtoupper($business_name); ?></h3>
-                        <div class="container-date">
-                            <p><strong>Fecha</strong></p>
-                            <p><strong><?php echo date("d/m/Y"); ?></strong></p>
+                    
+                </div>
+                <div class="column2">
+                    <div class="direction" style="padding-top: 100px;">
+                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                            <div style="display: grid;padding-top: 13px;justify-content: center;">
+                                <i class="fa fa-pencil fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                            <div style="display: grid;padding-top: 13px;justify-content: center;">
+                                <i class="fa fa-lightbulb-o fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                            <div style="display: grid;padding-top: 13px;justify-content: center;">
+                                <i class="fa fa-cog fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
+                            <div style="display: grid;padding-top: 13px;justify-content: center;">
+                                <i class="fa fa-comment-o fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
+                            </div>
+                            
                         </div>
                     </div>
-                </td>
-            </tr>
-        </table>
+                </div>
+                <div class="column3" style="padding-top: 80px;">
+                    <div style="font-size: small;color: white;">
+                        <h3 style="margin: 0;">LOREM IPSUM</h3>
+                        <span>DOLOR SUM CONSECUTER</span>
+                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
+                        <h3 style="margin: 0;">LOREM IPSUM</h3>
+                        <span>DOLOR SUM CONSECUTER</span>
+                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
+                        <h3 style="margin: 0;">LOREM IPSUM</h3>
+                        <span>DOLOR SUM CONSECUTER</span>
+                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
+                        <h3 style="margin: 0;">LOREM IPSUM</h3>
+                        <span>DOLOR SUM CONSECUTER</span>
+                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
+                    </div>
+                </div>
+              </div>
+              <div class="footer" style="padding-top: 18px;padding-bottom: 10px;">
+                <div class="column1" style="text-align: center;border-right: 5px solid white;">
+                    <img src="logo.png" width="150" height="auto">
+                </div>
+                <div class="column2" style="text-align: center;">
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-envelope-o fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
 
-        <div class="container-register-items">
-            <table>
-                <tr>
-                    <th>N.</th>
-                    <th>Descripción</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Total</th>
-                </tr>
-              
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+                        <p style="color: white;">ourmahile.com</p>
+                    </div>
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-phone fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+
+                        <p style="color: white;">55 50 59 94 13</p>
+                    </div>
+                </div>
+                <div class="column3">
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-facebook fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+                        <p style="color: white;">Facebook Page</p>
+                    </div>
+                    <div style="display: -webkit-inline-box;">
+                        <i class="fa fa-map-marker fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+                        <p style="color: white;">Adress here Number 123</p>
+                    </div>
+                    </div>
+              </div>
         </div>
-
-        <table class="container-info">
-            <tr>
-                <td class="col-33"  style="text-align: left;">
-                    <h5>Facturar a</h5>
-                    <p><?php echo $invoice_to; ?></p>
-                </td>
-                <td class="col-33" style="text-align: left;">
-                <h5>Información de Pago</h5>
-                    <p><?php echo $payment_information; ?></p>
-                </td>
-                <td class="col-33" style="text-align: left;">
-                    <h5>Total:______________________</h5>
-                </td>
-            </tr>
-        </table>
-        <table class="container-info-terms">
-
-            <tr>
-                <td class="col-60">
-                    <h5 style="text-align: left;">Terminos y Condiciones</h5>
-                    <p
-                        style="padding-bottom: 10px;border-bottom: 1px solid black;font-size: .6rem;text-align: left;margin: 0px;padding-top: 10px;">
-                        <?php echo $terms; ?>
-                    </p>
-                </td>
-                <td class="col-40">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                <h5 style="text-align: left;">
-                  <strong> Gracias por hacer negocios</strong>
-               </h5>
-                </td>
-            </tr>
-        </table>
-    </div>
 </body>
 </html>

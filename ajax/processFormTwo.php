@@ -1,4 +1,4 @@
-/flyer<?php
+<?php
 require_once(plugin_dir_path(__FILE__) . '../dompdf/autoload.inc.php');
 require_once(plugin_dir_path(__FILE__) . '../includes/constants.php');
 $font_css_url = esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/pdf/fonts.css';
@@ -8,17 +8,26 @@ use Dompdf\Dompdf;
 function certified_form_two_action() {
     session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razon_social']) && isset($_POST['informacion_pago']) 
-    && isset($_POST['factura_a']) && isset($_POST['terms']) && isset($_POST['optradio'])) {
-        $razon_social = sanitize_text_field($_POST['razon_social']);
-        $informacion_pago = sanitize_text_field($_POST['informacion_pago']);
-        $factura_a = sanitize_text_field($_POST['factura_a']);
-        $terms = sanitize_text_field($_POST['terms']);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['business_name']) && isset($_POST['about_us']) 
+    && isset($_POST['why_choose_us']) && isset($_POST['service_1']) && isset($_POST['service_2'])
+    && isset($_POST['optradio']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
+
+        $business_name = sanitize_text_field($_POST['business_name']);
+        $about_us= sanitize_text_field($_POST['about_us']);
+        $why_choose_us = sanitize_text_field($_POST['why_choose_us']);
+        $service_1 = sanitize_text_field($_POST['service_1']);
+        $service_2 = sanitize_text_field($_POST['service_2']);
+        $service_3 = sanitize_text_field($_POST['service_3']);
+        $service_4 = sanitize_text_field($_POST['service_4']);
+        $address = sanitize_text_field($_POST['address']);
+        $phone = sanitize_text_field($_POST['phone']);
+        $email = sanitize_text_field($_POST['email']);
+        $web_site = $_POST['web_site'];
         $activeBackground = $_POST['optradio'];
 
         $uploads = array(
-            'image' => 'image',
-            'firma' => 'firma',
+            'logo' => 'logo',
+            'photo' => 'photo',
             'background' => 'background'
         );
 
@@ -37,49 +46,38 @@ function certified_form_two_action() {
         $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
 
         $wpdb->insert($certified_table_name, array(
-            'razon_social' => strtoupper($razon_social),
-            'informacion_pago' => strtoupper($informacion_pago),
-            'factura_a' => strtoupper($factura_a),
-            'terms' => $terms,
-            'image' => $uploaded_images['image'],
-            'firma' => $uploaded_images['firma'],
+            'business_name' => strtoupper($business_name),
+            'about_us' => $about_us,
+            'why_choose_us' => $why_choose_us,
+            'service_1' => $service_1,
+            'service_2' => $service_2,
+            'service_3' => $service_3,
+            'service_4' => $service_4,
+            'logo' => $uploaded_images['logo'],
+            'photo' => $uploaded_images['logo'],
+            'address' => $address,
+            'phone' => $phone,
+            'email' => $email,
+            'web_site' => $web_site,
             'background' => $background,
         ));
 
-      /*   $certified_id = $wpdb->insert_id; 
-        $items_table_name = $wpdb->prefix . 'items_quotation';
-        $descripciones = $_POST['descripcion'];
-        $cantidades = $_POST['cantidad'];
-        $precios = $_POST['precios'];
-
-        foreach ($descripciones as $index => $descripcion) {
-            $cantidad = (int) $cantidades[$index];
-            $precio = (float) $precios[$index];
-
-            $wpdb->insert($items_table_name, array(
-                'certified_id' => $certified_id,
-                'descripcion' => strtoupper($descripcion),
-                'cantidad' => $cantidad,
-                'precios' => $precio,
-            ));
-        } */
-
         $template_file = '';
         switch ($activeBackground) {
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
+            case '1':
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-1.php';
                 break;
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']:
+            case '2':
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-2.php';
                 break;
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']:
+            case '3':
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/flyer/pdf-3.php';
                 break;
             default:
-                $response = array(
+                wp_send_json([
                     'success' => false,
-                    'message' => 'Error: El archivo del template no existe.'
-                );
+                    'message' => 'Error: The template file does not exist.'
+                ]);
                 break;
         }
 
