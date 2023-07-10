@@ -45,6 +45,7 @@
         }
         #front>img {
             max-height: 100px;
+            max-width: 100px;
             margin-top: 75px;
         }
 
