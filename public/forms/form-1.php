@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css"
   href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__))) . 'fonts/forms/fonts.css'; ?>">
 <style>
-
   #certified-form-1 fieldset {
     background: white;
     border: 0 none;
@@ -62,9 +61,9 @@
     <ul id="progressbar">
       <li id="template" class="active"> Escoge tu plantilla</li>
       <li id="logo">Sube tu logo</li>
-      <li id="company_information">Información de la Empresa</li>
+      <li id="company_information">Información de tu empresa</li>
       <li id="conditions"> Condiciones de la cotización</li>
-      <li id="previews">Ver diseño</li>
+      <li id="previews_option">Ver diseño</li>
       <li id="confirm">Confirmación</li>
     </ul>
     <div class="progress">
@@ -73,6 +72,11 @@
   </div>
   <fieldset>
     <div class="form-row">
+      <h3 style="margin: 0 auto;">Marca la casilla del diseño que quieres utilizar</h3>
+    </div>
+
+    <div class="form-row">
+
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
@@ -124,12 +128,13 @@
     </div>
     <br>
     <div class="form-row">
-      <h4>¿No te gusta ninguno de estos 3 diseños? Sube tu imagen con estas medidas 724px * 1024px
-        <br> ¿No sabes como hacerlo? <br> Puedes pedirle a tu amigo diseñador que te ayude a generar esta imagen
+    <h4>Si prefieres utilizar un diseño personalizado, descarga <a href="#" download>AQUÍ</a> la guía para que hagas
+        tu propio diseño con estas medidas 724px * 1024px.
         <br>
+       <p> Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu plantilla.</p>
       </h4>
       <br>
-      <div class="column-full" style="text-align: left;">
+      <div class="column-full" style="text-align: center;">
         <p><strong>Subir imagen de fondo</strong></p>
         <p>
           <span class="wpcf7-form-control-wrap">
@@ -138,14 +143,16 @@
         </p>
       </div>
     </div>
-    <div class="form-row" style="justify-content: right;">
+    <div class="form-row" style="justify-content: space-between;">
+      <button id="back" class="next action-button">Regresar al inicio</button>
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>
   <fieldset>
     <div class="form-row" style="margin-bottom: 30px;text-align: center">
-      <div class="column-half" style="text-align: left;">
-        <p><strong>Subir Logo</strong></p>
+      <div class="column-half" style="text-align: center;">
+        <h5><strong>Sube el logo de tu empresa con medidas máximo de 250px * 250px</strong></h5>
+        <p>Te recomendamos que utilices formato PNG y con fondo transparente. <span style="color:red">*</span></p>
         <p>
           <span class="wpcf7-form-control-wrap">
             <input size="40" required type="file" name="image" id="image-upload" accept="image/*">
@@ -163,28 +170,39 @@
   <fieldset>
     <div class="form-row" style="text-align: left;">
       <div class="column-full">
-        <p><strong>Nombre de tu empresa</strong></p>
-       <p> <span class="wpcf7-form-control-wrap">
-          <input size="40" required type="text" name="business_name" id="business_name" maxlength="50"
-            placeholder="Ingrese Nombre de tu empresa" required>
-        </span></p>
-        <label class="error-label"></label>
+        <p><strong>Nombre de tu empresa</strong> <span style="color:red">*</span></p>
+        <p> <span class="wpcf7-form-control-wrap">
+            <input size="40" required type="text" name="business_name" id="business_name" maxlength="50"
+              placeholder="Ingrese Nombre de tu empresa" required style="margin:0px">
+            <label class="error-label"></label>
+          </span>
+        </p>
+
       </div>
       <div class="column-full">
-        <p><strong>¿Como le gustaría que realicen el pago de esta cotización?</strong></p>
-       <p> <span class="wpcf7-form-control-wrap">
-          <textarea cols="40" rows="3" name="payment_information" id="payment_information"
-            placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"
-            maxlength="200"></textarea>
-        </span></p>
+        <p><strong>Escribe las formas de pago que acepta tu empresa</strong></p>
+        <p>
+          <small>Pago en efectivo</small>,
+          <small>Consignación bancaria en Bancolombia a la cuenta de ahorros xxxxxxxx</small>,
+          <small>Pago con tarjeta de Crédito</small>,
+          <small>Pago con Nequi al teléfono XXXXXX</small>,
+          <small>Daviplata</small>
+        </p>
+        <p>
+          <span class="wpcf7-form-control-wrap">
+            <textarea cols="40" rows="3" name="payment_information" id="payment_information"
+              placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"
+              maxlength="200"></textarea>
+          </span>
+        </p>
       </div>
-      <div class="column-full" style="text-align: left;">
+      <!-- <div class="column-full" style="text-align: left;">
         <p><strong>Escribe el nombre de tu cliente</strong></p>
        <p> <span class="wpcf7-form-control-wrap">
           <textarea cols="40" rows="3" maxlength="200" name="invoice_to" id="invoice_to"
             placeholder="Ingrese nombre de tu cliente"></textarea>
         </span></p>
-      </div>
+      </div> -->
     </div>
 
     <div class="form-row" style="justify-content: right;">
@@ -195,7 +213,11 @@
   <fieldset>
     <div class="form-row" style="text-align: left;">
       <div class="column-full">
-        <p><strong>Condiciones de la propuesta</strong></p>
+        <p><strong>Escribe las condiciones de tu cotización</strong></p>
+        <p>
+          <small>Ejemplo: Cotización válida por 30 días calendario. Esta cotización no es válida como contrato</small>
+        </p>
+
         <p><span class="wpcf7-form-control-wrap" data-name="terms">
             <textarea cols="70" rows="3" name="terms" id="terms" maxlength="250"></textarea>
           </span>
@@ -209,14 +231,14 @@
     </div>
   </fieldset>
   <fieldset>
-   <div class="column-full">
-        <div id="html-container-previews"></div>
-   </div>
+    <div class="column-full">
+      <div id="html-container-previews"></div>
+    </div>
     <div class="form-row">
       <div class="column-full" style="text-align: center;">
         <div class="form-row" style="justify-content: right;">
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
-          <input type="submit" value="Enviar" class="action-button">
+          <input type="submit" value="Siguiente" class="action-button">
           <div class="loader">
             <div class="loader-wheel"></div>
             <div class="loader-text"></div>

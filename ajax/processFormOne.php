@@ -9,10 +9,10 @@ function certified_form_one_action() {
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['business_name']) && isset($_POST['payment_information']) 
-    && isset($_POST['invoice_to']) && isset($_POST['terms']) && isset($_POST['optradio'])) {
+    && isset($_POST['terms']) && isset($_POST['optradio'])) {
         $business_name = sanitize_text_field($_POST['business_name']);
         $payment_information = sanitize_text_field($_POST['payment_information']);
-        $invoice_to = sanitize_text_field($_POST['invoice_to']);
+        $invoice_to = '';
         $terms = sanitize_text_field($_POST['terms']);
         $activeBackground = $_POST['optradio'];
 

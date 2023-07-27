@@ -41,7 +41,9 @@
     color: gray;
     text-align: left
   }
-
+  #certified-form-3 ul li{
+    width: 20%;
+  }
   @media only screen and (max-width: 600px) {
     .column-half {
       flex: 0 0 100%;
@@ -61,10 +63,9 @@
   <div class="card">
     <ul id="progressbar">
       <li id="template" class="active"> Selecciona diseño de tarjeta de presentación</li>
-       <li id="customize_design">Personaliza tu diseño</li>
       <li id="logo">Sube tu logo</li>
       <li id="company_information">Información de contacto</li>
-      <li id="previews">Ver diseño</li>
+      <li id="previews_option">Ver diseño</li>
       <li id="confirm">Confirmación</li>
     </ul>
     <div class="progress">
@@ -72,6 +73,9 @@
     </div>
   </div>
   <fieldset>
+  <div class="form-row">
+      <h3 style="margin: 0 auto;">Marca la casilla del diseño que quieres utilizar</h3>
+    </div>
     <div class="form-row">
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
@@ -122,16 +126,12 @@
         </div>
       </div>
     </div>
-    <br/>
-    <div class="form-row" style="justify-content: right;">
-      <input type="button" name="next" class="next action-button" value="Siguiente" />
-    </div>
-  </fieldset>
-  <fieldset>
     <div class="form-row" style="margin-bottom: 30px;text-align: center">
        <div class="column-full" style="text-align: center;margin-bottom: 20px;">
-         <h3  style="margin-bottom: 0px;">¿No te gusta el fondo del diseño seleccionado?</h3>
-             <p class="caption">Sube tu diseño con las siguiente medidas 500px * 700px</p>   
+         <h3  style="margin-bottom: 0px;">
+         Si prefieres utilizar un diseño personalizado, descarga <a href="">AQUÍ</a> la guía para que hagas tu propio diseño con estas medidas 500px * 700px. 
+        </h3>
+             <p class="caption">Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu tarjeta.</p>   
       </div>
       <div class="column-half" style="text-align: center;">
         <p><strong>Frente</strong></p>
@@ -152,8 +152,9 @@
         <label class="error-label"></label>
       </div>
     </div>
-    <div class="form-row" style="justify-content: right;">
-      <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+    <br/>
+    <div class="form-row" style="justify-content: space-between;">
+       <button id="back" class="next action-button">Regresar al inicio</button>
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>
@@ -161,23 +162,24 @@
   <fieldset>
     <div class="form-row" style="margin-bottom: 30px;text-align: center">
       <div class="column-full" style="text-align: left;">
-        <p><strong>Subir Logo</strong></p>
+        <h5><strong>Sube el logo de tu empresa con medidas máximo de 250px * 250px</strong></h5>
+        <p>Te recomendamos que utilices formato PNG y con fondo transparente.</p>
         <p>
           <span class="wpcf7-form-control-wrap">
-            <input size="40" type="file" name="logo" id="image-upload" accept="image/*">
+            <input size="40" required type="file" name="logo" id="image-upload" accept="image/*">
+            <label class="error-label"></label>
           </span>
         </p>
-        <label class="error-label"></label>
+
       </div>
         <div class="column-full" style="text-align: left;">
-        <p><strong>Eslogan de la Empresa</strong></p>
+        <p><strong>¿Tu empresa tiene un eslogan o frase que la identifique? </strong></p>
         <p>
           <span class="wpcf7-form-control-wrap">
            <input size="40" type="text" name="slogan" id="slogan" maxlength="50"
             placeholder="Ingrese el Eslogan de tu empresa">
           </span>
         </p>
-        <label class="error-label"></label>
       </div>
     </div>
     <div class="form-row" style="justify-content: right;">
@@ -186,56 +188,65 @@
     </div>
   </fieldset>
   <fieldset>
+    <div class="form-row" style="margin-bottom: 30px;text-align: left">
+      <h5>Tu información de contacto</h5x>
+    </div>
+
     <div class="form-row" style="text-align: left;margin-bottom: 0px;">
       <div class="column-quarter">
-        <p><strong>Nombre</strong></p>
+        <p><strong>Nombres</strong> <span style="color:red">*</span></p>
         <p><span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="name" id="name" maxlength="50"
-            placeholder="Ingrese Nombre" required>
+            placeholder="Ingrese Nombres" required>
+            <label class="error-label"></label>
         </span></p>
      
       </div>
       <div class="column-quarter">
-        <p><strong>Apellido</strong></p>
+        <p><strong>Apellidos</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="surname" id="surname" maxlength="50"
-            placeholder="Ingrese Apellido" required>
+            placeholder="Ingrese Apellidos" required>
+            <label class="error-label"></label>
         </span></p>
       </div>
       <div class="column-quarter" style="text-align: left;">
-        <p><strong>Cargo</strong></p>
+        <p><strong>Cargo o profesión</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
            <input size="40" required type="text" name="job_profile" id="job_profile" maxlength="50"
-            placeholder="Ingrese Cargo" required>
+            placeholder="Ingrese Cargo o profesión" required>
+            <label class="error-label"></label>
         </span></p>
       </div>
-         <label class="error-label"></label>
     </div>
     <div class="form-row" style="text-align: left;">
       <div class="column-full">
-        <p><strong>Dirección</strong></p>
+        <p><strong>Tu dirección</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="address" id="address" maxlength="50"
-            placeholder="Ingrese Dirección" required>
+            placeholder="Ingrese Tu dirección" required>
+            <label class="error-label"></label>
         </span></p>
-        <label class="error-label"></label>
+       
       </div>
       <div class="column-quarter">
-        <p><strong>Teléfono</strong></p>
+        <p><strong>Teléfono</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="phone" id="phone" maxlength="50"
             placeholder="000 000-000">
+            <label class="error-label"></label>
         </span></p>
       </div>
       <div class="column-quarter" style="text-align: left;">
-        <p><strong>Email</strong></p>
+        <p><strong>Correo electrónico</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
            <input size="40" required type="text" name="email" id="email" maxlength="50"
             placeholder="email@gmail.com">
+            <label class="error-label"></label>
         </span></p>
       </div>
         <div class="column-quarter" style="text-align: left;">
-        <p><strong>Web site (opcional)</strong></p>
+        <p><strong>Página web de tu empresa</strong></p>
         <p><span class="wpcf7-form-control-wrap">
            <input size="40" type="text" name="web_site" id="web_site" maxlength="50"
             placeholder="www.example.com">
@@ -255,7 +266,7 @@
       <div class="column-full" style="text-align: center;">
         <div class="form-row" style="justify-content: right;">
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
-          <input type="submit" value="Enviar" class="action-button">
+          <input type="submit" value="Siguiente" class="action-button">
           <div class="loader">
             <div class="loader-wheel"></div>
             <div class="loader-text"></div>

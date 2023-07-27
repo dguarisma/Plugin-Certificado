@@ -176,6 +176,7 @@
                     <div class="details">
                         <div style="text-align: center;margin-bottom: 10px;">
                           <p class="name"><?php echo $nameUser . ' ' . $surname; ?></p>
+                          <br/>
                            <p class="position"><?php echo $job_profile; ?></p>
                         </div>
                         <div>

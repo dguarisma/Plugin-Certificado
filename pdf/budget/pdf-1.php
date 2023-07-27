@@ -232,8 +232,7 @@
         <table class="container-info">
             <tr>
                 <td class="col-33"  style="text-align: left;">
-                    <h5>Facturar a</h5>
-                    <p><?php echo $invoice_to; ?></p>
+                    
                 </td>
                 <td class="col-33" style="text-align: left;">
                 <h5>Información de Pago</h5>

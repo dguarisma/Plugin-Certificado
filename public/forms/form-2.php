@@ -69,7 +69,7 @@
     <ul id="progressbar">
       <li id="template" class="active"> Escoge tu plantilla</li>
       <li id="logo">Sube tu logo</li>
-      <li id="company_information">Información de la Empresa</li>
+      <li id="company_information">Información de tu empresa</li>
       <li id="services">Servicios</li>
       <li id="contact_information">Información Contacto</li>
       <li id="previews_option">Ver diseño</li>
@@ -80,6 +80,9 @@
     </div>
   </div>
   <fieldset>
+  <div class="form-row">
+      <h3 style="margin: 0 auto;">Marca la casilla del diseño que quieres utilizar</h3>
+    </div>
     <div class="form-row">
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
@@ -132,9 +135,10 @@
     </div>
     <br>
     <div class="form-row">
-      <h4>¿No te gusta ninguno de estos 3 diseños? Sube tu imagen con estas medidas 724px * 1024px
-        <br> ¿No sabes como hacerlo? <br> Puedes pedirle a tu amigo diseñador que te ayude a generar esta imagen
+    <h4>Si prefieres utilizar un diseño personalizado, descarga <a href="#" download>AQUÍ</a> la guía para que hagas
+        tu propio diseño con estas medidas 724px * 1024px.
         <br>
+       <p> Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu plantilla.</p>
       </h4>
       <br>
       <div class="column-full" style="text-align: left;">
@@ -146,7 +150,8 @@
         </p>
       </div>
     </div>
-    <div class="form-row" style="justify-content: right;">
+    <div class="form-row" style="justify-content: space-between;">
+       <button id="back" class="next action-button">Regresar al inicio</button>
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>
@@ -296,7 +301,7 @@
       <div class="column-full" style="text-align: center;">
         <div class="form-row" style="justify-content: right;">
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
-          <input type="submit" value="Enviar" class="action-button">
+          <input type="submit" value="Siguiente" class="action-button">
           <div class="loader">
             <div class="loader-wheel"></div>
             <div class="loader-text"></div>

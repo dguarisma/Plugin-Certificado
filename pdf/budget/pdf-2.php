@@ -237,8 +237,8 @@
         </tr>
         <tr>
             <td style="text-align: left;">
-                <h5>Información de Pago</h5>
-                <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $invoice_to; ?></p>
+               <!--  <h5>Información de Pago</h5>
+                <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $invoice_to; ?></p> -->
             </td>
             <td style="text-align: left; padding-right: 20px">
                     <h5>Total:______________________</h5>

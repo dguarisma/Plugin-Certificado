@@ -4,7 +4,9 @@
         var current_fs, next_fs, previous_fs; // fieldsetsx
         var opacity;
         var current = 1;
-        var steps = 6;
+        var steps = currentForm === '3' ? 5 : 6;
+
+        setProgressBar(current);
 
         if (currentForm) {
             $('#container-certified-form-' + currentForm).show();
@@ -34,7 +36,7 @@
             localStorage.removeItem('currentForm');
         });
 
-        setProgressBar(current);
+
 
         $(".next").click(function () {
             current_fs = $(this).closest('fieldset');
@@ -46,7 +48,7 @@
             });
 
             if (camposIncompletos.length > 0) {
-                label.text('Por favor, complete todos los campos requeridos.').attr('style', 'color: red;').show();
+                label.text('Por favor, complete todos los campos requeridos.').attr('style', 'color: red;font-weight:100;font-size:12px').show();
                 camposIncompletos.addClass('error-input').attr('style', 'border-color: red !important;');
                 camposIncompletos.first().focus();
                 return;
@@ -79,6 +81,7 @@
             var input = current_fs.find('input[required]');
             var label = current_fs.find('label.error-label');
             $("#html-container-previews canvas").remove();
+            $("#html-container-previews h3").remove();
 
             var containers = document.querySelectorAll("[id^='container-certified-form-']");
             var containerParent = null;
@@ -177,15 +180,25 @@
                             var htmlContainer = document.createElement('div');
                             htmlContainer.id = 'html-container';
                             containerParent.appendChild(htmlContainer);
-
+                            $('#back').show();
+                            var title = '';
+                            if (containerParent.querySelector('#certified-form-1')) {
+                                title = 'tu diseño de hoja para cotización';
+                            }
+                            if (containerParent.querySelector('#certified-form-2')) {
+                                title = 'tu diseño de volante';
+                            }
+                            if (containerParent.querySelector('#certified-form-3')) {
+                                title = 'tu diseño de tarjeta de presentación';
+                            }
+                            title
                             htmlContainer.innerHTML = `
                             <div style="text-align: center;">
-                              <h2><strong>Registro exitosamente!</strong></h2>
-                              <p>Haz clic en el botón de abajo para descargar el PDF:</p>
+                              <h2><strong>¡Descarga y guarda ${title}!</strong></h2>
                               <br>
-                              <div class="form-row" style="justify-content: center;">
-                                <a href="#" class="buttonPDF" onclick="location.reload()">Crear nueva</a>
-                                <a href="${response.download_url}" class="buttonPDF" target="_blank">Descargar PDF</a>
+                              <div class="form-row" style="justify-content: center;align-items: center;gap: 70px;">
+                                 <button id="back" class="action-button"  onclick="location.reload();localStorage.removeItem('currentForm')" style="margin: 0px;">Regresar al inicio</button>
+                                  <a href="${response.download_url}" class="buttonPDF" target="_blank">Descargar PDF</a>
                               </div>
                             </div>
                           `;
@@ -218,7 +231,7 @@
                 return $(this).val() === '';
             });
 
-            if (camposIncompletos.length === 0)  {
+            if (camposIncompletos.length === 0) {
                 var form = $(this).closest('form')[0];
                 var formData = new FormData(form);
                 formData.append('action', 'previews_result');
@@ -270,8 +283,21 @@
 
                                         if (containerParent) {
                                             var htmlContainerPreviews = containerParent.querySelector('#html-container-previews');
-
                                             if (htmlContainerPreviews) {
+
+                                                var title = '';
+                                                if (containerParent.querySelector('#certified-form-1')) {
+                                                    title = 'tu hoja para cotizar proyectos';
+                                                }
+                                                if (containerParent.querySelector('#certified-form-2')) {
+                                                    title = 'tu volante para promocionar tu empresa';
+                                                }
+                                                if (containerParent.querySelector('#certified-form-3')) {
+                                                    title = 'tu tarjeta de presentación';
+                                                    htmlContainerPreviews.style.height = '650px';
+                                                }
+
+                                                htmlContainerPreviews.innerHTML = `<h3>¡Felicitaciones! Has creado ${title}.</h3> <br />`;
                                                 htmlContainerPreviews.appendChild(canvas);
                                             } else {
                                                 console.error("No se encontró el contenedor 'html-container-previews' dentro del contenedor padre.");

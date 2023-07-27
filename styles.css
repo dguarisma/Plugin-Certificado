@@ -17,7 +17,7 @@
 }
 
 #back {
-  display: none;
+
   background-color: #039ABC !important;
   font-weight: 500;
   border: 1px solid #039ABC;
@@ -336,11 +336,11 @@ img.vc_single_image-img.attachment-full {
 #certified-form-1 .action-button,
 #certified-form-2 .action-button,
 #certified-form-3 .action-button {
-  width: 100px;
+  font-weight: 100 !important;
+  font-size: 15px;
+  width: 140px;
   background-color: #039ABC !important;
-  font-weight: bold;
   color: white !important;
-  ;
   border: 0 none;
   border-radius: 4px !important;
   cursor: pointer;
@@ -361,9 +361,10 @@ img.vc_single_image-img.attachment-full {
 #certified-form-1 .action-button-previous,
 #certified-form-2 .action-button-previous,
 #certified-form-3 .action-button-previous {
-  width: 100px;
+  font-weight: 100 !important;
+  font-size: 15px;
+  width: 140px;
   background-color: #039ABC !important;
-  font-weight: bold;
   color: white !important;
   border: 0 none;
   border-radius: 4px !important;
@@ -386,6 +387,7 @@ img.vc_single_image-img.attachment-full {
   padding: 10px 20px;
   background-color: #039ABC;
   border: 1px solid white;
+  height: 17px;
   color: #fff !important;
   border: none;
   border-radius: 4px;
@@ -529,7 +531,7 @@ img.vc_single_image-img.attachment-full {
   content: "\f00c"
 }
 
- #progressbar #template:before {
+#progressbar #template:before {
   font-family: FontAwesome;
   content: "\f1fc"
 }
@@ -539,18 +541,21 @@ img.vc_single_image-img.attachment-full {
   content: "\f093"
 }
 
- #progressbar #company_information:before {
+#progressbar #company_information:before {
   font-family: FontAwesome;
   content: "\f129";
 }
+
 #progressbar #services:before {
   font-family: FontAwesome;
   content: "\f14b";
 }
- #progressbar #conditions:before {
+
+#progressbar #conditions:before {
   font-family: FontAwesome;
   content: "\f15b"
 }
+
 #contact_information:before {
   font-family: FontAwesome;
   content: "\f129";

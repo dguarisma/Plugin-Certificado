@@ -238,8 +238,8 @@
         <table class="container-info">
             <tr>
                 <td style="text-align: left;width:500px;">
-                    <h5>Información de Pago</h5>
-                    <p><?php echo $invoice_to; ?></p>
+                  <!--   <h5>Información de Pago</h5>
+                    <p><?php echo $invoice_to; ?></p> -->
                 </td>
                 <td style="text-align: center;width:200px">
                     <h5>Total:______________________</h5>

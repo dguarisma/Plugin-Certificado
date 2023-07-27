@@ -12,17 +12,17 @@ global $forms;
 
 $forms = array(
     '1' => [
-        'name' => 'Presupuesto',
+        'name' => 'Hoja para cotización',
         'icon' =>  plugin_dir_url(__FILE__) . 'assets/budget.png',
         'class' => 'budget'
     ],
     '2' => [
-        'name' => 'Flyer',
+        'name' => 'Volante',
         'icon' =>  plugin_dir_url(__FILE__) . 'assets/brochure.png',
         'class' => 'flyer'
     ],
     '3' => [
-        'name' => 'Tarjeta de presentación',
+        'name' => 'Tarjeta de presentación personal',
         'icon' =>  plugin_dir_url(__FILE__) . 'assets/business-cards.png',
         'class' => 'businessCard'
     ]
@@ -53,7 +53,7 @@ function certified_generator_shortcode()
     ob_start();
 ?>
     <div class="container-options" style=" margin: 0 auto;text-align: center;">
-        <h2 style="margin-bottom: 20px;color: #039ABC;">¿Qué plantilla te gustaría realizar?</h2>
+        <h2 style="margin-bottom: 20px;color: #039ABC;">¿Qué publicidad te gustaría realizar?</h2>
        <div class="container-card" style="display:flex;gap: 20px 10px;justify-content: center;padding: 20px 0px;">
         <?php foreach ($forms as $key => $form) { ?>
                 <div class="card <?php echo $form['class']; ?>" data="<?php echo $key ?>">
@@ -67,7 +67,6 @@ function certified_generator_shortcode()
        </div>
     </div>
     <div class="container-forms">
-       <button id="back">Regresar al inicio</button>
         <?php  foreach ($forms as $key => $form) { ?>
            <div id="container-certified-form-<?php echo $key; ?>" style="display: none;">
                 <?php

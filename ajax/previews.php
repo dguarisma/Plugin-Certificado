@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 function process_form_one() {
-    $required_fields = ['business_name', 'payment_information', 'invoice_to', 'terms', 'optradio'];
+    $required_fields = ['business_name', 'payment_information', 'terms', 'optradio'];
     $uploads = [
         'image' => 'image',
         'background' => 'background'
@@ -38,7 +38,6 @@ function process_form_one() {
 
     $business_name = sanitize_text_field($_POST['business_name']);
     $payment_information = sanitize_text_field($_POST['payment_information']);
-    $invoice_to = sanitize_text_field($_POST['invoice_to']);
     $terms = sanitize_text_field($_POST['terms']);
     $activeBackground = $_POST['optradio'];
 

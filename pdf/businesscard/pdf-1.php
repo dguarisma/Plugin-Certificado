@@ -201,6 +201,7 @@
                 <div id="back">
                     <div>
                         <p class="name"><?php echo $nameUser . ' ' . $surname; ?></p>
+                        <br/>
                         <p class="position"><?php echo $job_profile; ?></p>
                     </div>
                     <div class="details">
