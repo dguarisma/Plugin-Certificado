@@ -51,24 +51,25 @@ function process_form_one() {
         }
     }
 
-    $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
+    $background = $uploaded_images['background'] ? $uploaded_images['background'] :  $GLOBALS['ASSEST_QUOTE_FORMAT']['design_'.$activeBackground];
+
     $template_file = '';
 
     switch ($activeBackground) {
-        case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
+        case '1':
             $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-1.php';
             break;
-        case $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']:
+        case '2':
             $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-2.php';
             break;
-        case $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']:
+        case '3':
             $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-3.php';
             break;
         default:
-            wp_send_json([
+            $response = array(
                 'success' => false,
-                'message' => 'Error: The template file does not exist.'
-            ]);
+                'message' => 'Error: El archivo del template no existe.'
+            );
             break;
     }
 
@@ -132,27 +133,7 @@ function certified_form_two() {
                 $uploaded_images[$type] = ${$type};
             }
         }
-        global $wpdb;
-        $certified_table_name = $wpdb->prefix . 'records_form_one';
-        $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
-
-        $wpdb->insert($certified_table_name, array(
-            'business_name' => strtoupper($business_name),
-            'about_us' => $about_us,
-            'why_choose_us' => $why_choose_us,
-            'service_1' => $service_1,
-            'service_2' => $service_2,
-            'service_3' => $service_3,
-            'service_4' => $service_4,
-            'logo' => $uploaded_images['logo'],
-            'photo' => $uploaded_images['logo'],
-            'address' => $address,
-            'phone' => $phone,
-            'email' => $email,
-            'web_site' => $web_site,
-            'background' => $background,
-        ));
-
+        $background = $uploaded_images['background'] ? $uploaded_images['background'] :  $GLOBALS['ASSEST_QUOTE_FORMAT']['flyer_'.$activeBackground];
         $template_file = '';
        switch ($activeBackground) {
         case '1':
@@ -224,7 +205,7 @@ function process_form_three() {
         }
     }
 
-    $nameUser = sanitize_text_field($_POST['name']);
+    $forename = sanitize_text_field($_POST['name']);
     $surname = sanitize_text_field($_POST['surname']);
     $slogan = sanitize_text_field($_POST['slogan']);
     $job_profile = sanitize_text_field($_POST['job_profile']);

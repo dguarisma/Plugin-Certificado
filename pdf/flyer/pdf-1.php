@@ -1,145 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <title>Document</title>
-    <style>
-        body{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1,h2{
-            margin: 0;
-            padding: 0;
-        }
-        .main{
-            background-image: url('fondo-flyer-1.png');
-            height: auto;
-            width: 800px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0 auto;
-        }
-        .container{
-            max-width: 1200px;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 100px 1fr;
-            grid-gap: 10px;
-        }
-
-        .column {
-            background-color: #f2f2f2;
-            padding: 20px;
-        }
-        .footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-}
-    </style>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <div class="main">
-        <div class="container">
-            <div style="padding: 250px 160px 460px 160px;
-            position: absolute;">
-                 <img src="logo.png" width="150" height="auto">
-            </div><br><br><br><br>
-            
-            </div>
-            <div class="container" style="padding-top: 335px;">
-                <div class="column1" style="padding: 20px;">
-                    <div>
-                        <h2>LLEVA TU<br> NEGOCIO A OTRO<br></h2><h1>NIVEL</h1>
-                        <h3>LOREM IPSUM</h3>
-                        <span>DOLOR SUM CONSECUTER</span>
-                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
-                      
-                        <h3>LOREM IPSUM</h3>
-                        <span>DOLOR SUM CONSECUTER</span>
-                        <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
-                    </div>
-                    
-                </div>
-                <div class="column2">
-                    <div class="direction" style="padding-top: 100px;">
-                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
-                            <div style="display: grid;padding-top: 13px;justify-content: center;">
-                                <i class="fa fa-pencil fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
-                            </div>
-                        </div>
-                        <br><br>
-                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
-                            <div style="display: grid;padding-top: 13px;justify-content: center;">
-                                <i class="fa fa-lightbulb-o fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
-                            </div>
-                        </div>
-                        <br><br>
-                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
-                            <div style="display: grid;padding-top: 13px;justify-content: center;">
-                                <i class="fa fa-cog fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
-                            </div>
-                        </div>
-                        <br><br>
-                        <div style="margin: auto;background-color: #2798ba;width:50px;border-radius: 100%;height: 50px;">
-                            <div style="display: grid;padding-top: 13px;justify-content: center;">
-                                <i class="fa fa-comment-o fa-2x fa-lg" aria-hidden="true" style="color: white;"></i>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="column3" style="padding-top: 80px;">
-                    <div style="font-size: small;color: white;">
-                        <h3 style="margin: 0;">LOREM IPSUM</h3>
-                        <span>DOLOR SUM CONSECUTER</span>
-                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
-                        <h3 style="margin: 0;">LOREM IPSUM</h3>
-                        <span>DOLOR SUM CONSECUTER</span>
-                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
-                        <h3 style="margin: 0;">LOREM IPSUM</h3>
-                        <span>DOLOR SUM CONSECUTER</span>
-                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
-                        <h3 style="margin: 0;">LOREM IPSUM</h3>
-                        <span>DOLOR SUM CONSECUTER</span>
-                        <P style="width: 85%;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae magnam nobis, amet quo nulla, consequatur nemo ut animi ex eos sit ipsam aspernatur atque harum corrupti consequuntur enim hic totam.</P>
-                    </div>
-                </div>
-              </div>
-              <div class="footer" style="padding-top: 18px;padding-bottom: 10px;">
-                <div class="column1" style="text-align: center;border-right: 5px solid white;">
-                    <img src="logo.png" width="150" height="auto">
-                </div>
-                <div class="column2" style="text-align: center;">
-                    <div style="display: -webkit-inline-box;">
-                        <i class="fa fa-envelope-o fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
+<style>
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: proxima-nova-light, sans-serif !important;
+		width: 825px;
+		margin: 0 auto;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: top center;
+	}
 
-                        <p style="color: white;">ourmahile.com</p>
-                    </div>
-                    <div style="display: -webkit-inline-box;">
-                        <i class="fa fa-phone fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
 
-                        <p style="color: white;">55 50 59 94 13</p>
-                    </div>
-                </div>
-                <div class="column3">
-                    <div style="display: -webkit-inline-box;">
-                        <i class="fa fa-facebook fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
-                        <p style="color: white;">Facebook Page</p>
-                    </div>
-                    <div style="display: -webkit-inline-box;">
-                        <i class="fa fa-map-marker fa-2x fa-lg" aria-hidden="true" style="color: white;margin: 10px;"></i>
-                        <p style="color: white;">Adress here Number 123</p>
-                    </div>
-                    </div>
-              </div>
-        </div>
+	.header-table {
+	
+		position: absolute;
+		margin-top: 238px;
+	}
+
+	.containerPhoto {
+		border: 10px solid #2798ba;
+		border-radius: 100%;
+		width: 362px;
+		margin-left: -6px;
+		height: 362px;
+		margin-top: -30px;
+	}
+
+	.containerPhoto img {
+		margin: auto;
+		border-radius: 100%;
+		border: 2px solid grey;
+
+		max-width: 100%;
+		max-height: 100%;
+		display: block;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	li {
+		padding-left: 40px;
+		line-height: 1.5;
+		background: url('https://www.certificadoweb.com/wp-content/uploads/2023/09/vinﾌテta-removebg-preview.png') left center no-repeat;
+		background-size: 25px;
+	}
+</style>
+
+<body class="main" style="background-image: url('<?php echo $background; ?>');">
+
+	<table class="header-table">
+		<tr>
+			<td style="padding-left: 0px; width:400px;">
+				<div>
+					<div class="containerPhoto">
+						<img
+						width="465px" height="465px"
+							src="<?php echo $uploaded_images['photo']; ?>">
+					</div>
+				</div>
+			</td>
+			<td style="text-align:center; margin:0 auto;">
+				<img src="<?php echo $uploaded_images['logo']; ?>"
+					alt="" style="height: auto;width: 150px;">
+
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<h2>Sobre Nosotros</h2>
+				<p style="margin: 0;padding: 2px;"><?php echo $about_us; ?></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding: 2px;">
+				<table cellpadding="10">
+					<tr>
+						<td>
+							<img style="color: white; display: inline-block;"
+								src="https://www.certificadoweb.com/wp-content/uploads/2023/09/estrategia.png" alt=""
+								width="50px" height="50px">
+						</td>
+						<td>
+							<!-- <h3 style="margin: 0;">Estrategia empresarial</h3> -->
+							<p style="margin: 0;padding: 5px;"><?php echo $services_1; ?>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img style="color: white; display: inline-block;"
+								src="https://www.certificadoweb.com/wp-content/uploads/2023/09/grafico.png" alt=""
+								width="50px" height="50px">
+						</td>
+						<td>
+							<!-- <h3 style="margin: 0;">Mercado</h3> -->
+							<p style="margin: 0;padding: 5px;"><?php echo $services_2; ?>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img style="color: white; display: inline-block;"
+								src="https://www.certificadoweb.com/wp-content/uploads/2023/09/menu.png" alt=""
+								width="50px" height="50px">
+						</td>
+						<td>
+							<!-- <h3 style="margin: 0;">Nivel Corporativo</h3> -->
+							<p style="margin: 0;padding: 5px;"><?php echo $services_3; ?>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td style="text-align: left;padding: 2px; width: 400px">
+				<h3> Por que elegirnos?</h3>
+				<ul style="padding: 2px">
+					<li>
+						<?php echo  $why_choose_us; ?>
+					</li>
+				</ul>
+			</td>
+		</tr>
+	<!--	<tr>
+			<td style="text-align: center;color: white;padding-top: 65px;border:1px solid red">Company adress sologan here
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;color: white;">www.alion.com.co</td>
+			<td style="text-align: center;margin: 0;color: white;">
+				<p style="margin: 0;">Nﾃｺmero de celular: 00 123 456 789</p>
+
+			</td>
+		</tr>-->
+		<table>
 </body>
-</html>

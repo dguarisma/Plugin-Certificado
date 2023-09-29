@@ -78,10 +78,18 @@
             text-align: center;
         }
 
+        .logo {
+            width: 200px; 
+            height: 100px; 
+            overflow: hidden;
+            display: inline-block; 
+            
+        }
 
         .logo img {
-            height: auto;
-            width: 150px;
+                max-width: 100%; 
+                max-height: 100%;
+                display: block; 
         }
 
         .container-business p {
@@ -103,9 +111,8 @@
 
         .container .container-info {
             text-align: center;
-            width: 585px;
             position: absolute;
-            bottom: 280px;
+            bottom: 140px;
             padding-bottom: 20px;
             padding-left: 20px;
             right: 0px;
@@ -170,7 +177,7 @@
         <table>
             <tr>
                 <th>N.</th>
-                <th>Descripción</th>
+                <th>Descripci車n</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
                 <th>Total</th>
@@ -229,25 +236,22 @@
 
     <table class="container-info">
         <tr>
-            <td>
-                <h5 style="text-align: left;margin-bottom: 30px;">
-                    <strong> Gracias por hacer negocios</strong>
-                </h5>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left;">
-               <!--  <h5>Información de Pago</h5>
-                <p style="margin:0px; font-size: .7rem; padding-top: 10px; padding-bottom: 10px;"><?php echo $invoice_to; ?></p> -->
-            </td>
             <td style="text-align: left; padding-right: 20px">
                     <h5>Total:______________________</h5>
             </td>
         </tr>
-        <tr>
-            <td style='margin-top:40px'>
+         <tr>
+            <td>
+                <h5 style="text-align: left;margin-bottom: 30px;">
+                         <br/>
+        <br/>
+        <br/>
+           <br/>
+                    <strong> Gracias por hacer negocios</strong>
+                </h5>
             </td>
         </tr>
+
     </table>
     <table class="container-info-terms">
         <tr>

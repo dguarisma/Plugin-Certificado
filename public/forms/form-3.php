@@ -80,7 +80,9 @@
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
-              value="1" checked="checked"> Diseño 1
+              value="1" checked="checked" 
+              onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-tar-1.jpg'; ?>')"
+              > Diseño 1
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__))) . 'assets/img/businesscard-1.jpg'; ?>"
                 target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto">
@@ -96,7 +98,9 @@
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
-              value="2"> Diseño 2
+              value="2"
+              onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-tar-2.jpg'; ?>')"
+              > Diseño 2
               <figure class="wpb_wrapper vc_figure">
             <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__))) . 'assets/img/businesscard-2.jpg'; ?>"
               target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
@@ -112,7 +116,9 @@
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
-              value="3"> Diseño 3
+              value="3"
+              onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-tar-3.jpg'; ?>')"
+              > Diseño 3
              <figure class="wpb_wrapper vc_figure">
             <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__))) . 'assets/img/businesscard-3.jpg'; ?>"
               target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
@@ -128,9 +134,9 @@
     </div>
     <div class="form-row" style="margin-bottom: 30px;text-align: center">
        <div class="column-full" style="text-align: center;margin-bottom: 20px;">
-         <h3  style="margin-bottom: 0px;">
-         Si prefieres utilizar un diseño personalizado, descarga <a href="">AQUÍ</a> la guía para que hagas tu propio diseño con estas medidas 500px * 700px. 
-        </h3>
+         <h4  style="margin-bottom: 0px;">
+         Si prefieres utilizar un diseño personalizado, descarga <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-tar-1.jpg'; ?>" download id="downloadTemplate">AQUÍ</a> la guía para que hagas tu propio diseño con estas medidas 500px * 700px. 
+        </h4>
              <p class="caption">Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu tarjeta.</p>   
       </div>
       <div class="column-half" style="text-align: center;">
@@ -154,7 +160,7 @@
     </div>
     <br/>
     <div class="form-row" style="justify-content: space-between;">
-       <button id="back" class="next action-button">Regresar al inicio</button>
+       <button type="button" id="back"  onclick="location.reload();localStorage.removeItem('currentForm')">Regresar al inicio</button>
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>
@@ -275,6 +281,5 @@
       </div>
     </div>
   </fieldset>
-
 </form>
 <div id="error-container"></div>

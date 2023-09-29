@@ -34,7 +34,7 @@ function certified_form_one_action() {
         }
         global $wpdb;
         $certified_table_name = $wpdb->prefix . 'records_form_one';
-        $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
+        $background = $uploaded_images['background'] ? $uploaded_images['background'] :  $GLOBALS['ASSEST_QUOTE_FORMAT']['design_'.$activeBackground];
 
         $wpdb->insert($certified_table_name, array(
             'business_name' => strtoupper($business_name),
@@ -48,13 +48,13 @@ function certified_form_one_action() {
 
         $template_file = '';
         switch ($activeBackground) {
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']:
+            case '1':
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-1.php';
                 break;
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']:
+            case '2':
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-2.php';
                 break;
-            case $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']:
+            case '3':
                 $template_file = plugin_dir_path(__FILE__) . '../pdf/budget/pdf-3.php';
                 break;
             default:

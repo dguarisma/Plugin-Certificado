@@ -171,7 +171,7 @@
                 <div id="front">
                     <img src="<?php echo $uploaded_images['logo']; ?>"  alt="logo brand">
                     <div>
-                         <p><?php echo $slogan ? $slogan : ''; ?></p>
+                         <p><?php echo $slogan ? strtoupper($slogan) : ''; ?></p>
                     </div>
                 </div>
             </td>
@@ -184,14 +184,14 @@
                     </div>
                     <div class="details">
                         <div style="text-align: center;margin-bottom: 10px;">
-                           <p class="name"><?php echo $nameUser . ' ' . $surname; ?></p>
+                           <p class="name"><?php echo ucfirst(strtolower($forename )) . ' ' . ucfirst(strtolower($surname)); ?></p>
                            <br/>
-                           <p class="position"><?php echo $job_profile; ?></p>
+                           <p class="position"><?php echo strtoupper($job_profile); ?></p>
                         </div>
                         <div>
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <p>
-                                   <?php echo $address; ?>
+                                   <?php echo strtolower($address); ?>
                             </p>
                         </div>
                         <div>
@@ -203,12 +203,12 @@
                         <div>
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             <p>
-                               <?php echo $email; ?>
+                               <?php echo strtolower($email); ?>
                             </p>
                         </div>
                      <?php echo $web_site ? '<div>
                             <i class="fa fa-globe" aria-hidden="true"></i>
-                            <p>' . $web_site . '</p>
+                            <p>' . strtolower($web_site) . '</p>
                         </div>' : ''; ?>
                     </div>
                 </div>

@@ -75,14 +75,20 @@
         }
 
         .logo {
-            padding-left: 30px;
-            padding-top:20px;
+            padding-left: 100px;
+            text-align:right;
+            padding-top:0px;
+            width: 200px; 
+            height: 100px; 
+            overflow: hidden;
+            display: inline-block; 
             
         }
 
         .logo img {
-            height: auto;
-            width: 150px;
+                max-width: 100%; 
+                max-height: 100%;
+                display: block; 
         }
 
         .container-business p {
@@ -123,17 +129,20 @@
         .container .container-info {
             text-align: center;
             margin: 0 auto;
-            width: 700px;
             margin-top: 40px;
+            position: absolute;
+            bottom:400px;
             margin-bottom: 40px;
         }
 
         .container .container-info-terms {
             text-align: center;
             margin: 0 auto;
-            width: 700px;
             margin-top: 0px;
             margin-bottom: 0px;
+            width:790px;
+            position: absolute;
+            bottom:200px;
         }
 
         .container .container-info-terms .col-60 {
@@ -231,33 +240,32 @@
 
         <table class="container-info">
             <tr>
-                <td class="col-33"  style="text-align: left;">
-                    
-                </td>
-                <td class="col-33" style="text-align: left;">
+                <td class="col-60" style="text-align: left;padding-left:10px;padding-rigth:10px;">
                 <h5>Información de Pago</h5>
-                    <p><?php echo $payment_information; ?></p>
+                    <p ><?php echo $payment_information; ?></p>
                 </td>
-                <td class="col-33" style="text-align: left;">
+                <td class="col-40" style="text-align: center;">
                     <h5>Total:______________________</h5>
                 </td>
             </tr>
         </table>
         <table class="container-info-terms">
             <tr>
-                <td class="col-60">
+                <td>
                     <h5 style="text-align: left;">Terminos y Condiciones</h5>
                     <p
-                        style="padding-bottom: 10px;border-bottom: 1px solid black;font-size: .6rem;text-align: left;margin: 0px;padding-top: 10px;">
+                        style="padding-bottom: 10px;border-bottom: 1px solid black;font-size: .6rem;text-align: left;margin: 0px;padding-top: 10px;padding-rigth:30px">
                         <?php echo $terms; ?>
                     </p>
-                </td>
-                <td class="col-40">
                 </td>
             </tr>
             <tr>
                 <td>
                 <h5 style="text-align: left;">
+        <br/>
+        <br/>
+        <br/>
+           <br/>
                   <strong> Gracias por hacer negocios</strong>
                </h5>
                 </td>

@@ -76,11 +76,10 @@
     </div>
 
     <div class="form-row">
-
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
-              value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design1']; ?>" checked="checked"> Diseño 1
+              value="1" checked="checked" onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-cot-1.jpg'; ?>')"> Diseño 1
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))  . 'assets/img/budget-1.jpg'; ?>"
                 target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto">
@@ -96,7 +95,7 @@
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
-              value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design2']; ?>"> Diseño 2
+              value="2" onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-cot-2.jpg'; ?>')"> Diseño 2
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/img/budget-2.jpg'; ?>"
                 target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
@@ -112,7 +111,7 @@
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
           <label><input type="radio" name="optradio" id="optradio"
-              value="<?php  echo $GLOBALS['ASSEST_QUOTE_FORMAT']['design3']; ?>"> Diseño 3
+              value="3" onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-cot-3.jpg'; ?>')"> Diseño 3
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/img/budget-3.jpg'; ?>"
                 target="_self" class="vc_single_image-wrapper vc_box_rounded  vc_box_border_grey prettyphoto"><img
@@ -128,7 +127,8 @@
     </div>
     <br>
     <div class="form-row">
-    <h4>Si prefieres utilizar un diseño personalizado, descarga <a href="#" download>AQUÍ</a> la guía para que hagas
+      
+    <h4>Si prefieres utilizar un diseño personalizado, descarga <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-cot-1.jpg'; ?>" download id="downloadTemplate">AQUÍ</a> la guía para que hagas
         tu propio diseño con estas medidas 724px * 1024px.
         <br>
        <p> Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu plantilla.</p>
@@ -144,7 +144,7 @@
       </div>
     </div>
     <div class="form-row" style="justify-content: space-between;">
-      <button id="back" class="next action-button">Regresar al inicio</button>
+      <button type="button" id="back" class="action-button" onclick="location.reload();localStorage.removeItem('currentForm')">Regresar al inicio</button>
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>

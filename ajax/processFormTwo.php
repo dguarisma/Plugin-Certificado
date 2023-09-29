@@ -43,7 +43,7 @@ function certified_form_two_action() {
         }
         global $wpdb;
         $certified_table_name = $wpdb->prefix . 'records_form_one';
-        $background = $uploaded_images['background'] ? $uploaded_images['background'] : $activeBackground;
+        $background = $uploaded_images['background'] ? $uploaded_images['background'] :  $GLOBALS['ASSEST_QUOTE_FORMAT']['flyer_'.$activeBackground];
 
         $wpdb->insert($certified_table_name, array(
             'business_name' => strtoupper($business_name),
@@ -54,7 +54,7 @@ function certified_form_two_action() {
             'service_3' => $service_3,
             'service_4' => $service_4,
             'logo' => $uploaded_images['logo'],
-            'photo' => $uploaded_images['logo'],
+            'photo' => $uploaded_images['photo'],
             'address' => $address,
             'phone' => $phone,
             'email' => $email,

@@ -75,10 +75,20 @@
             height: 100px;
             text-align: center;
         }
-
         .logo {
             padding-left: 20px;
-            text-align: left;
+            width: 200px; 
+            height: 100px; 
+            overflow: hidden;
+            display: inline-block; 
+            
+        }
+
+        .logo img {
+                max-width: 100%; 
+                max-height: 100%;
+                display: block; 
+                text-align: left;
         }
 
         .logo img {
@@ -98,13 +108,20 @@
         .container .container-info {
             width: 100%;
         }
+         .container .container-register-items {
+            width: 700px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+            margin-top: 100px;
+        }
 
         .container .container-register-items table {
             width: 700px;
             margin: 0 auto;
             border-collapse: collapse;
             text-align: center;
-            margin-top: 70px;
+            margin-top: 100px;
         }
 
         .container .container-register-items th {
@@ -114,10 +131,10 @@
 
 
         .container .container-register-items td {
-            border-bottom: 1px solid #B6B6B6;
+            /* border-bottom: 1px solid #B6B6B6;
             padding-bottom: 10px;
             padding-top: 10px;
-            font-size: .8rem;
+            font-size: .8rem;*/
         }
 
      
@@ -161,6 +178,9 @@
                 </td>
                 <td class="col-40">
                     <div class="container-business">
+                    <br/>
+                    <br/>
+                    <br/>
                     <h3><?php echo strtoupper($business_name); ?></h3>
                         <div class="container-date">
                             <p><strong>Fecha</strong></p>
@@ -238,7 +258,7 @@
         <table class="container-info">
             <tr>
                 <td style="text-align: left;width:500px;">
-                  <!--   <h5>Información de Pago</h5>
+                  <!--   <h5>Informaci贸n de Pago</h5>
                     <p><?php echo $invoice_to; ?></p> -->
                 </td>
                 <td style="text-align: center;width:200px">
@@ -261,6 +281,9 @@
             <tr>
                 <td>
                 <h5 style="text-align: left;padding-bottom: 40px;">
+                <br/>
+                <br/>
+                <br/>
                   <strong> Gracias por hacer negocios</strong>
                </h5>
                 </td>

@@ -26,14 +26,14 @@
             $('.container-options').hide();
         });
 
-        $('#back').click(function (e) {
+        $('#container-certified-form-' + currentForm + ' #back').click(function (e) {
             e.preventDefault();
-            location.reload();
             $('[id^="container-certified-form-"]').hide();
             $('[id^="certified-form-"]').hide();
             $('#back').hide();
             $('.container-options').show();
             localStorage.removeItem('currentForm');
+            location.reload();
         });
 
 
@@ -80,9 +80,9 @@
             previous_fs = $(this).closest('fieldset').prev();
             var input = current_fs.find('input[required]');
             var label = current_fs.find('label.error-label');
+            $("#html-container-previews").css("height", "");
             $("#html-container-previews canvas").remove();
             $("#html-container-previews h3").remove();
-
             var containers = document.querySelectorAll("[id^='container-certified-form-']");
             var containerParent = null;
             for (var i = 0; i < containers.length; i++) {
@@ -92,11 +92,15 @@
                     break;
                 }
             }
+            var htmlContainerPreviews = containerParent.querySelector('#html-container-previews');
+            if (htmlContainerPreviews) {
+                htmlContainerPreviews.style.height = ''
+            }
+
             var htmlContainer = containerParent.querySelector("#html-container");
             if (htmlContainer) {
                 containerParent.removeChild(htmlContainer);
             }
-
             label.hide();
             input.removeClass('error-input').attr('style', '').focus();
             $("[id^='certified-form-']").each(function (index, element) {
@@ -297,7 +301,9 @@
                                                     htmlContainerPreviews.style.height = '650px';
                                                 }
 
-                                                htmlContainerPreviews.innerHTML = `<h3>¡Felicitaciones! Has creado ${title}.</h3> <br />`;
+                                                htmlContainerPreviews.innerHTML = `<h3>¡Felicitaciones!
+                                                 <br />
+                                                Has creado ${title}.</h3> <br />`;
                                                 htmlContainerPreviews.appendChild(canvas);
                                             } else {
                                                 console.error("No se encontró el contenedor 'html-container-previews' dentro del contenedor padre.");
@@ -322,5 +328,20 @@
                 });
             }
         });
+
+
     });
 })(jQuery);
+
+function urlDownload(params) {
+    var containers = document.querySelectorAll("[id^='container-certified-form-']");
+    var containerParent = null;
+    for (var i = 0; i < containers.length; i++) {
+        var container = containers[i];
+        if (getComputedStyle(container).display !== 'none') {
+            containerParent = container;
+            break;
+        }
+    }
+    containerParent.querySelector('#downloadTemplate').href = params
+}
