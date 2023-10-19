@@ -134,7 +134,7 @@
     </div>
     <div class="form-row" style="margin-bottom: 30px;text-align: center">
        <div class="column-full" style="text-align: center;margin-bottom: 20px;">
-         <h4  style="margin-bottom: 0px;">
+         <h4  style="margin-bottom: 0px;display:none">
          Si prefieres utilizar un diseño personalizado, descarga <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-tar-1.jpg'; ?>" download id="downloadTemplate">AQUÍ</a> la guía para que hagas tu propio diseño con estas medidas 500px * 700px. 
         </h4>
              <p class="caption">Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu tarjeta.</p>   
