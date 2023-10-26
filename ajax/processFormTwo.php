@@ -9,16 +9,21 @@ function certified_form_two_action() {
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['business_name']) && isset($_POST['about_us']) 
-    && isset($_POST['why_choose_us']) && isset($_POST['service_1']) && isset($_POST['service_2'])
+    && isset($_POST['why_choose_us'])
     && isset($_POST['optradio']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
 
         $business_name = sanitize_text_field($_POST['business_name']);
         $about_us= sanitize_text_field($_POST['about_us']);
         $why_choose_us = sanitize_text_field($_POST['why_choose_us']);
-        $service_1 = sanitize_text_field($_POST['service_1']);
-        $service_2 = sanitize_text_field($_POST['service_2']);
-        $service_3 = sanitize_text_field($_POST['service_3']);
-        $service_4 = sanitize_text_field($_POST['service_4']);
+        $service_1 = sanitize_text_field($_POST['service_descripcion_1']);
+        $service_2 = sanitize_text_field($_POST['service_descripcion_2']);
+        $service_3 = sanitize_text_field($_POST['service_descripcion_3']);
+        $service_4 = sanitize_text_field($_POST['service_descripcion_4']);
+        
+       $titel_1 = sanitize_text_field($_POST['service_title_1']);
+       $titel_2 = sanitize_text_field($_POST['service_title_2']);
+       $titel_3 = sanitize_text_field($_POST['service_title_3']);
+       $titel_4 = sanitize_text_field($_POST['service_title_4']);
         $address = sanitize_text_field($_POST['address']);
         $phone = sanitize_text_field($_POST['phone']);
         $email = sanitize_text_field($_POST['email']);
@@ -26,12 +31,12 @@ function certified_form_two_action() {
         $activeBackground = $_POST['optradio'];
 
         $uploads = array(
-            'logo' => 'logo',
+            'image' => 'image',
             'photo' => 'photo',
             'background' => 'background'
         );
 
-        $uploaded_images = array();
+        $uploaded_images = [];
 
         foreach ($uploads as $type => $name) {
             ${$type} = '';
@@ -53,7 +58,7 @@ function certified_form_two_action() {
             'service_2' => $service_2,
             'service_3' => $service_3,
             'service_4' => $service_4,
-            'logo' => $uploaded_images['logo'],
+            'logo' => $uploaded_images['image'],
             'photo' => $uploaded_images['photo'],
             'address' => $address,
             'phone' => $phone,
@@ -118,6 +123,24 @@ function certified_form_two_action() {
 }
 
 function certified_generator_upload_image($file) {
+    $plugin_dir = plugin_dir_path(__FILE__);
+    $target_dir = $plugin_dir . 'uploads'; 
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0755);
+    }
+
+    $target_file = $target_dir . '/' . basename($file['name']);
+    $image_url = '';
+
+    if (move_uploaded_file($file['tmp_name'], $target_file)) {
+        $image_url = plugins_url('uploads/' . basename($file['name']), __FILE__);
+    }
+
+    return $image_url;
+}
+
+/*
+function certified_generator_upload_image($file) {
     $upload_dir = wp_upload_dir();
     $target_dir = $upload_dir['path'] . '/';
     $target_file = $target_dir . basename($file['name']);
@@ -149,3 +172,4 @@ function certified_generator_upload_image($file) {
     }
     return $image_url;
 }
+*/

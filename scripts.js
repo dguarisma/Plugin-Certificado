@@ -200,7 +200,7 @@
                             <div style="text-align: center;">
                               <h2><strong>¡Descarga y guarda ${title}!</strong></h2>
                               <br>
-                              <div class="form-row" style="justify-content: center;align-items: center;gap: 70px;">
+                              <div class="form-row" style="justify-content: center;align-items: center;gap: 70px;width:100% !important;">
                                  <button id="back" class="action-button"  onclick="location.reload();localStorage.removeItem('currentForm')" style="margin: 0px;">Regresar al inicio</button>
                                   <a href="${response.download_url}" class="buttonPDF" target="_blank">Descargar PDF</a>
                               </div>

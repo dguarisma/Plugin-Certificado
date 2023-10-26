@@ -54,9 +54,9 @@ function certified_generator_shortcode()
 ?>
     <div class="container-options" style=" margin: 0 auto;text-align: center;">
         <h2 style="margin-bottom: 20px;color: #039ABC;">¿Qué publicidad te gustaría realizar?</h2>
-       <div class="container-card" style="display:flex;gap: 20px 10px;justify-content: center;padding: 20px 0px;">
+       <div class="container-card" style="display:flex;gap: 20px 10px;justify-content: center;padding: 20px 0px;" >
         <?php foreach ($forms as $key => $form) { ?>
-                <div class="card <?php echo $form['class']; ?>" data="<?php echo $key ?>">
+                <div class="card <?php echo $form['class']; ?>" data="<?php echo $key ?>" style="<?php echo ($form['class'] === 'budget' || $form['class'] === 'flyer') ? 'gap: 15px;' : ''; ?>">
                 <div  class="image-container" >
                 <img src="<?php echo $form['icon']; ?>" alt="<?php echo $form['name']; ?>">
                 </div>
@@ -65,6 +65,8 @@ function certified_generator_shortcode()
                 </div>
             <?php } ?>
        </div>
+       
+       <p>Al continuar y hacer uso de la herramienta, está aceptando los términos y condiciones y la política de privacidad. <span style="color:red">*</span></p>
     </div>
     <div class="container-forms">
         <?php  foreach ($forms as $key => $form) { ?>

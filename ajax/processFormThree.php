@@ -116,6 +116,24 @@ function certified_form_three_action() {
 }
 
 function certified_generator_upload_image($file) {
+    $plugin_dir = plugin_dir_path(__FILE__);
+    $target_dir = $plugin_dir . 'uploads'; 
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0755);
+    }
+
+    $target_file = $target_dir . '/' . basename($file['name']);
+    $image_url = '';
+
+    if (move_uploaded_file($file['tmp_name'], $target_file)) {
+        $image_url = plugins_url('uploads/' . basename($file['name']), __FILE__);
+    }
+
+    return $image_url;
+}
+
+/*
+function certified_generator_upload_image($file) {
     $upload_dir = wp_upload_dir();
     $target_dir = $upload_dir['path'] . '/';
     $target_file = $target_dir . basename($file['name']);
@@ -147,3 +165,4 @@ function certified_generator_upload_image($file) {
     }
     return $image_url;
 }
+*/

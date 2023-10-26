@@ -50,7 +50,7 @@ function process_form_one() {
             $uploaded_images[$type] = ${$type};
         }
     }
-
+  
     $background = $uploaded_images['background'] ? $uploaded_images['background'] :  $GLOBALS['ASSEST_QUOTE_FORMAT']['design_'.$activeBackground];
 
     $template_file = '';
@@ -101,29 +101,36 @@ function certified_form_two() {
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['business_name']) && isset($_POST['about_us']) 
-    && isset($_POST['why_choose_us']) && isset($_POST['service_1']) && isset($_POST['service_2'])
-    && isset($_POST['optradio']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
+    && isset($_POST['why_choose_us'])  && isset($_POST['optradio']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
 
         $business_name = sanitize_text_field($_POST['business_name']);
         $about_us= sanitize_text_field($_POST['about_us']);
         $why_choose_us = sanitize_text_field($_POST['why_choose_us']);
-        $service_1 = sanitize_text_field($_POST['service_1']);
-        $service_2 = sanitize_text_field($_POST['service_2']);
-        $service_3 = sanitize_text_field($_POST['service_3']);
-        $service_4 = sanitize_text_field($_POST['service_4']);
+        $service_1 = sanitize_text_field($_POST['service_descripcion_1']);
+        $service_2 = sanitize_text_field($_POST['service_descripcion_2']);
+        $service_3 = sanitize_text_field($_POST['service_descripcion_3']);
+        $service_4 = sanitize_text_field($_POST['service_descripcion_4']);
+        
+       $titel_1 = sanitize_text_field($_POST['service_title_1']);
+       $titel_2 = sanitize_text_field($_POST['service_title_2']);
+       $titel_3 = sanitize_text_field($_POST['service_title_3']);
+       $titel_4 = sanitize_text_field($_POST['service_title_4']);
+           
         $address = sanitize_text_field($_POST['address']);
         $phone = sanitize_text_field($_POST['phone']);
         $email = sanitize_text_field($_POST['email']);
         $web_site = $_POST['web_site'];
         $activeBackground = $_POST['optradio'];
 
+
+
         $uploads = array(
-            'logo' => 'logo',
+            'image' => 'image',
             'photo' => 'photo',
             'background' => 'background'
         );
 
-        $uploaded_images = array();
+        $uploaded_images = [];
 
         foreach ($uploads as $type => $name) {
             ${$type} = '';
@@ -133,6 +140,7 @@ function certified_form_two() {
                 $uploaded_images[$type] = ${$type};
             }
         }
+
         $background = $uploaded_images['background'] ? $uploaded_images['background'] :  $GLOBALS['ASSEST_QUOTE_FORMAT']['flyer_'.$activeBackground];
         $template_file = '';
        switch ($activeBackground) {
@@ -277,7 +285,31 @@ function process_form_three() {
         ]);
     }
 }
+function certified_generator_upload_image($file) {
+    // Obtiene la ruta absoluta del directorio de tu plugin
+    $plugin_dir = plugin_dir_path(__FILE__);
+    $target_dir = $plugin_dir . 'uploads'; // Asegúrate de que la carpeta personalizada exista en tu plugin
 
+    // Verifica y crea la carpeta si no existe
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0755); // Puedes ajustar los permisos según tus necesidades
+    }
+
+    $target_file = $target_dir . '/' . basename($file['name']);
+    $image_url = '';
+
+    // Mueve el archivo subido desde el directorio temporal al directorio de destino
+    if (move_uploaded_file($file['tmp_name'], $target_file)) {
+        // Establece la URL de la imagen
+        $image_url = plugins_url('uploads/' . basename($file['name']), __FILE__);
+    }
+
+    return $image_url;
+}
+
+
+
+/*
 function certified_generator_upload_image($file) {
     $upload_dir = wp_upload_dir();
     $target_dir = $upload_dir['path'] . '/';
@@ -310,3 +342,4 @@ function certified_generator_upload_image($file) {
     }
     return $image_url;
 }
+*/

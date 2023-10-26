@@ -25,7 +25,7 @@
   border-radius: 4px !important;
   cursor: pointer;
   padding: 10px 10px;
-  margin: 0px 0px 30px 0px;
+  /*margin: 0px 0px 30px 0px;*/
   transition: all 0.3s ease-out;
 }
 
@@ -345,7 +345,8 @@ img.vc_single_image-img.attachment-full {
   border-radius: 4px !important;
   cursor: pointer;
   padding: 10px 5px;
-  margin: 10px 0px 10px 5px;
+  text-transform: initial;
+  /*margin: 10px 0px 10px 5px;*/
   float: right
 }
 
@@ -371,6 +372,7 @@ img.vc_single_image-img.attachment-full {
   cursor: pointer;
   padding: 10px 5px;
   margin: 10px 5px 10px 0px;
+    text-transform: initial;
   float: right
 }
 
@@ -387,7 +389,6 @@ img.vc_single_image-img.attachment-full {
   padding: 10px 20px;
   background-color: #039ABC;
   border: 1px solid white;
-  height: 17px;
   color: #fff !important;
   border: none;
   border-radius: 4px;

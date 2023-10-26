@@ -2,148 +2,173 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: proxima-nova-light, sans-serif !important;
-		width: 825px;
-		margin: 0 auto;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: top center;
-	}
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: proxima-nova-light, sans-serif !important;
+    width: 825px;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative
+  }
 
 
-	.header-table {
-	
-		position: absolute;
-		margin-top: 238px;
-	}
+  .header-table {
+    position: absolute;
+    top: 138px;
+    z-index: 1;
+  }
 
-	.containerPhoto {
-		border: 10px solid #2798ba;
-		border-radius: 100%;
-		width: 362px;
-		margin-left: -6px;
-		height: 362px;
-		margin-top: -30px;
-	}
+  .containerPhoto {
+    border-radius: 50%;
+    width: 285px;
+    height: 285px;
+    margin-left: 44px;
+    text-align: center;
+    margin-top: 75px;
+    aspect-ratio: auto 1/1;
+  }
 
-	.containerPhoto img {
-		margin: auto;
-		border-radius: 100%;
-		border: 2px solid grey;
+  .containerPhoto img {
+    margin: auto;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 
-		max-width: 100%;
-		max-height: 100%;
-		display: block;
-	}
+  }
 
-	ul {
-		list-style-type: none;
-	}
+  ul {
+    list-style-type: none;
+  }
 
-	li {
-		padding-left: 40px;
-		line-height: 1.5;
-		background: url('https://www.certificadoweb.com/wp-content/uploads/2023/09/vinﾌテta-removebg-preview.png') left center no-repeat;
-		background-size: 25px;
-	}
+  li {
+    line-height: 1.5;
+    background: url('https://www.certificadoweb.com/wp-content/uploads/2023/09/viñeta-removebg-preview.png') left center no-repeat;
+    background-size: 25px;
+  }
 </style>
+<?php
+$imageUrl = $uploaded_images['photo'];
+if ($imageUrl === null) {
+    $imageUrl =  '';
+}
+?>
 
 <body class="main" style="background-image: url('<?php echo $background; ?>');">
+  <table class="header-table" border="0">
+    <tr>
+      <td style="padding-left: 0px; width:400px;">
+        <div>
+          <div class="containerPhoto">
+            <img src="<?php echo $imageUrl; ?>" />
+          </div>
+        </div>
+      </td>
+      <td style="text-align: center; vertical-align: middle; position:relative">
+        <div style="width: 300px;height: 200px;overflow: hidden;position: relative; margin: 0 auto;top:40px;">
+          <img src="<?php echo $uploaded_images['image']; ?>" alt=""
+            style="max-width: 100%;max-height: 100%;position: absolute; top: 50%; left: 50%;transform: translate(-50%, -50%);">
+        </div>
+      </td>
 
-	<table class="header-table">
-		<tr>
-			<td style="padding-left: 0px; width:400px;">
-				<div>
-					<div class="containerPhoto">
-						<img
-						width="465px" height="465px"
-							src="<?php echo $uploaded_images['photo']; ?>">
-					</div>
-				</div>
-			</td>
-			<td style="text-align:center; margin:0 auto;">
-				<img src="<?php echo $uploaded_images['logo']; ?>"
-					alt="" style="height: auto;width: 150px;">
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <h1 style="font-size: 2rem;font-weight: 400;">Sobre nosotros.</h1>
+        <p style="margin: 0;padding: 2px;color:#7E7E7E; margin-bottom:10px">
+          <?php echo $about_us; ?>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 2px;padding-left: 0px; width:400px;"></td>
+      <td style="text-align: left;padding: 2px; width: 400px;">
+        <h3 style="font-size: 1.5rem; color:#404040;margin-bottom:5px;font-weight: normal;">&iquest;Por qu&eacute; elegirnos?</h3>
+   
+        <ul style="text-align: left; padding:0px;">
+          <?php
+              $lines = explode(".", $why_choose_us);
+              for ($i = 0; $i < min(count($lines), 3); $i++) {
+                  $linea = trim($lines[$i]);
+                  if (!empty($linea)) {
+              ?>
+          <li style="padding-left: 2px;">
+            <p style="margin: 0;padding:10px 0px;padding-left: 35px;color:#7E7E7E;">
+              <?php echo $linea; ?>
+            </p>
+          </li>
+          <?php
+                    }
+                } ?>
+        </ul>
+      </td>
+    </tr>
 
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<h2>Sobre Nosotros</h2>
-				<p style="margin: 0;padding: 2px;"><?php echo $about_us; ?></p>
-			</td>
-		</tr>
-		<tr>
-			<td style="padding: 2px;">
-				<table cellpadding="10">
-					<tr>
-						<td>
-							<img style="color: white; display: inline-block;"
-								src="https://www.certificadoweb.com/wp-content/uploads/2023/09/estrategia.png" alt=""
-								width="50px" height="50px">
-						</td>
-						<td>
-							<!-- <h3 style="margin: 0;">Estrategia empresarial</h3> -->
-							<p style="margin: 0;padding: 5px;"><?php echo $services_1; ?>
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img style="color: white; display: inline-block;"
-								src="https://www.certificadoweb.com/wp-content/uploads/2023/09/grafico.png" alt=""
-								width="50px" height="50px">
-						</td>
-						<td>
-							<!-- <h3 style="margin: 0;">Mercado</h3> -->
-							<p style="margin: 0;padding: 5px;"><?php echo $services_2; ?>
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img style="color: white; display: inline-block;"
-								src="https://www.certificadoweb.com/wp-content/uploads/2023/09/menu.png" alt=""
-								width="50px" height="50px">
-						</td>
-						<td>
-							<!-- <h3 style="margin: 0;">Nivel Corporativo</h3> -->
-							<p style="margin: 0;padding: 5px;"><?php echo $services_3; ?>
-							</p>
-						</td>
-					</tr>
-				</table>
-			</td>
-			<td style="text-align: left;padding: 2px; width: 400px">
-				<h3> Por que elegirnos?</h3>
-				<ul style="padding: 2px">
-					<li>
-						<?php echo  $why_choose_us; ?>
-					</li>
-				</ul>
-			</td>
-		</tr>
-	<!--	<tr>
-			<td style="text-align: center;color: white;padding-top: 65px;border:1px solid red">Company adress sologan here
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td style="text-align: center;color: white;">www.alion.com.co</td>
-			<td style="text-align: center;margin: 0;color: white;">
-				<p style="margin: 0;">Nﾃｺmero de celular: 00 123 456 789</p>
-
-			</td>
-		</tr>-->
-		<table>
+  </table>
+  <div style="position:absolute; bottom:110px; width:390px">
+    <table width="100%">
+      <tr>
+        <td width="50px">
+          <img style="color: white; display: inline-block;"
+            src="https://www.certificadoweb.com/wp-content/uploads/2023/09/estrategia.png" alt="" width="50px"
+            height="50px">
+        </td>
+        <td style="padding:15px 5px">
+          <h3 style="margin: 0; color:#404040; font-size: 1.3rem; padding-bottom:5px;font-weight: normal;">Estrategia empresarial</h3>
+          <p style="margin: 0;padding: 5px; padding-top:2px;color:#7E7E7E;">
+            <?php echo $service_1; ?>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50px">
+          <img style="color: white; display: inline-block;"
+            src="https://www.certificadoweb.com/wp-content/uploads/2023/09/grafico.png" alt="" width="50px"
+            height="50px">
+        </td>
+        <td style="padding:15px 5px">
+          <h3 style="margin: 0;  color:#404040; font-size: 1.3rem;padding-bottom:5px;font-weight: normal;">Mercado</h3>
+          <p style="margin: 0;padding: 5px; padding-top:2px; color:#7E7E7E;">
+            <?php echo $service_2; ?>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50px">
+          <img style="color: white; display: inline-block;"
+            src="https://www.certificadoweb.com/wp-content/uploads/2023/09/menu.png" alt="" width="50px" height="50px">
+        </td>
+        <td style="padding:15px 5px">
+          <h3 style="margin: 0;  color:#404040; font-size: 1.3rem;padding-bottom:5px;font-weight: normal;">Nivel corporativo</h3>
+          <p style="margin: 0;padding: 5px; padding-top:2px;color:#7E7E7E;">
+            <?php echo $service_3; ?>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div style="border:0px solid red;position: absolute; bottom:0px; width:800px">
+    <table width="800px">
+      <tr style="margin-top:0px">
+        <td style="text-align: left;color: white; width:420px; font-weight: normal;padding:0px; padding-left:25px; line-height: 1;">
+        <p style="padding:0px"><?php echo $email; ?></p>
+           <p style="padding:0px"> <?php echo $web_site; ?></p>
+        </td>
+        <td style="text-align: center;margin: 0;color: white; ">
+          <p style="margin: 0; font-weight: bold; ">N&uacute;mero de celular:
+            <?php echo $phone ; ?>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
 </body>

@@ -27,7 +27,9 @@
     position: relative;
     margin-bottom: 40px;
   }
-
+   #certified-form-1  .column-full{
+     width:100% !important;
+ }
   #certified-form-1 .steps {
     font-size: 15px;
     color: gray;
@@ -134,7 +136,7 @@
        <p> Puedes pedirle a un amigo diseñador que te ayude a generar esta imagen para el fondo de tu plantilla.</p>
       </h4>
       <br>
-      <div class="column-full" style="text-align: center;">
+      <div class="column-full" style="text-align: center; width:100% !important;display:none;">
         <p><strong>Subir imagen de fondo</strong></p>
         <p>
           <span class="wpcf7-form-control-wrap">
@@ -149,10 +151,9 @@
     </div>
   </fieldset>
   <fieldset>
-    <div class="form-row" style="margin-bottom: 30px;text-align: center">
-      <div class="column-half" style="text-align: center;">
+    <div class="form-row" style="margin-bottom: 30px;text-align: center; width:100% !important;">
         <h5><strong>Sube el logo de tu empresa con medidas máximo de 250px * 250px</strong></h5>
-        <p>Te recomendamos que utilices formato PNG y con fondo transparente. <span style="color:red">*</span></p>
+        <p>Te recomendamos que utilices con fondo transparente o fondo blanco.<span style="color:red">*</span></p>
         <p>
           <span class="wpcf7-form-control-wrap">
             <input size="40" required type="file" name="image" id="image-upload" accept="image/*">
@@ -160,26 +161,25 @@
         </p>
         <p id="upload-message"></p>
         <label class="error-label"></label>
-      </div>
     </div>
-    <div class="form-row" style="justify-content: right;">
-      <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+    <div class="form-row" style="justify-content: right;width:100% !important;">
+      <input type="button" name="previous" style="margin: 0;margin-right: 20px;" class="previous action-button-previous" value="Anterior" />
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>
   <fieldset>
-    <div class="form-row" style="text-align: left;">
-      <div class="column-full">
+    <div class="form-row" style="text-align: left;width:100% !important;">
+      <div class="column-full" style="width:100% !important;">
         <p><strong>Nombre de tu empresa</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
-            <input size="40" required type="text" name="business_name" id="business_name" maxlength="50"
+            <input size="40" required type="text" name="business_name" id="business_name" 
               placeholder="Ingrese Nombre de tu empresa" required style="margin:0px">
             <label class="error-label"></label>
           </span>
         </p>
 
       </div>
-      <div class="column-full">
+      <div class="column-full" style="width:100% !important;">
         <p><strong>Escribe las formas de pago que acepta tu empresa</strong></p>
         <p>
           <small>Pago en efectivo</small>,
@@ -191,8 +191,7 @@
         <p>
           <span class="wpcf7-form-control-wrap">
             <textarea cols="40" rows="3" name="payment_information" id="payment_information"
-              placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"
-              maxlength="200"></textarea>
+              placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"></textarea>
           </span>
         </p>
       </div>
@@ -205,39 +204,39 @@
       </div> -->
     </div>
 
-    <div class="form-row" style="justify-content: right;">
-      <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+    <div class="form-row" style="justify-content: right;width:100% !important">
+      <input type="button" name="previous"  style="margin: 0;margin-right: 20px;"  class="previous action-button-previous" value="Anterior" />
       <input type="button" name="next" class="next action-button" value="Siguiente" />
     </div>
   </fieldset>
   <fieldset>
-    <div class="form-row" style="text-align: left;">
-      <div class="column-full">
+    <div class="form-row" style="text-align: left;width:100% !">
+      <div class="column-full" style="width:100% !important;">
         <p><strong>Escribe las condiciones de tu cotización</strong></p>
         <p>
           <small>Ejemplo: Cotización válida por 30 días calendario. Esta cotización no es válida como contrato</small>
         </p>
 
         <p><span class="wpcf7-form-control-wrap" data-name="terms">
-            <textarea cols="70" rows="3" name="terms" id="terms" maxlength="250"></textarea>
+            <textarea cols="70" rows="3" name="terms" id="terms"></textarea>
           </span>
           <br>
         </p>
       </div>
     </div>
-    <div class="form-row" style="justify-content: right;">
-      <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+    <div class="form-row" style="justify-content: right;width:100% !important;">
+      <input type="button" name="previous" style="margin: 0;margin-right: 20px;" class="previous action-button-previous" value="Anterior" />
       <input type="button" name="next" class="next action-button previews" value="Siguiente" />
     </div>
   </fieldset>
   <fieldset>
-    <div class="column-full">
+    <div class="column-full" style="width:100% !important;">
       <div id="html-container-previews"></div>
     </div>
-    <div class="form-row">
-      <div class="column-full" style="text-align: center;">
-        <div class="form-row" style="justify-content: right;">
-          <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+    <div class="form-row" style="width:100% !important;">
+      <div class="column-full" style="text-align: center;width:100% !important;">
+        <div class="form-row" style="justify-content: right;width:100% !important;">
+          <input type="button" name="previous" style="margin: 0;margin-right: 20px;" class="previous action-button-previous" value="Anterior" />
           <input type="submit" value="Siguiente" class="action-button">
           <div class="loader">
             <div class="loader-wheel"></div>

@@ -47,7 +47,7 @@
         #front>img {
             max-height: 150px;
             max-width: 150px;
-            margin-top: 75px;
+            margin-top: 60px;
         }
 
         #front div {
@@ -161,17 +161,16 @@
             <td>
                 <div id="front">
                          <img src="<?php echo $uploaded_images['logo']; ?>"  alt="logo brand">
-                    <div>
-                                <p><?php echo $slogan ? strtoupper($slogan) : ''; ?></p>
-                    </div>
+                    <div><p><?php echo $slogan ? strtoupper($slogan) : ''; ?></p></div>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
                 <div id="back">
-                    <div>
-                        <img src="<?php echo $uploaded_images['logo']; ?>"  alt="logo brand" style="text-align: end; padding-left: 30px">
+                    <div style=" width:200px; heigth:200px; padding-left:20px; padding-right:20px; text-align: right; margin-top">
+                        <img src="<?php echo $uploaded_images['logo']; ?>"  alt="logo brand" style="text-align: end;max-height: 150px;max-width: 150px;">
+                       
                     </div>
                     <div class="details">
                         <div style="text-align: center;margin-bottom: 10px;">
