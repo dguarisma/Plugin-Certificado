@@ -50,23 +50,23 @@
     <div class="logo-container"><img src="<?php echo $uploaded_images['image']; ?>"></div>
     <table style="margin: auto; width: 800px; position: absolute; top:400px;">
       <tr>
-        <td style="  width: 350px; vertical-align: top;">
-          <h2 style="font-weight:normal; color:#3A4E5A; margin:0px; font-size:1.8rem; margin-left:50px; ">LLEVA TU
+        <td style="width: 350px; vertical-align: top;overflow: hidden;">
+          <h2 style="font-weight:normal; color:#3A4E5A; margin:0px; font-size:1.8rem; margin-left:40px; ">LLEVA TU
             <br /> NEGOCIO A OTRO <br /><strong style="font-size:2.5rem;">NIVEL</strong></h2>
-          <div style="margin-left:50px; margin-top:20px;padding-right:10px">
+          <div style="margin-left:40px; margin-top:20px;padding-right:15px;overflow: hidden;">
             <h1 style="font-size: 1.5rem;font-weight: bold; color:#3A4E5A;">Sobre nosotros.</h1>
-            <p style="font-weight:normal; color:#3A4E5A">
+            <p style="font-weight:normal; color:#3A4E5A;overflow: hidden;height: auto;width: 300px;word-wrap: break-word;">
               <?php echo $about_us; ?>
             </p>
           </div>
-          <div style="margin-left:50px; margin-top:20px; padding-right:10px">
+          <div style="margin-left:40px; margin-top:20px; padding-right:15px; overflow: hidden;">
             <h1 style="font-size: 1.5rem;font-weight: bold; color:#3A4E5A;">&iquest;Por qu&eacute; elegirnos?</h1>
-            <p style="font-weight:normal; color:#3A4E5A">
+            <p style="font-weight:normal; color:#3A4E5A;overflow: hidden;height: auto;width: 300px;word-wrap: break-word;">
               <?php echo $why_choose_us; ?>
             </p>
           </div>
         </td>
-        <td style="width: 400px;padding-right: 15px; padding-top: 70px;">
+        <td style="width: 390px;padding-right: 15px; padding-top: 70px">
           <table>
             <tr>
               <td>
@@ -75,10 +75,10 @@
                   height="60px">
               </td>
               <td style="width: 300px;padding-left:30px;">
-                <h2 style="color: white; margin:0px;text-transform: uppercase;">
+                <h2 style="color: white; margin:0px;text-transform: capitalize;height: auto;width: 300px;word-wrap: break-word; font-size:1.2rem">
                   <?php echo $titel_1; ?>
                 </h2>
-                <p style="color: #999999;font-weight: normal;">
+                <p style="color: #999999;font-weight: normal;height: auto;width: 300px;word-wrap: break-word;">
                   <?php echo $service_1; ?>
                 </p>
               </td>
@@ -89,10 +89,10 @@
                   height="60px" height="auto">
               </td>
               <td style="padding-left:30px;">
-                <h2 style="color: white; margin:0px;text-transform: uppercase;">
+                <h2 style="color: white; margin:0px;text-transform: capitalize;height: auto;width: 300px;word-wrap: break-word;font-size:1.2rem">
                   <?php echo $titel_2; ?>
                 </h2>
-                <p style="color: #999999;font-weight: normal;">
+                <p style="color: #999999;font-weight: normal;height: auto;width: 300px;word-wrap: break-word;">
                   <?php echo $service_2; ?>
                 </p>
               </td>
@@ -103,10 +103,10 @@
                   height="60px" height="auto">
               </td>
               <td style="padding-left:30px;">
-                <h2 style="color: white; margin:0px;text-transform: uppercase;">
+                <h2 style="color: white; margin:0px;text-transform: capitalize;height: auto;width: 300px;word-wrap: break-word;font-size:1.2rem">
                   <?php echo $titel_3; ?>
                 </h2>
-                <p style="color: #999999;font-weight: normal;">
+                <p style="color: #999999;font-weight: normal;height: auto;width: 300px;word-wrap: break-word;">
                   <?php echo $service_3; ?>
                 </p>
               </td>
@@ -116,10 +116,10 @@
                 <img src="https://www.certificadoweb.com/wp-content/uploads/2023/09/iconoMensaje.png" alt=""
                   width="60px" height="60px" height="auto">
               <td style="padding-left:30px;">
-                <h2 style="color: white; padding-left: 15px: margin:0px;text-transform: uppercase;">
+                <h2 style="color: white; padding-left: 15px: margin:0px;text-transform: capitalize;height: auto;width: 300px;word-wrap: break-word;font-size:1.2rem">
                   <?php echo $titel_4; ?>
                 </h2>
-                <p style="color: #999999;font-weight: normal;">
+                <p style="color: #999999;font-weight: normal;height: auto;width: 300px;word-wrap: break-word;">
                   <?php echo $service_4; ?>
                 </p>
               </td>
@@ -128,38 +128,37 @@
         </td>
       </tr>
     </table>
-    <footer style="position: absolute; bottom:35px;  height:80px; padding: 1px 0px; width:870px;">
-      <table style="padding:0px">
+    <footer style="position: absolute; bottom:0px;  height:95px; padding: 1px 0px; width:800px">
+      <table style="padding:0px; width:100%;padding-top:5px: padding-bottom:5px">
         <tr>
-          <td style="vertical-align: middle; margin: 0 auto; position:relative;text-align: center; width:300px;">
+          <td style="vertical-align: top; margin: 0 auto; position:relative;text-align: left; width:220px;">
                <div
-                style="border-right: 4px solid white;height:70px; position: absolute;top: 80%;right: -0%;transform: translate(-50%, -50%);">
+                style="border-right: 5px solid white;height:55px; position: absolute;top: 43%;right: 0%;transform: translate(-50%, -50%);">
               </div>
-            <div style="height:80px; width:150px; margin: 0 auto;text-align: center;margin-bottom:10px">
+            <div style="height:85px; margin: 0 auto; position:relative; width:150px; text-align: left;margin-bottom:0;vertical-align: middle">
               <img src="<?php echo $uploaded_images['image']; ?>"
                 style="max-width: 100%;max-height: 100%;display: block;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
             </div>
           </td>
-          <td style="width: 266px; vertical-align: middle; margin: 0 auto; text-align: left; padding-left:30px;">
-            <ul style="list-style-type: none;width:100%;red;padding: 0;">
-            <li style="padding: 0; vertical-align: middle;">
-                <i class="fa fa-envelope-o" aria-hidden="true" style="color: white; padding: 0; display: inline-block; vertical-align: middle;"></i>
-                <p style="text-align: left; color: white; padding: 0; display: inline-block; margin-left: 10px; vertical-align: middle;"><?php echo $email; ?></p>
-              </li>
-              <li style="padding: 0; vertical-align: middle;">
-                <i class="fa fa-phone" aria-hidden="true" style="color: white; padding: 0; display: inline-block; vertical-align: middle;"></i>
-                <p style="text-align: left; color: white; padding: 0; display: inline-block; margin-left: 10px; vertical-align: middle;"><?php echo $phone; ?></p>
-              </li>
-            </ul>
+          <td style="width: auto; heigth:auto; margin: 0 auto; text-align: left; padding-left:30px;vertical-align: middle; padding-rigth:10px">
+              <div style=" margin:0px;">
+                  <i class="fa fa-envelope-o" aria-hidden="true" style="color: white; padding: 0px; display: inline-block; vertical-align: middle;font-size: 25px;"></i>
+                <p style="text-align: left; color: white; padding: 0px;margin:10px 0px;display: inline-block; margin-left: 10px; vertical-align: middle;height: auto;width: auto;word-wrap: break-word; font-size:.8rem; font-weight: normal;"><?php echo $email; ?></p>
+              </div>
+              <div  style="margin:0px;">
+                  <i class="fa fa-phone" aria-hidden="true" style="color: white; padding: 0; display: inline-block; vertical-align: middle;font-size: 25px;"></i>
+                <p style="text-align: left; color: white; padding: 0px; margin:10px 0px; display: inline-block; margin-left: 10px; vertical-align: middle;height: auto;width: auto;word-wrap: break-word;font-size:.8rem;font-weight: normal;"><?php echo $phone; ?></p>
+              </div>
+         
           </td>
-          <td style="vertical-align: middle; margin: 0 auto; text-align: left;padding-top:10px;">
+          <td style="width: auto; heigth:auto; margin: 0 auto; text-align: left;vertical-align: middle;">
                 <?php echo $web_site ? '<div>
-                            <i class="fa fa-globe" aria-hidden="true" style="color: white; padding: 0; display: inline-block; vertical-align: middle;"></i>
-                            <p style="text-align: left; color: white; padding: 0; display: inline-block; margin-left: 10px; vertical-align: middle;">' . $web_site . '</p>
+                            <i class="fa fa-globe" aria-hidden="true" style="color: white; padding: 0; display: inline-block; vertical-align: middle;font-size: 25px;"></i>
+                            <p style="text-align: left;margin:10px 0px;color: white; padding: 0px; display: inline-block; margin-left: 10px; vertical-align: middle;height: auto;width: auto;word-wrap: break-word;font-size:.8rem;font-weight: normal;">' . $web_site . '</p>
                         </div>' : ''; ?>
               <div>
-                    <i class="fa fa-map-marker" aria-hidden="true" style="color: white; padding: 0; display: inline-block; vertical-align: middle;"></i>
-                <p style="text-align: left; color: white; padding: 0; display: inline-block; margin-left: 10px; vertical-align: middle;"><?php echo $address; ?></p>
+                    <i class="fa fa-map-marker" aria-hidden="true" style="color: white; padding: 0px; display: inline-block; vertical-align: middle;font-size: 25px;"></i>
+                <p style="text-align: left; color: white;margin:10px 0px; padding: 0px; display: inline-block; margin-left: 10px; vertical-align: middle;height: auto;width: auto;word-wrap: break-word;font-size:.8rem;font-weight: normal;"><?php echo $address; ?></p>
               </div>
           </td>
         </tr>

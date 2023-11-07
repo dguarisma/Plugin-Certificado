@@ -472,6 +472,14 @@ img.vc_single_image-img.attachment-full {
   background-color: #039ABC;
 }
 
+.hidden {
+  display: none;
+}
+
+.block {
+  display: none;
+}
+
 #progressbar {
   margin: 0 auto;
   overflow: hidden;

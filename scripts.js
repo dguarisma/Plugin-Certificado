@@ -7,7 +7,7 @@
         var steps = currentForm === '3' ? 5 : 6;
 
         setProgressBar(current);
-
+        localStorage.removeItem('optradio');
         if (currentForm) {
             $('#container-certified-form-' + currentForm).show();
             $('#back').show();
@@ -36,7 +36,57 @@
             location.reload();
         });
 
+        $("#optradio_flyer").click(function () {
+            var containers = document.querySelectorAll("[id^='container-certified-form-2']");
+            var containerParent = null;
+            for (var i = 0; i < containers.length; i++) {
+                var container = containers[i];
+                if (getComputedStyle(container).display !== 'none') {
+                    containerParent = container;
+                    break;
+                }
+            }
+            if (containerParent) {
+                // $("div[id='hidden_1']").remove();
+                $("div[id='hidden_2']").hide();
 
+            }
+
+            localStorage.setItem('optradio', '1');
+        })
+        $("#optradio_flyer_2").click(function () {
+            var containers = document.querySelectorAll("[id^='container-certified-form-2']");
+            var containerParent = null;
+            for (var i = 0; i < containers.length; i++) {
+                var container = containers[i];
+                if (getComputedStyle(container).display !== 'none') {
+                    containerParent = container;
+                    break;
+                }
+            }
+            if (containerParent) {
+                $("#hidden_2, div#hidden_1.hidden_2").hide();
+
+            }
+            localStorage.setItem('optradio', '2');
+        })
+        $("#optradio_flyer_3").click(function () {
+            var containers = document.querySelectorAll("[id^='container-certified-form-2']");
+            var containerParent = null;
+            for (var i = 0; i < containers.length; i++) {
+                var container = containers[i];
+                if (getComputedStyle(container).display !== 'none') {
+                    containerParent = container;
+                    break;
+                }
+            }
+            if (containerParent) {
+                $("#hidden_1").show();
+                $("div#hidden_1.hidden_2").show();
+                $("div[id='hidden_3']").hide();
+            }
+            localStorage.setItem('optradio', '3');
+        })
 
         $(".next").click(function () {
             current_fs = $(this).closest('fieldset');
@@ -47,6 +97,33 @@
                 return $(this).val() === '';
             });
 
+            if (!localStorage.getItem('optradio')) {
+                localStorage.setItem('optradio', '1');
+            }
+            if (localStorage.getItem('optradio') === '1') {
+                $("#hidden_1").hide();
+                  $("#hidden_2").show();
+                   $("#hidden_service_1").hide();
+                      $("div[id='hidden_3']").show();
+                
+            } else if (localStorage.getItem('optradio') === '2') {
+                 $("#hidden_1").hide();
+                  $("#hidden_2").hide();
+                   $("#hidden_service_1").show();
+                     $("div[id='hidden_3']").show();
+            } else if (localStorage.getItem('optradio') === '3') {
+                 $("#hidden_1").show();
+                  $("#hidden_2").show();
+                $("#hidden_service_1").show();
+                $("div[id='hidden_3']").hide();
+            }
+
+            /*
+                        if ($("#optradio_flyer[name='optradio'][value='1']").is(":checked")) {
+                $("div[id='hidden_1']").hide();
+            }
+            
+            */
             if (camposIncompletos.length > 0) {
                 label.text('Por favor, complete todos los campos requeridos.').attr('style', 'color: red;font-weight:100;font-size:12px').show();
                 camposIncompletos.addClass('error-input').attr('style', 'border-color: red !important;');
@@ -92,6 +169,8 @@
                     break;
                 }
             }
+
+
             var htmlContainerPreviews = containerParent.querySelector('#html-container-previews');
             if (htmlContainerPreviews) {
                 htmlContainerPreviews.style.height = ''
@@ -99,6 +178,7 @@
 
             var htmlContainer = containerParent.querySelector("#html-container");
             if (htmlContainer) {
+                console.log($("input[name='optradio']:checked").val())
                 containerParent.removeChild(htmlContainer);
             }
             label.hide();

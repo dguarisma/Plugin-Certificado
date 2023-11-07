@@ -209,7 +209,7 @@
         <p><strong>Nombres</strong> <span style="color:red">*</span></p>
         <p><span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="name" id="name" 
-            placeholder="Ingrese Nombres" required>
+            placeholder="Ingrese Nombres"  maxlength="50" required>
             <label class="error-label"></label>
         </span></p>
      
@@ -218,7 +218,7 @@
         <p><strong>Apellidos</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="surname" id="surname" 
-            placeholder="Ingrese Apellidos" required>
+            placeholder="Ingrese Apellidos"  maxlength="50" required>
             <label class="error-label"></label>
         </span></p>
       </div>
@@ -236,7 +236,7 @@
         <p><strong>Tu dirección</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
           <input size="30" required type="text" name="address" id="address" 
-            placeholder="Ingrese Tu dirección" required>
+            placeholder="Ingrese Tu dirección"  maxlength="50" required>
             <label class="error-label"></label>
         </span></p>
        
@@ -245,7 +245,7 @@
         <p><strong>Teléfono</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="phone" id="phone" 
-            placeholder="000 000-000">
+            placeholder="000 000-000"  maxlength="12">
             <label class="error-label"></label>
         </span></p>
       </div>

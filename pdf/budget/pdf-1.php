@@ -87,7 +87,7 @@
       text-align: center;
       margin: 0 auto;
       margin-top: 47px;
-
+      margin-left:120px;
     }
 
     .logo img {
@@ -96,7 +96,6 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-left: 43px;
       transform: translate(-50%, -50%);
     }
 

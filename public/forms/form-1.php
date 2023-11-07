@@ -173,7 +173,7 @@
         <p><strong>Nombre de tu empresa</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="business_name" id="business_name" 
-              placeholder="Ingrese Nombre de tu empresa" required style="margin:0px">
+              placeholder="Ingrese Nombre de tu empresa" required style="margin:0px"  maxlength="50" >
             <label class="error-label"></label>
           </span>
         </p>
@@ -191,6 +191,7 @@
         <p>
           <span class="wpcf7-form-control-wrap">
             <textarea cols="40" rows="3" name="payment_information" id="payment_information"
+             maxlength="200"
               placeholder="Puede realizar el pago en efectivo al momento de la obra, Nequi, Bancolombia, Davoiplata"></textarea>
           </span>
         </p>
@@ -218,7 +219,7 @@
         </p>
 
         <p><span class="wpcf7-form-control-wrap" data-name="terms">
-            <textarea cols="70" rows="3" name="terms" id="terms"></textarea>
+            <textarea cols="70" rows="3" name="terms" id="terms" maxlength="200" ></textarea>
           </span>
           <br>
         </p>

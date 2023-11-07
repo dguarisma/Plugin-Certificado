@@ -99,6 +99,7 @@
 
     .container-business {
       padding-top: 50px;
+      width:350px;
     }
 
     .container-business p {
@@ -176,10 +177,10 @@
         </td>
         <td class="col-40">
           <div class="container-business">
-            <h3 style="font-size:3rem">
+            <h3 style="font-size:3rem; text-align: center;">
               <?php echo strtoupper($business_name); ?>
             </h3>
-            <table style=" width: 260px; margin-top:20px" border="0">
+            <table style=" width: 300px; margin:0 auto; margin-top:20px;"  border="0">
               <tr>
                 <th style="text-align: left; width:160px; padding-left:10px; padding-bottom:5px;">Cotizaci&#243;n &#35;
                 </th>

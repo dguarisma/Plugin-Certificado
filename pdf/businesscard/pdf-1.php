@@ -39,6 +39,7 @@
     #front {
       background-image: url(<?php echo $background_front; ?>);
       text-align: center;
+         position: relative;
     }
 
     #back {
@@ -46,12 +47,19 @@
       padding-bottom: 30px;
     }
 
-    #front>img {
-      max-height: 120px;
-      max-width: 120px;
-      margin-top: 40px;
+       #front .frontContainerLogo{
+            max-width: 220px;
+            max-height: 220px;
+            position: relative;
+            top:60px;
+            margin:0 auto;
     }
-
+       #front .frontContainerLogo img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+   
+    }
     #front>p {
       margin-top: 155px;
       font-size: 1.3em;
@@ -194,13 +202,15 @@
 </head>
 
 <body class="container">
-  <table class="business-hor">
+  <table class="business-hor" border="0">
     <tr>
       <td>
         <div id="front">
-          <img src="<?php echo $uploaded_images['logo']; ?>" alt="logo brand">
-          <div>
-            <p style="text-transform: uppercase;">
+          <div class="frontContainerLogo">
+              <img src="<?php echo $uploaded_images['logo']; ?>" alt="logo brand">
+          </div>
+          <div style="padding-left:30px">
+            <p style="text-transform: Capitalize;">
               <?php echo $slogan ? $slogan : ''; ?>
             </p>
           </div>
@@ -220,25 +230,25 @@
           </div>
           <div class="details">
             <div>
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
+                   <img src="https://alion.com.co/wp-content/uploads/2023/11/ic-1-1.png" width="40px" heigth="40px" />
               <p>
                 <?php echo $address; ?>
               </p>
             </div>
             <div>
-              <i class="fa fa-phone" aria-hidden="true"></i>
+                <img src="https://alion.com.co/wp-content/uploads/2023/11/ic-2-1.png" width="40px" heigth="40px" />
               <p>
                 <?php echo $phone; ?>
               </p>
             </div>
             <div>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
+                   <img src="https://alion.com.co/wp-content/uploads/2023/11/ic-3-1.png" width="40px" heigth="40px" />
               <p>
                 <?php echo $email; ?>
               </p>
             </div>
             <?php echo $web_site ? '<div>
-                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <img src="https://alion.com.co/wp-content/uploads/2023/11/ic-4.png" width="40px" heigth="40px" />
                             <p>' . $web_site . '</p>
                         </div>' : ''; ?>
           </div>

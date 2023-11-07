@@ -83,8 +83,8 @@
     }
 
     .logo {
-      width: 200px;
-      height: 100px;
+      width: 160px;
+      height: 160px;
       overflow: hidden;
       position: relative;
       margin: 0 auto;
@@ -157,31 +157,27 @@
 </head>
 
 <body class="container" style="background-image: url('<?php echo $background; ?>');">
-  <table class="container-header" border="0">
+  <table class="container-header">
     <tr>
-      <td class="col-60" style="width: 230px; text-align: center;vertical-align: middle;">
-        <div class="logo" style="margin-top:50px">
+      <td style="width: 160px; text-align: center;vertical-align: middle;height:200px;  ">
+        <div class="logo">
           <img src="<?php echo $uploaded_images['image']; ?>" alt="Logo"
             srcset="<?php echo $uploaded_images['image']; ?>">
         </div>
       </td>
-
-      <td class="col-40" style="vertical-align: middle; padding-bottom:20px">
-        <div class="container-business">
-          <h2 style="text-align: right; font-size:3rem; margin-top:-30px; margin-right:150px">
+      <td class="col-40" style="vertical-align: middle; padding-bottom:20px;width:390px;">
+        <div class="container-business" style="width:400px; height:200px;  margin:0 auto;margin-top:20px;margin-right:30px; float: right;">
+          <h2 style="text-align: center; font-size:3rem; margin:0px; padding-bottom:20px;">
             <?php echo strtoupper($business_name); ?>
           </h2>
-          <table border="0" style="margin:0 auto;margin-left:230px; padding-top:20px">
+          <table style="margin:0 auto;">
             <tr>
-              <th style="text-align: left; width:160px; padding-left:10px; padding-bottom:5px;">Cotizaci&#243;n &#35;
-              </th>
+              <th style="text-align: left; width:160px; padding-left:10px; padding-bottom:5px;">Cotizaci&#243;n &#35;</th>
               <th style="text-align: right;">___________</th>
             </tr>
             <tr>
               <th style="text-align: left; width:160px; padding-left:10px;padding-top:5px;">Fecha</th>
-              <td style="text-align: right;">
-                <?php echo date("d / m / Y"); ?>
-              </td>
+              <td style="text-align: right;"><?php echo date("d / m / Y"); ?></td>
             </tr>
           </table>
         </div>
@@ -189,7 +185,7 @@
     </tr>
   </table>
 
-  <div class="container-register-items">
+  <div class="container-register-items" style="margin-top: 0px">
     <table>
       <tr>
         <th>N.</th>

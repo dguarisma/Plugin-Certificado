@@ -92,8 +92,7 @@
     <div class="form-row">
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
-          <label><input type="radio" name="optradio" id="optradio" value="1" checked="checked"
-              onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-flyer-1.jpg'; ?>')">
+          <label><input type="radio" name="optradio" id="optradio_flyer" value="1" checked >
             Diseño 1
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))  . 'assets/img/flyer-1.jpg'; ?>"
@@ -109,8 +108,7 @@
       </div>
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
-          <label><input type="radio" name="optradio" id="optradio" value="2"
-              onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-flyer-2.jpg'; ?>')">
+          <label><input type="radio" name="optradio" id="optradio_flyer_2" value="2">
             Diseño 2
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))  . 'assets/img/flyer-2.jpg'; ?>"
@@ -126,8 +124,7 @@
       </div>
       <div class="column-quarter">
         <div class="radio" style="text-align: center;color: #071041;">
-          <label><input type="radio" name="optradio" id="optradio" value="3"
-              onclick="urlDownload('<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))   . 'assets/template/Ins-flyer-3.jpg'; ?>')">
+          <label><input type="radio" name="optradio" id="optradio_flyer_3" value="3">
             Diseño 3
             <figure class="wpb_wrapper vc_figure">
               <a href="<?php echo esc_url(plugin_dir_url(dirname(__FILE__)))  . 'assets/img/flyer-3.jpg'; ?>"
@@ -186,23 +183,30 @@
     </div>
   </fieldset>
   <fieldset>
-    <div class="form-row" style="text-align: left; width:100% !important;">
-      <div class="column-full width:100% !important;">
+    <div class="form-row" style="text-align: left; width:100% !important;"  >
+      <div class="column-full" style="width:100% !important;" id="hidden_2">
         <p><strong>Foto de Perfil</strong></p>
         <p><span class="wpcf7-form-control-wrap">
             <input size="40" type="file" name="photo" id="image-photo" accept="image/*">
           </span></p>
       </div>
-      <div class="column-full width:100% !important;">
+        <div class="column-full hidden_2"  style="width:100% !important" id="hidden_1">
+        <p><strong>Foto de Perfil 2</strong></p>
+        <p><span class="wpcf7-form-control-wrap">
+            <input size="40" type="file" name="photo_2" id="image-photo_2" accept="image/*">
+          </span></p>
+      </div>
+      <div class="column-full" style="width:100% !important;">
         <p><strong>Nombre de tu empresa</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="business_name" id="business_name"
-              placeholder="Ingrese Nombre de tu empresa">
+              placeholder="Ingrese Nombre de tu empresa"  maxlength="10">
             <label class="error-label"></label>
           </span></p>
 
       </div>
-      <div class="column-full width:100% !important;">
+      
+      <div class="column-full" style="width:100% !important;" id="hidden_3">
         <p><strong> Sobre nosotros (Máximo 130 caracteres)</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
             <textarea cols="40" rows="3" name="about_us" id="about_us"
@@ -215,14 +219,17 @@
 
       </div>
 
-      <div class="column-full" style="text-align: left;width:100% !important;">
+      <div class="column-full" style="text-align: left;width:100% !important;"  id="hidden_3">
         <p><strong>Escribe 3 frases informando por qué un cliente debe elegirte para hacer su trabajo.
           </strong> <span style="color:red">*</span></p><span class="wpcf7-form-control-wrap">
-          <textarea cols="40" rows="3" name="why_choose_us" id="why_choose_us"
+          <textarea cols="40" rows="3" name="why_choose_us"
+            maxlength="200" id="why_choose_us"
             placeholder="Escribe 3 frases informando por qué un cliente debe elegirte para hacer su trabajo."
             style="margin: 0px;"></textarea>
           <small>Te recomendamos escribir frases cortas, una por renglón, y finalizar cada una de ellas con un
             punto.</small>
+                <small>Te recomendamos escribir frases cortas, asegúrate de que no
+              supere los 200 caracteres.</small>
         </span><label class="error-label"></label>
       </div>
     </div>
@@ -297,11 +304,11 @@
             <label class="error-label"></label></span>
         </div>
       </div>
-      <div style="width: 100%;display: flex;padding: 10px 0px;">
+      <div style="width: 100%;display: flex;padding: 10px 0px;" id="hidden_service_1">
         <div class="column-half">
           <span class="wpcf7-form-control-wrap" style="width:50%">
             <strong>Título del servicio</strong> <span style="color:red">*</span>
-            <input size="40" required type="text" maxlength="20" name="service_title_4" id="service_title_4"
+            <input size="40"  type="text" maxlength="20" name="service_title_4" id="service_title_4"
               placeholder="título del servicio (Máximo 20 caracteres)">
             <small> Por favor, asegúrate de que no
               supere los 20 caracteres.</small>
@@ -310,7 +317,7 @@
         <div class="column-half">
           <span class="wpcf7-form-control-wrap">
             <strong>Descripción del servicio</strong> <span style="color:red">*</span>
-            <input size="40" required type="text" maxlength="80" name="service_descripcion_4" id="service_descripcion_4"
+            <input size="40"  type="text" maxlength="80" name="service_descripcion_4" id="service_descripcion_4"
               placeholder="Ingrese descripción del servicio  (Máximo 80 caracteres)">
             <small> Por favor, asegúrate de que no
               supere los 80 caracteres.</small>
@@ -330,7 +337,7 @@
       <div class="column-half">
         <p><strong>Correo electrónico</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
-            <input size="40" required type="text" name="email" id="email" placeholder="Ingrese Correo electrónico">
+            <input size="40" required type="text" name="email" id="email" maxlength="30" placeholder="Ingrese Correo electrónico">
             <label class="error-label"></label>
           </span></p>
 
@@ -338,7 +345,7 @@
       <div class="column-half">
         <p><strong>Teléfono (móvil o fijo)</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
-            <input size="40" required type="text" name="phone" id="phone" placeholder="Ingrese Teléfono (móvil o fijo)">
+            <input size="40" required type="text" name="phone" id="phone" placeholder="Ingrese Teléfono (móvil o fijo)"  maxlength="16" >
             <label class="error-label"></label>
           </span></p>
 
@@ -346,7 +353,7 @@
       <div class="column-half">
         <p><strong>Tu Dirección</strong> <span style="color:red">*</span></p>
         <p> <span class="wpcf7-form-control-wrap">
-            <input size="40" required type="text" name="address" id="address" placeholder="Tu Dirección">
+            <input size="40" required type="text" name="address"  maxlength="30"  id="address" placeholder="Tu Dirección">
             <label class="error-label"></label>
           </span></p>
 
@@ -354,7 +361,7 @@
       <div class="column-half">
         <p><strong>Página web de tu empresa</strong></p>
         <p> <span class="wpcf7-form-control-wrap">
-            <input size="40" type="text" name="web_site" id="web_site" placeholder="Ingrese Web Site">
+            <input size="40" type="text" name="web_site" id="web_site"  maxlength="30"  placeholder="Ingrese Web Site">
           </span></p>
       </div>
     </div>

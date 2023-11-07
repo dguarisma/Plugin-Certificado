@@ -28,20 +28,24 @@
 
   .containerPhoto {
     border-radius: 50%;
-    width: 285px;
-    height: 285px;
-    margin-left: 44px;
-    text-align: center;
-    margin-top: 75px;
+    width: 290px;
+    height: 290px;
+    margin-left: 42.5px;
+    margin-top: 74.5px;
     aspect-ratio: auto 1/1;
+          position: relative;
   }
 
   .containerPhoto img {
     margin: auto;
     border-radius: 50%;
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
+   max-width: 100%;
+      max-height: 100%;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
   }
 
@@ -63,28 +67,25 @@ if ($imageUrl === null) {
 ?>
 
 <body class="main" style="background-image: url('<?php echo $background; ?>');">
-  <table class="header-table" border="0">
+  <table class="header-table">
     <tr>
-      <td style="padding-left: 0px; width:400px;">
-        <div>
+      <td>
           <div class="containerPhoto">
             <img src="<?php echo $imageUrl; ?>" />
           </div>
-        </div>
       </td>
-      <td style="text-align: center; vertical-align: middle; position:relative">
-        <div style="width: 300px;height: 200px;overflow: hidden;position: relative; margin: 0 auto;top:40px;">
+      <td style="text-align: center; vertical-align: middle; position:relative;width: 350px;height: 150px;">
+        <div style="width: 220px;height: 220px;overflow: hidden;position: relative; margin: 0 auto;top:40px; right:10px">
           <img src="<?php echo $uploaded_images['image']; ?>" alt=""
             style="max-width: 100%;max-height: 100%;position: absolute; top: 50%; left: 50%;transform: translate(-50%, -50%);">
         </div>
       </td>
-
     </tr>
     <tr>
       <td></td>
       <td>
         <h1 style="font-size: 2rem;font-weight: 400;">Sobre nosotros.</h1>
-        <p style="margin: 0;padding: 2px;color:#7E7E7E; margin-bottom:10px">
+        <p style="margin: 0;padding: 2px;color:#7E7E7E; margin-bottom:10px;height: auto;width: 390px;word-wrap: break-word;">
           <?php echo $about_us; ?>
         </p>
       </td>
@@ -102,19 +103,18 @@ if ($imageUrl === null) {
                   if (!empty($linea)) {
               ?>
           <li style="padding-left: 2px;">
-            <p style="margin: 0;padding:10px 0px;padding-left: 35px;color:#7E7E7E;">
+            <p style="margin: 0;padding:10px 0px;padding-left: 35px;color:#7E7E7E; height: auto;width: 360px;word-wrap: break-word;">
               <?php echo $linea; ?>
             </p>
           </li>
-          <?php
-                    }
+          <?php }
                 } ?>
         </ul>
       </td>
     </tr>
 
   </table>
-  <div style="position:absolute; bottom:110px; width:390px">
+  <div style="position:absolute; bottom:110px; width:390px;">
     <table width="100%">
       <tr>
         <td width="50px">
@@ -122,9 +122,9 @@ if ($imageUrl === null) {
             src="https://www.certificadoweb.com/wp-content/uploads/2023/09/estrategia.png" alt="" width="50px"
             height="50px">
         </td>
-        <td style="padding:15px 5px">
-          <h3 style="margin: 0; color:#404040; font-size: 1.3rem; padding-bottom:5px;font-weight: normal;">Estrategia empresarial</h3>
-          <p style="margin: 0;padding: 5px; padding-top:2px;color:#7E7E7E;">
+             <td style="padding: 15px 5px; width: 390px; overflow: hidden;">
+          <h3 style="margin: 0; color: #404040; font-size: 1.3rem; padding-bottom: 5px; font-weight: normal;text-transform: capitalize;"><?php echo $titel_1; ?></h3>
+          <p style="margin: 0; padding: 5px; padding-top: 2px; color: #7E7E7E; height: auto;width: 300px;word-wrap: break-word;">
             <?php echo $service_1; ?>
           </p>
         </td>
@@ -136,8 +136,8 @@ if ($imageUrl === null) {
             height="50px">
         </td>
         <td style="padding:15px 5px">
-          <h3 style="margin: 0;  color:#404040; font-size: 1.3rem;padding-bottom:5px;font-weight: normal;">Mercado</h3>
-          <p style="margin: 0;padding: 5px; padding-top:2px; color:#7E7E7E;">
+          <h3 style="margin: 0;  color:#404040; font-size: 1.3rem;padding-bottom:5px;font-weight: normal;text-transform: capitalize;"> <?php echo $titel_2; ?></h3>
+          <p style="margin: 0;padding: 5px; padding-top:2px; color:#7E7E7E;height: auto;width: 300px;word-wrap: break-word;">
             <?php echo $service_2; ?>
           </p>
         </td>
@@ -148,8 +148,8 @@ if ($imageUrl === null) {
             src="https://www.certificadoweb.com/wp-content/uploads/2023/09/menu.png" alt="" width="50px" height="50px">
         </td>
         <td style="padding:15px 5px">
-          <h3 style="margin: 0;  color:#404040; font-size: 1.3rem;padding-bottom:5px;font-weight: normal;">Nivel corporativo</h3>
-          <p style="margin: 0;padding: 5px; padding-top:2px;color:#7E7E7E;">
+          <h3 style="margin: 0;  color:#404040; font-size: 1.3rem;padding-bottom:5px;font-weight: normal;text-transform: capitalize;"><?php echo $titel_3; ?></h3>
+          <p style="margin: 0;padding: 5px; padding-top:2px;color:#7E7E7E;height: auto;width: 300px;word-wrap: break-word;">
             <?php echo $service_3; ?>
           </p>
         </td>
@@ -161,10 +161,10 @@ if ($imageUrl === null) {
       <tr style="margin-top:0px">
         <td style="text-align: left;color: white; width:420px; font-weight: normal;padding:0px; padding-left:25px; line-height: 1;">
         <p style="padding:0px"><?php echo $email; ?></p>
-           <p style="padding:0px"> <?php echo $web_site; ?></p>
+           <p style="padding:0px;height: auto;width: 390px;word-wrap: break-word;"> <?php echo $web_site; ?></p>
         </td>
         <td style="text-align: center;margin: 0;color: white; ">
-          <p style="margin: 0; font-weight: bold; ">N&uacute;mero de celular:
+          <p style="margin: 0; font-weight: Medium; ">N&uacute;mero de celular:
             <?php echo $phone ; ?>
           </p>
         </td>

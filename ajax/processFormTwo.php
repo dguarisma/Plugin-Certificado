@@ -8,8 +8,7 @@ use Dompdf\Dompdf;
 function certified_form_two_action() {
     session_start();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['business_name']) && isset($_POST['about_us']) 
-    && isset($_POST['why_choose_us'])
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'
     && isset($_POST['optradio']) && isset($_POST['address']) && isset($_POST['phone']) && isset($_POST['email'])) {
 
         $business_name = sanitize_text_field($_POST['business_name']);
@@ -33,6 +32,7 @@ function certified_form_two_action() {
         $uploads = array(
             'image' => 'image',
             'photo' => 'photo',
+             'photo_2' => 'photo_2',
             'background' => 'background'
         );
 
