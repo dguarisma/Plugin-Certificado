@@ -4,7 +4,20 @@
         var current_fs, next_fs, previous_fs; // fieldsetsx
         var opacity;
         var current = 1;
-        var steps = currentForm === '3' ? 5 : 6;
+        
+        function calcularPasos(currentForm) {
+          if (currentForm === '1') {
+            return 6;
+          } else if (currentForm === '2') {
+            return 7;
+          } else if (currentForm === '3') {
+            return 5;
+          } else {
+            return null;
+          }
+        }
+
+    var steps = calcularPasos(localStorage.getItem('currentForm')); 
 
         setProgressBar(current);
         localStorage.removeItem('optradio');

@@ -221,7 +221,7 @@
       <td>
         <div id="back">
           <div>
-            <h4 class="name" style="color:black; font-size:1rem; margin:0px; margin-top:15px;text-transform: uppercase;">
+            <h4 class="name" style="color:black; font-size:.8rem; margin:0px; margin-top:15px;text-transform: uppercase;">
               <?php echo ucfirst(strtolower($forename )) . ' ' . ucfirst(strtolower($surname)); ?>
             </h4>
             <p class="position" style="text-transform: uppercase; font-size 1.4em; font-weight: 100;padding-top:20px">

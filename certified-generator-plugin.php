@@ -56,7 +56,7 @@ function certified_generator_shortcode()
         <h2 style="margin-bottom: 20px;color: #039ABC;">¿Qué publicidad te gustaría realizar?</h2>
        <div class="container-card" style="display:flex;gap: 20px 10px;justify-content: center;padding: 20px 0px;" >
         <?php foreach ($forms as $key => $form) { ?>
-                <div class="card <?php echo $form['class']; ?>" data="<?php echo $key ?>" style="<?php echo ($form['class'] === 'budget' || $form['class'] === 'flyer') ? 'gap: 15px;' : ''; ?>">
+                <div class="card <?php echo $form['class']; ?>" data="<?php echo $key ?>" style="<?php echo ($form['class'] === 'budget' || $form['class'] === 'flyer') ? 'gap: 15px;' : ''; ?>" onclick="localStorage.setItem('currentForm', <?php echo $key ?>);">
                 <div  class="image-container" >
                 <img src="<?php echo $form['icon']; ?>" alt="<?php echo $form['name']; ?>">
                 </div>

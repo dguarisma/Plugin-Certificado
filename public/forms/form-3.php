@@ -188,7 +188,7 @@
         <p>
           <span class="wpcf7-form-control-wrap">
            <input size="40" type="text" name="slogan" id="slogan" 
-           maxlength="20"
+          maxlength="10"
             placeholder="Ingrese el Eslogan de tu empresa">
           </span>
         </p>
@@ -209,7 +209,7 @@
         <p><strong>Nombres</strong> <span style="color:red">*</span></p>
         <p><span class="wpcf7-form-control-wrap">
           <input size="40" required type="text" name="name" id="name" 
-            placeholder="Ingrese Nombres"  maxlength="50" required>
+            placeholder="Ingrese Nombres"  maxlength="20" required>
             <label class="error-label"></label>
         </span></p>
      
@@ -218,7 +218,7 @@
         <p><strong>Apellidos</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="surname" id="surname" 
-            placeholder="Ingrese Apellidos"  maxlength="50" required>
+            placeholder="Ingrese Apellidos"  maxlength="20" required>
             <label class="error-label"></label>
         </span></p>
       </div>
@@ -226,7 +226,7 @@
         <p><strong>Cargo o profesión</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
            <input size="40" required type="text" name="job_profile" id="job_profile" 
-            placeholder="Ingrese Cargo o profesión"   maxlength="30" required>
+            placeholder="Ingrese Cargo o profesión"   maxlength="20" required>
             <label class="error-label"></label>
         </span></p>
       </div>
@@ -236,7 +236,7 @@
         <p><strong>Tu dirección</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
           <input size="30" required type="text" name="address" id="address" 
-            placeholder="Ingrese Tu dirección"  maxlength="50" required>
+            placeholder="Ingrese Tu dirección"  maxlength="30" required>
             <label class="error-label"></label>
         </span></p>
        
@@ -245,7 +245,7 @@
         <p><strong>Teléfono</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
             <input size="40" required type="text" name="phone" id="phone" 
-            placeholder="000 000-000"  maxlength="12">
+            placeholder="000 000-000"  maxlength="16">
             <label class="error-label"></label>
         </span></p>
       </div>
@@ -253,7 +253,7 @@
         <p><strong>Correo electrónico</strong> <span style="color:red">*</span></p>
        <p> <span class="wpcf7-form-control-wrap">
            <input size="40" required type="text" name="email" id="email" 
-            placeholder="email@gmail.com">
+            placeholder="email@gmail.com"  maxlength="20">
             <label class="error-label"></label>
         </span></p>
       </div>
@@ -261,7 +261,7 @@
         <p><strong>Página web de tu empresa</strong></p>
         <p><span class="wpcf7-form-control-wrap">
            <input size="40" type="text" name="web_site" id="web_site" 
-            placeholder="www.example.com">
+            placeholder="www.example.com" maxlength="20">
         </span></p>
       </div>
     </div>
