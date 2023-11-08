@@ -188,7 +188,7 @@
         <p>
           <span class="wpcf7-form-control-wrap">
            <input size="40" type="text" name="slogan" id="slogan" 
-          maxlength="10"
+          maxlength="20"
             placeholder="Ingrese el Eslogan de tu empresa">
           </span>
         </p>

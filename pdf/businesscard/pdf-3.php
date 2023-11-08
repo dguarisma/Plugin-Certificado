@@ -3,15 +3,38 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    @font-face {
+    font-family: 'Muli';
+    font-weight: 300;
+    src: url('https://fonts.gstatic.com/s/muli/v18/4UaBrEp5PjOmqZdr-XwZg.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-  <style>
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/muli/v29/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/muli/v29/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
     html,
     body {
       margin: 0 auto;
       padding: 0;
-      font-family: proxima-nova-light, sans-serif !important;
+  font-family: Muli, sans-serif !important;
     }
 
     .business-hor {
@@ -48,17 +71,21 @@
     }
 
     #front .frontContainerLogo {
-      max-width: 220px;
-      max-height: 220px;
-      position: relative;
-      top: 105px;
-      margin: 0 auto;
+        width: 200px;
+        height: 100px;
+        overflow: hidden;
+        position: relative;
+        top: 92px;
+        margin: 0 auto;
     }
 
     #front .frontContainerLogo img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     #front div {
@@ -73,8 +100,9 @@
     }
 
     #front div p {
-      margin: 0;
-      font-size: 1rem;
+        margin: 0;
+        font-size: 1rem;
+        font-family: Muli;
     }
 
     #back {
@@ -92,13 +120,14 @@
       width: 230px;
       vertical-align: middle;
       word-wrap: break-word;
+
     }
 
     #back>div:nth-child(1) img {
       max-width: 220px;
       height: auto;
       width: 200px;
-      margin-top:-50px;
+      margin-top:-60px;
     }
 
     #back .details {
@@ -132,7 +161,8 @@
 
     #back>div p.name {
       font-size: 1.4rem !important;
-      font-weight: bold;
+      font-weight: 700;
+          font-family: Muli;
       color: #484646;
       margin-top: 30px;
       word-wrap: break-word;
@@ -144,6 +174,7 @@
       font-size: 1rem !important;
       color: #484646;
       font-weight: normal;
+          font-family: Muli;
       margin: 0px;
       padding-top: 0px;
       text-align: center;
@@ -169,6 +200,7 @@
       display: inline-block;
       vertical-align: middle;
       padding: 5px;
+       font-family: Muli;
     }
   </style>
 </head>
@@ -203,12 +235,11 @@
             </p>
           </div>
           <div class="details">
-            <div style="text-align: center;margin-bottom: 10px; margin-top:10px">
-              <p class="name">
-                <?php echo ucfirst(strtolower($forename )) . ' ' . ucfirst(strtolower($surname)); ?>
+            <div style="text-align: center;margin-bottom: 0px; margin-top:10px">
+              <p class="name" style="padding:0px; ">
+               <strong> <?php echo ucfirst($forename ) . ' ' . ucfirst($surname); ?></strong>
               </p>
-              <br />
-              <p class="position" style=" color:#039ABC;">
+              <p class="position" style=" color:#039ABC; padding:0px;">
                 <?php echo strtoupper($job_profile); ?>
               </p>
               <p class="position"

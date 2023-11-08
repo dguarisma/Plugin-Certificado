@@ -1,5 +1,12 @@
 {
     "fontawesome": {
         "normal": "fontawesome_normal_7ea195556637d817f455524c7885b526"
+    },
+    "muli": {
+        "300": "\/home\/h2aiehgyl8z1\/public_html\/alion.com.co\/wp-content\/plugins\/certified-generator\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/muli_300_424dc99827cb7fe04d9f5492a61717de",
+        "normal": "\/home\/h2aiehgyl8z1\/public_html\/alion.com.co\/wp-content\/plugins\/certified-generator\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/muli_normal_1656c6ccdb8c16ca71d1417a3f838a72",
+        "500": "\/home\/h2aiehgyl8z1\/public_html\/alion.com.co\/wp-content\/plugins\/certified-generator\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/muli_500_aa2eaab136053aa1d57dcdef48532362",
+        "600": "\/home\/h2aiehgyl8z1\/public_html\/alion.com.co\/wp-content\/plugins\/certified-generator\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/muli_600_b1d87010bd195139c065815b4bc4e7c7",
+        "bold": "muli_bold_1b9c88692bdb18166950cb4ed3cda40c"
     }
 }

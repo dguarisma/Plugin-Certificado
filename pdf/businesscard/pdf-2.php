@@ -2,15 +2,34 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+    @font-face {
+    font-family: 'Muli';
+    font-weight: 300;
+    src: url('https://fonts.gstatic.com/s/muli/v18/4UaBrEp5PjOmqZdr-XwZg.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Muli';
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/muli/v18/4UaBrEp5PjOmqZdr-XwZg.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Muli';
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/muli/v18/4UaBrEp5PjOmqZdr-XwZg.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+    
         html,
         body {
             margin: 0 auto;
             padding: 0;
-            font-family: proxima-nova-light, sans-serif !important;
+             font-family: Muli, sans-serif !important;
         }
 
         .business-hor {
@@ -44,16 +63,20 @@
             padding-bottom: 30px;
         }
         #front .frontContainerLogo{
-            max-width: 220px;
-            max-height: 220px;
+            width: 200px;
+            height: 100px;
+            overflow: hidden;
             position: relative;
-            top:100px;
+            top:85px;
             margin:0 auto;
     }
        #front .frontContainerLogo img{
             max-width: 100%;
             max-height: 100%;
-            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
     }
 
         #front div {
@@ -118,7 +141,7 @@
 
         #back .details div {
             position: relative;
-            padding: 2px 0px;
+            padding: 3px 0px;
             text-align: left;
         }
 
@@ -130,28 +153,30 @@
             border:0px solid #2798BA;
             border-radius: 100%;
             color: #2798BA;
-            height: 30px;
-            width: 30px;
+            height: 25px;
+            width: 25px;
             text-align: center;
         }
         #back div p.name {
-            font-size:1.6rem !important;
-            font-weight: bold;
-            color: #484646;
+            font-size:1.4rem !important;
+            font-weight: 700;
+            color: #6B6B6B;
             margin-top: 30px;
             word-wrap: break-word;
             text-transform: capitalize;
             padding-bottom: 0px;
+                     font-family: 'Muli';
         }
 
         #back div p.position {
-            font-size: 1.1rem !important;
+            font-size: 1rem !important;
             color: #484646;
-            font-weight: normal;
+            font-weight: 100;
             margin: 0px;
             padding-top: 0px;
             text-align: center;
             width:100%;
+              font-family: Muli;
         }
 
         #back .details div i::before {
@@ -163,14 +188,15 @@
         }
 
         #back .details p {
-            font-size: 0.8em;
+            font-size: 0.9em;
             margin: 0px;
              font-weight: normal;
-            color: black;
-            line-height: 1.5;
+            line-height: 1;
             display: inline-block;
             vertical-align: middle;
-            padding: 5px;
+            padding: 1px;
+            color:#8A8A8A;
+                     font-family: Muli;
         }
     </style>
 </head>
@@ -197,17 +223,17 @@
                     </div>
                     <div class="details">
                         <div style="text-align: center;margin-bottom: 10px;">
-                           <p class="name"><?php echo ucfirst(strtolower($forename )) . ' ' . ucfirst(strtolower($surname)); ?></p>
+                           <p class="name" style="color:#848384"><?php echo ucfirst($forename ) . ' ' . ucfirst($surname); ?></p>
                            <br/>
-                           <p class="position"><?php echo strtoupper($job_profile); ?></p>
+                           <p class="position" style="color:#A6A6A6; padding-top:10px;"><?php echo strtoupper($job_profile); ?></p>
                         </div>
-                        <div>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <p>
+                        <div style="padding:0px; margin:0px;">
+                            <i class="fa fa-map-marker" aria-hidden="true"  style="padding:0px; margin:0px;"></i>
+                            <p style="padding:0px; margin:0px;">
                                    <?php echo strtolower($address); ?>
                             </p>
                         </div>
-                           <div>
+                           <div style="margin:0px">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             <p>
                                <?php echo strtolower($email); ?>
@@ -215,11 +241,11 @@
                         </div>
                      
                      
-                     <?php echo $web_site ? '<div>
+                     <?php echo $web_site ? '<div style="margin:0px">
                             <i class="fa fa-globe" aria-hidden="true"></i>
                             <p>' . strtolower($web_site) . '</p>
                         </div>' : ''; ?>
-                           <div>
+                           <div style="margin:0px">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             <p>
                                     <?php echo $phone; ?>

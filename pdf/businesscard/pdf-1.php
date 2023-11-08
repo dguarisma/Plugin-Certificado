@@ -3,15 +3,41 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="<?php echo $font_css_url; ?>">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    @font-face {
+    font-family: 'Muli';
+    font-weight: 300;
+    src: url('https://fonts.gstatic.com/s/muli/v18/4UaBrEp5PjOmqZdr-XwZg.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/muli/v29/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/muli/v29/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+  
     html,
     body {
       margin: 0 auto;
       padding: 0;
-      font-family: proxima-nova-light, sans-serif !important;
+      font-family: Muli, sans-serif !important;
     }
 
     .business-hor {
@@ -47,27 +73,30 @@
       padding-bottom: 30px;
     }
 
-       #front .frontContainerLogo{
-            max-width: 220px;
-            max-height: 220px;
+    #front .frontContainerLogo{
+            width: 200px;
+            height: 100px;
+            overflow: hidden;
             position: relative;
-            top:60px;
+            top:40px;
             margin:0 auto;
     }
-       #front .frontContainerLogo img{
+    #front .frontContainerLogo img{
             max-width: 100%;
             max-height: 100%;
-            object-fit: cover;
-   
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
     }
     #front>p {
-      margin-top: 155px;
-      font-size: 1.3em;
-      position: relative;
+    margin-top: 150px;
+    font-weight: bold;
+    position: relative;
     }
 
     #front p span {
-      font-weight: 600;
+      font-weight: bold;
       color: var(--col0);
     }
 
@@ -107,10 +136,10 @@
     }
 
     #back>div p.name {
-      font-size: 1.4rem;
-      font-weight: 600;
       margin-bottom: 5px;
       margin-top: 55px;
+         font-family: Muli;
+               font-weight: 700;
       word-wrap: break-word;
       text-transform: capitalize;
     }
@@ -118,19 +147,20 @@
     #back div p.position {
       font-size: .7rem;
       color: #393939;
-      font-weight: 100;
       margin: 0px;
+         font-family: Muli;
+             font-weight: 100;
     }
 
     #back div.position::after {
       content: "";
       position: absolute;
-      top: 45%;
+      top: 65%;
       left: 0;
       right: 0;
       width: 75%;
       margin: 0 auto;
-      height: 2px;
+      height: 56px;
       background-image: linear-gradient(to right, #039ABC, black);
     }
 
@@ -191,12 +221,13 @@
     #back .details p {
       font-size: 0.8em;
       margin: 0px;
-      font-weight: 100;
+      font-weight: normal;
       color: white;
       line-height: 1.5;
       display: inline-block;
       vertical-align: middle;
       padding: 5px;
+           font-family: Muli;
     }
   </style>
 </head>
@@ -210,7 +241,7 @@
               <img src="<?php echo $uploaded_images['logo']; ?>" alt="logo brand">
           </div>
           <div style="padding-left:30px">
-            <p style="text-transform: Capitalize;">
+            <p style="text-transform: Capitalize; font-size:.9rem;  font-weight: bold;">
               <?php echo $slogan ? $slogan : ''; ?>
             </p>
           </div>
@@ -221,10 +252,10 @@
       <td>
         <div id="back">
           <div>
-            <h4 class="name" style="color:black; font-size:.8rem; margin:0px; margin-top:15px;text-transform: uppercase;">
-              <?php echo ucfirst(strtolower($forename )) . ' ' . ucfirst(strtolower($surname)); ?>
+            <h4 class="name" style="font-size:1.5rem; margin:0px; margin-top:5px;text-transform: capitalize;;">
+             <strong> <?php echo ucfirst(strtolower($forename )) . ' ' . ucfirst(strtolower($surname)); ?></strong>
             </h4>
-            <p class="position" style="text-transform: uppercase; font-size 1.4em; font-weight: 100;padding-top:20px">
+            <p class="position" style="text-transform: uppercase;; font-size 1.3em; font-weight: normal;padding-top:0px">
               <?php echo $job_profile; ?>
             </p>
           </div>
